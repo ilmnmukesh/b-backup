@@ -1,0 +1,368 @@
+<%- contentFor('body') %>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/dashboard/inventory/product">Product</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Post</li>
+    </ol>
+</nav>
+
+<div class="container">
+    <div class="card mt-1">
+        <div class="card-header">
+            <h4 class="card-title">Post Product for Selling</h4>
+        </div>
+        <div class="card-content">
+            <div class="card-body">
+                <form
+                    autocomplete="off"
+                    method="post"
+                    class="form form-vertical row"
+                    onsubmit="return confirm('Are you sure to create category?');"
+                >
+                    <div class="col-md-7">
+                        <div class="row">
+                            <h5 class="col-md-6 mt-2">Choose Product</h5>
+                            <div class="col-md-4" id="add_btn_prod">
+                                <button
+                                    id="add_product_details"
+                                    data-target="#search_prod_modal"
+                                    data-toggle="modal"
+                                    type="button"
+                                    class="btn btn-sm btn-outline-danger shadow"
+                                >
+                                    <i
+                                        class="fa fa-plus justify-center"
+                                        aria-hidden="true"
+                                    ></i>
+                                    ADD
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="display_product"></div>
+
+                        <div class="row mt-3">
+                            <h5 class="col-md-6 mt-2">Choose Volume</h5>
+                            <div class="col-md-6" id="add_btn_varient">
+                                <code>Choose Product first</code>
+                            </div>
+                        </div>
+                        <div id="display_varient"></div>
+                    </div>
+                    <div class="col-md-5 my-auto">
+                        <div class="input-group">
+                            <span class="input-group-text bg-grey">
+                                <i data-feather="dollar-sign"></i>
+                            </span>
+
+                            <input
+                                type="number"
+                                class="form-control"
+                                placeholder="Set Selling Price"
+                                name="selling_price"
+                                min="0"
+                                step="0.01"
+                                required
+                                id="selling_price"
+                                onkeyup="updateDiscount(this)"
+                            />
+                        </div>
+                        <div class="mb-3" id="help_sp"></div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">
+                                <i data-feather="percent"></i>
+                            </span>
+
+                            <input
+                                readonly="readonly"
+                                type="number"
+                                id="discount"
+                                class="form-control"
+                                placeholder="Set Discount"
+                                name="discount"
+                                min="0"
+                                step="0.01"
+                                required
+                                max="100"
+                            />
+                        </div>
+                        <div class="text-center">
+                            <input
+                                type="submit"
+                                class="btn btn-sm btn-success text-center"
+                                value="Create"
+                            />
+                        </div>
+                    </div>
+                    <input
+                        type="hidden"
+                        name="productId"
+                        id="product_hidden_field"
+                    />
+                    <input
+                        type="hidden"
+                        name="varientId"
+                        id="varient_hidden_field"
+                    />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div
+    class="modal fade"
+    id="search_prod_modal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="search_prod_model_title"
+    aria-hidden="true"
+>
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="search_prod_model_title">
+                    Select Product
+                </h5>
+                <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                >
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-12 mb-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">
+                            <i data-feather="search"></i>
+                        </span>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Search Product name"
+                            id="search_prod_key"
+                        />
+                        <button
+                            class="btn btn-outline-danger"
+                            onclick="searchProduct()"
+                            type="button"
+                        >
+                            Search
+                        </button>
+                    </div>
+                </div>
+                <div id="append_product_list" class="col-12 row"></div>
+            </div>
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>
+
+<div
+    class="modal fade"
+    id="search_varient_modal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="search_varient_model_title"
+    aria-hidden="true"
+>
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="search_varient_model_title">
+                    Select Variant
+                </h5>
+                <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                >
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="append_varient_list" class="col-12 row"></div>
+            </div>
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(() => {
+        let pid = btoa("<%= data?.product.id%>");
+        let name = btoa("<%= data?.product.name%>");
+        let img = btoa("<%= data?.product.image %>");
+        let desc = btoa("<%= data?.product.description %>");
+        let cat = btoa("<%=data?.product?.category?.name%>");
+        let brand = btoa("<%=data?.product?.brand?.name %>");
+        let vid = btoa("<%= data?.id %>");
+        let mrp = btoa("<%= data?.mrp %>");
+        let volume = btoa("<%= data?.volume %>");
+        if (pid != "" && name != "" && img != "" && desc != "" && cat != "")
+            addProductToPost(pid, name, img, desc, cat, brand, false);
+        if (pid != "" && vid != "" && mrp != null && volume != null)
+            addVarientToPost(atob(pid), vid, mrp, volume, false);
+    });
+    const searchProduct = () => {
+        const q = $("#search_prod_key").val();
+        $("#append_product_list").load(
+            "/dashboard/inventory/product/post/search?q=" + q,
+        );
+    };
+
+    const toggleVarientModal = (pid) => {
+        $("#search_varient_modal").modal("toggle");
+        $("#append_varient_list").load(
+            "/dashboard/inventory/product/post/varient?pid=" + pid,
+        );
+    };
+
+    const addProductToPost = (
+        pid,
+        name,
+        img,
+        desc,
+        cat,
+        brand,
+        toggle = true,
+    ) => {
+        pid = atob(pid);
+        name = atob(name);
+        img = atob(img);
+        desc = atob(desc);
+        cat = atob(cat);
+        brand = atob(brand);
+        $("#product_hidden_field").val(pid);
+        $("#varient_hidden_field").val(null);
+        if (toggle) $("#search_prod_modal").modal("toggle");
+        $("#add_btn_prod").html(`
+            <button
+                id="add_product_details"
+                data-target="#search_prod_modal"
+                data-toggle="modal"
+                type="button"
+                class="btn btn-sm btn-outline-warning shadow "
+            >
+                <i
+                    class="fa fa-edit justify-center"
+                    aria-hidden="true"
+                ></i>
+                CHANGE
+            </button>`);
+        $("#display_product").html(`
+            <div class="card shadow-none col-8 mt-3">
+                <div class="card-content">
+                    <div class="float-left col-3">
+                        <img
+                            height="150"
+                            class="ml-4"
+                            src="${img}"
+                        />
+                    </div>
+
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            ${name}
+                        </h4>
+                        <p class="card-text ellipsis">
+                            <code
+                                >${desc}</code
+                            >
+                        </p>
+                        <small class="text-muted">
+                            <span
+                                class="badge bg-purple shadow"
+                            >
+                                ${cat}
+                            </span>
+                            <span
+                                class="badge bg-danger shadow"
+                            >
+                                ${brand}
+                            </span>
+                        </small>
+                        
+                    </div>
+                </div>
+            </div>        
+        `);
+        $("#add_btn_varient").html(`
+            <button
+                onclick="toggleVarientModal('${pid}');"
+                type="button"
+                class="btn btn-sm btn-outline-danger shadow"
+            >
+                <i
+                    class="fa fa-plus justify-center"
+                    aria-hidden="true"
+                ></i>
+                ADD
+            </button>
+            `);
+        $("#display_varient").html(``);
+    };
+
+    const addVarientToPost = (pid, vid, mrp, volume, toggle = true) => {
+        vid = atob(vid);
+        mrp = atob(mrp);
+        volume = atob(volume);
+        $("#varient_hidden_field").val(vid);
+        if (toggle) $("#search_varient_modal").modal("toggle");
+        $("#add_btn_varient").html(`
+            <button
+                onclick="toggleVarientModal('${pid}');"
+                type="button"
+                class="btn btn-sm btn-outline-warning shadow"
+            >
+                <i
+                    class="fa fa-edit justify-center"
+                    aria-hidden="true"
+                ></i>
+                CHANGE
+            </button>`);
+        $("#display_varient").html(`
+            <div class="card shadow-none col-md-6">
+                <div class="card-content">
+                    <div class="card-body row">
+
+                        <div class="col-md-12 text-center">
+                            <h4 class="card-title">${volume}</h4>
+                            <code class="card-text ellipsis"> MRP:${mrp}</code>
+                        </div>
+                    <div>
+                <div>
+            <div>
+            `);
+        $("#selling_price").attr("data-max", mrp);
+        $("#selling_price").attr("max", mrp);
+        $("#selling_price").val(mrp);
+        $("#discount").val(0);
+        $("#help_sp").html("");
+    };
+
+    const updateDiscount = (e) => {
+        let s = $(e).val();
+        if (!$(e).data("max")) {
+            $(e).val("");
+            $("#help_sp").html(`<code>Kindly add product and volume </code>`);
+            return;
+        }
+        if (s) {
+            s = parseFloat(s);
+            let org = parseFloat($(e).data("max"));
+
+            $("#discount").val((((org - s) / org) * 100).toFixed());
+        } else {
+            $("#discount").val(0);
+        }
+    };
+</script>

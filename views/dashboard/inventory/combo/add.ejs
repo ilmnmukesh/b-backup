@@ -1,0 +1,472 @@
+<%- contentFor('body') %>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/dashboard/inventory/combo">Combo</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Add</li>
+    </ol>
+</nav>
+<div class="container">
+    <div class="card mt-1">
+        <div class="card-header">
+            <h4 class="card-title">Add Combo Product</h4>
+        </div>
+        <div class="card-content">
+            <div class="card-body">
+                <form
+                    autocomplete="off"
+                    method="post"
+                    class="form form-vertical row"
+                    onsubmit="confirm('Are you sure to create combo?');"
+                >
+                    <div class="col-md-7">
+                        <div class="row">
+                            <h5 class="col-md-6 mt-2">Add Product</h5>
+                            <div class="col-md-4" id="add_btn_prod">
+                                <button
+                                    id="add_product_details"
+                                    data-target="#search_prod_modal"
+                                    data-toggle="modal"
+                                    type="button"
+                                    class="btn btn-sm btn-outline-danger shadow"
+                                >
+                                    <i
+                                        class="fa fa-plus justify-center"
+                                        aria-hidden="true"
+                                    ></i>
+                                    ADD
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="display_product"></div>
+                    </div>
+                    <div class="col-md-5 my-auto">
+                        <div>
+                            <code id="combo_name"></code>
+                        </div>
+                        <div class="mt-4 mb-3">
+                            <code id="combo_desc"></code>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-grey">
+                                <i data-feather="link-2"></i>
+                            </span>
+
+                            <input
+                                type="url"
+                                class="form-control"
+                                placeholder="Combo Image"
+                                name="image"
+                                required
+                                id="combo_img"
+                            />
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-grey">
+                                <i data-feather="dollar-sign"></i>
+                            </span>
+
+                            <input
+                                type="number"
+                                class="form-control"
+                                placeholder="Combo Market Retail Price (mrp)"
+                                name="mrp"
+                                min="0.01"
+                                step="0.01"
+                                required
+                                id="combo_mrp"
+                                onchange="updateSellingPrice(this)"
+                            />
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-grey">
+                                <i data-feather="activity"></i>
+                            </span>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Combo Volume"
+                                name="volume"
+                                required
+                                id="combo_volume"
+                            />
+                        </div>
+
+                        <div class="input-group">
+                            <span class="input-group-text bg-grey">
+                                <i data-feather="dollar-sign"></i>
+                            </span>
+
+                            <input
+                                type="number"
+                                class="form-control"
+                                placeholder="Set Selling Price"
+                                name="selling_price"
+                                min="0.01"
+                                step="0.01"
+                                required
+                                id="selling_price"
+                                onchange="updateDiscount(this)"
+                            />
+                        </div>
+                        <div class="mb-3" id="help_sp"></div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">
+                                <i data-feather="percent"></i>
+                            </span>
+
+                            <input
+                                readonly="readonly"
+                                type="number"
+                                id="discount"
+                                class="form-control"
+                                placeholder="Set Discount"
+                                name="discount"
+                                min="0"
+                                step="0.01"
+                                required
+                                max="100"
+                            />
+                        </div>
+                        <div class="text-center">
+                            <input
+                                type="submit"
+                                class="btn btn-sm btn-success text-center"
+                                value="Create"
+                            />
+                        </div>
+                    </div>
+                    <input
+                        type="hidden"
+                        name="name"
+                        id="product_hidden_field"
+                    />
+                    <input
+                        type="hidden"
+                        name="description"
+                        id="prod_desc_hidden_field"
+                    />
+                    <div class="text-danger text-center">
+                        <p><%= typeof err != "undefined"? err: "" %></p>
+                    </div>
+                </form>
+            </div>
+            <% if(typeof details !="undefined"){%>
+            <div>
+                <div
+                    class="card offset-md-3 shadow-none text-center col-md-6 mt-3"
+                >
+                    <div class="card-content">
+                        <div class="float-left col-3">
+                            <img
+                                height="150"
+                                class="ml-4"
+                                src="<%= details?.image%>"
+                            />
+                        </div>
+
+                        <div class="card-body text-center float-right">
+                            <h4 class="card-title"><%= details?.name%></h4>
+                            <p class="card-text ellipsis">
+                                <code><%= details?.description%></code>
+                            </p>
+                            <h5 class="text-black-50">
+                                MRP: <%= details?.mrp %>
+                            </h5>
+                            <code>
+                                Volume: <%= details?.volume %><br />
+                                Price: <%= details?.selling_price %><br />
+                            </code>
+                            <h6 class="text-black-50">
+                                Discount: <%= details?.discount %> %
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%}%>
+        </div>
+    </div>
+</div>
+
+<div
+    class="modal fade"
+    id="search_prod_modal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="search_prod_model_title"
+    aria-hidden="true"
+>
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="search_prod_model_title">
+                    Select Product
+                </h5>
+                <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                >
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-12 mb-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">
+                            <i data-feather="search"></i>
+                        </span>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Search Product name"
+                            id="search_prod_key"
+                        />
+                        <button
+                            class="btn btn-outline-danger"
+                            onclick="searchProduct()"
+                            type="button"
+                        >
+                            Search
+                        </button>
+                    </div>
+                </div>
+                <div id="append_product_list" class="col-12 row"></div>
+            </div>
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>
+
+<div
+    class="modal fade"
+    id="edit_modal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="Edit modal"
+    aria-hidden="true"
+>
+    <div
+        class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+        role="document"
+    >
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="edit_modal_title"></h5>
+                <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                >
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="edit_modal_box" class="input-group mb-3"></div>
+            </div>
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const searchProduct = () => {
+        const q = $("#search_prod_key").val();
+        $("#append_product_list").load(
+            "/dashboard/inventory/product/post/search?q=" + q,
+        );
+    };
+
+    const addProductToPost = (
+        pid,
+        name,
+        img,
+        desc,
+        cat,
+        brand,
+        toggle = true,
+    ) => {
+        pid = atob(pid);
+        name = atob(name);
+        img = atob(img);
+        desc = atob(desc);
+        cat = atob(cat);
+        brand = atob(brand);
+
+        $("#varient_hidden_field").val(null);
+        if (toggle) $("#search_prod_modal").modal("toggle");
+
+        $("#display_product").append(`
+            <div class="card shadow-none col-8 mt-3">
+                <div class="card-content">
+                    <div class="float-left col-3">
+                        <img
+                            height="150"
+                            class="ml-4"
+                            src="${img}"
+                        />
+                    </div>
+
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            ${name}
+                        </h4>
+                        <p class="card-text ellipsis">
+                            <code
+                                >${desc}</code
+                            >
+                        </p>
+                        <small class="text-muted">
+                            <span
+                                class="badge bg-purple shadow"
+                            >
+                                ${cat}
+                            </span>
+                            <span
+                                class="badge bg-danger shadow"
+                            >
+                                ${brand}
+                            </span>
+                        </small>
+                        
+                    </div>
+                </div>
+            </div>        
+        `);
+        if ($("#combo_name").html() == "") {
+            $("#combo_name").parent().prepend(`<h5>Combo name
+                    <button type="button" class="btn float-right btn-sm btn-outline-danger" onclick="editName()">
+                                <i class="fa fa-edit"></i>
+                                Edit
+                            </button></h5>`);
+            $("#combo_name").append(`${name}`);
+        } else {
+            $("#combo_name").append(` + ${name}`);
+        }
+        $("#product_hidden_field").val($("#combo_name").html());
+        if ($("#combo_desc").html() == "") {
+            $("#combo_desc").parent().prepend(`<h5>Description name
+                    <button type="button" class="btn float-right btn-sm btn-outline-danger" onclick="editDesc()">
+                                <i class="fa fa-edit"></i>
+                                Edit
+                            </button></h5>`);
+            $("#combo_desc").append(`${desc}`);
+        } else {
+            $("#combo_desc").append(` + ${desc}`);
+        }
+        $("#prod_desc_hidden_field").val($("#combo_desc").html());
+    };
+
+    const updateDiscount = (e) => {
+        let s = $(e).val();
+        if (!$(e).data("max")) {
+            $(e).val("");
+            $("#help_sp").html(`<code>Kindly add product and volume </code>`);
+            return;
+        }
+        if (s) {
+            s = parseFloat(s);
+            let org = parseFloat($(e).data("max"));
+
+            $("#discount").val((((org - s) / org) * 100).toFixed());
+        } else {
+            $("#discount").val(0);
+        }
+    };
+
+    const updateSellingPrice = (e) => {
+        let s = $(e).val();
+        let f = $("#selling_price").val();
+
+        $("#selling_price").data("max", s);
+
+        if (f > s) {
+            $("#selling_price").val(0).change();
+        } else {
+            $("#selling_price").val(f).change();
+        }
+    };
+
+    const editName = () => {
+        $("#edit_modal_title").html(
+            `<i class="fa fa-edit fa-3x text-danger"></i> Edit name`,
+        );
+        $("#edit_modal_box").html(
+            `   <input
+                        type="url"
+                        class="form-control"
+                        placeholder="name"
+                        value = "${$("#product_hidden_field").val()}"
+                        required
+                        id="edit_modal_input"
+                    />
+                    <a class="btn btn-sm" onclick="updateName()">
+                        <span class="input-group-text bg-success">
+                            <i
+                                class="fa fa-check text-white"
+                                aria-hidden="true"
+                            ></i>
+                        </span>
+                    </a>
+                    `,
+        );
+        $("#edit_modal_input").on("keypress", (e) => {
+            if (e.keyCode == 13) {
+                updateName();
+            }
+        });
+        $("#edit_modal").modal("show");
+    };
+    const editDesc = () => {
+        $("#edit_modal_title").html(
+            `<i class="fa fa-edit fa-3x text-danger"></i> Edit descriptiion`,
+        );
+
+        $("#edit_modal_box").html(
+            `   <input
+                        type="url"
+                        class="form-control"
+                        placeholder="description"
+                        value = "${$("#prod_desc_hidden_field").val()}"
+                        required
+                        id="edit_modal_input"
+                    />
+                    <a class="btn btn-sm" onclick="updateDesc()">
+                        <span class="input-group-text bg-success">
+                            <i
+                                class="fa fa-check text-white"
+                                aria-hidden="true"
+                            ></i>
+                        </span>
+                    </a>
+                    `,
+        );
+        $("#edit_modal_input").on("keypress", (e) => {
+            if (e.keyCode == 13) {
+                updateDesc();
+            }
+        });
+        $("#edit_modal").modal("show");
+    };
+    const updateDesc = () => {
+        let a = $("#edit_modal_input").val();
+        $("#combo_desc").html(a);
+        $("#prod_desc_hidden_field").val(a);
+        $("#edit_modal").modal("hide");
+    };
+    const updateName = () => {
+        let a = $("#edit_modal_input").val();
+        $("#combo_name").html(a);
+        $("#product_hidden_field").val(a);
+        $("#edit_modal").modal("hide");
+    };
+</script>

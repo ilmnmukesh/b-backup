@@ -1,0 +1,299 @@
+[
+    {
+        "email": "partner1@abc.com",
+        "password": "1",
+        "salt": "md5",
+        "countryCode": "US",
+        "stateCode": "AZ",
+        "postalCode": 85009,
+        "shopId": 34
+    },
+    {
+        "email": "partner2@abc.com",
+        "password": "1",
+        "countryCode": "US",
+        "stateCode": "AZ",
+        "postalCode": 85027,
+        "salt": "md5",
+        "shopId": 35
+    },
+    {
+        "email": "partner3@abc.com",
+        "countryCode": "US",
+        "stateCode": "AZ",
+        "postalCode": 85086,
+        "password": "1",
+        "salt": "md5",
+        "shopId": 36
+    },
+    {
+        "countryCode": "US",
+        "stateCode": "AZ",
+        "postalCode": 85044,
+        "email": "partner4@abc.com",
+        "password": "1",
+        "salt": "md5",
+        "shopId": 37
+    },
+    {
+        "countryCode": "US",
+        "stateCode": "AZ",
+        "postalCode": 85029,
+        "email": "partner5@abc.com",
+        "password": "1",
+        "salt": "md5",
+        "shopId": 38
+    },
+    {
+        "countryCode": "US",
+        "stateCode": "CA",
+        "postalCode": 94133,
+        "email": "partner6@abc.com",
+        "password": "1",
+        "salt": "md5",
+        "shopId": 39
+    },
+    {
+        "countryCode": "US",
+        "stateCode": "CA",
+        "postalCode": 94124,
+        "email": "partner7@abc.com",
+        "password": "1",
+        "salt": "md5",
+        "shopId": 40
+    },
+    {
+        "countryCode": "US",
+        "stateCode": "CA",
+        "postalCode": 94121,
+        "email": "partner8@abc.com",
+        "password": "1",
+        "salt": "md5",
+        "shopId": 41
+    },
+    {
+        "countryCode": "US",
+        "stateCode": "CA",
+        "postalCode": 94121,
+        "email": "partner9@abc.com",
+        "password": "1",
+        "salt": "md5",
+        "shopId": 42
+    },
+    {
+        "countryCode": "US",
+        "stateCode": "CA",
+        "postalCode": 94133,
+        "email": "partner10@abc.com",
+        "password": "1",
+        "salt": "md5",
+        "shopId": 43
+    },
+    {
+        "countryCode": "US",
+        "stateCode": "CA",
+        "postalCode": 94027,
+        "email": "partner11@abc.com",
+        "password": "1",
+        "salt": "md5",
+        "shopId": 44
+    },
+    {
+        "countryCode": "US",
+        "stateCode": "CA",
+        "postalCode": 94106,
+        "email": "partner12@abc.com",
+        "password": "1",
+        "salt": "md5",
+        "shopId": 45
+    },
+    {
+        "countryCode": "US",
+        "stateCode": "CA",
+        "postalCode": 94027,
+        "email": "partner13@abc.com",
+        "password": "1",
+        "salt": "md5",
+        "shopId": 46
+    },
+    {
+        "countryCode": "US",
+        "stateCode": "CA",
+        "postalCode": 94106,
+        "email": "partner14@abc.com",
+        "password": "1",
+        "salt": "md5",
+        "shopId": 47
+    },
+    {
+        "countryCode": "US",
+        "stateCode": "CA",
+        "postalCode": 94027,
+        "email": "partner15@abc.com",
+        "password": "1",
+        "salt": "md5",
+        "shopId": 48
+    },
+    {
+        "countryCode": "US",
+        "stateCode": "CA",
+        "postalCode": 94106,
+        "email": "partner16@abc.com",
+        "password": "1",
+        "salt": "md5",
+        "shopId": 49
+    },
+    {
+        "countryCode": "US",
+        "stateCode": "AZ",
+        "postalCode": 85706,
+        "email": "partner17@abc.com",
+        "password": "1",
+        "salt": "md5",
+        "shopId": 50
+    },
+    {
+        "countryCode": "US",
+        "stateCode": "AZ",
+        "postalCode": 85706,
+        "email": "partner18@abc.com",
+        "password": "1",
+        "salt": "md5",
+        "shopId": 51
+    },
+    {
+        "countryCode": "US",
+        "stateCode": "AZ",
+        "postalCode": 85706,
+        "email": "partner19@abc.com",
+        "password": "1",
+        "salt": "md5",
+        "shopId": 52
+    },
+    {
+        "countryCode": "US",
+        "stateCode": "AZ",
+        "postalCode": 85706,
+        "email": "partner20@abc.com",
+        "password": "1",
+        "salt": "md5",
+        "shopId": 53
+    },
+    {
+        "countryCode": "US",
+        "stateCode": "AZ",
+        "postalCode": 85706,
+        "email": "partner21@abc.com",
+        "password": "1",
+        "salt": "md5",
+        "shopId": 54
+    },
+    {
+        "countryCode": "US",
+        "stateCode": "NV",
+        "postalCode": 89145,
+        "email": "partner22@abc.com",
+        "password": "1",
+        "salt": "md5",
+        "shopId": 55
+    },
+    {
+        "countryCode": "US",
+        "stateCode": "NV",
+        "postalCode": 89135,
+        "email": "partner23@abc.com",
+        "password": "1",
+        "salt": "md5",
+        "shopId": 56
+    },
+    {
+        "countryCode": "US",
+        "stateCode": "NV",
+        "postalCode": 89135,
+        "email": "partner24@abc.com",
+        "password": "1",
+        "salt": "md5",
+        "shopId": 57
+    },
+    {
+        "countryCode": "US",
+        "stateCode": "NV",
+        "postalCode": 89135,
+        "email": "partner25@abc.com",
+        "password": "1",
+        "salt": "md5",
+        "shopId": 58
+    },
+    {
+        "countryCode": "US",
+        "stateCode": "NV",
+        "postalCode": 89145,
+        "email": "partner26@abc.com",
+        "password": "1",
+        "salt": "md5",
+        "shopId": 59
+    },
+    {
+        "countryCode": "US",
+        "stateCode": "NV",
+        "postalCode": 89145,
+        "email": "partner27@abc.com",
+        "password": "1",
+        "salt": "md5",
+        "shopId": 60
+    },
+    {
+        "countryCode": "US",
+        "stateCode": "CA",
+        "postalCode": 90731,
+        "email": "partner28@abc.com",
+        "password": "1",
+        "salt": "md5",
+        "shopId": 61
+    },
+    {
+        "countryCode": "US",
+        "stateCode": "CA",
+        "postalCode": 90004,
+        "email": "partner29@abc.com",
+        "password": "1",
+        "salt": "md5",
+        "shopId": 62
+    },
+    {
+        "countryCode": "US",
+        "stateCode": "CA",
+        "postalCode": 90731,
+        "email": "partner30@abc.com",
+        "password": "1",
+        "salt": "md5",
+        "shopId": 63
+    },
+    {
+        "countryCode": "US",
+        "stateCode": "CA",
+        "postalCode": 90004,
+        "email": "partner31@abc.com",
+        "password": "1",
+        "salt": "md5",
+        "shopId": 64
+    },
+    {
+        "countryCode": "US",
+        "stateCode": "CA",
+        "postalCode": 90004,
+        "email": "partner32@abc.com",
+        "password": "1",
+        "salt": "md5",
+        "shopId": 65
+    },
+    {
+        "countryCode": "US",
+        "stateCode": "CA",
+        "postalCode": 90731,
+        "email": "partner33@abc.com",
+        "password": "1",
+        "salt": "md5",
+        "shopId": 66
+    }
+]

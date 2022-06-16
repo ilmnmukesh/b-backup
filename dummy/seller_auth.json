@@ -1,0 +1,200 @@
+[
+    {
+        "email": "shop1@abc.com",
+        "password": "1",
+        "salt": "test",
+        "shopId": 1
+    },
+    {
+        "email": "shop2@abc.com",
+        "password": "1",
+        "salt": "test",
+        "shopId": 2
+    },
+    {
+        "email": "shop3@abc.com",
+        "password": "1",
+        "salt": "test",
+        "shopId": 3
+    },
+    {
+        "email": "shop4@abc.com",
+        "password": "1",
+        "salt": "test",
+        "shopId": 4
+    },
+    {
+        "email": "shop5@abc.com",
+        "password": "1",
+        "salt": "test",
+        "shopId": 5
+    },
+    {
+        "email": "shop6@abc.com",
+        "password": "1",
+        "salt": "test",
+        "shopId": 6
+    },
+    {
+        "email": "shop7@abc.com",
+        "password": "1",
+        "salt": "test",
+        "shopId": 7
+    },
+    {
+        "email": "shop8@abc.com",
+        "password": "1",
+        "salt": "test",
+        "shopId": 8
+    },
+    {
+        "email": "shop9@abc.com",
+        "password": "1",
+        "salt": "test",
+        "shopId": 9
+    },
+    {
+        "email": "shop10@abc.com",
+        "password": "1",
+        "salt": "test",
+        "shopId": 10
+    },
+    {
+        "email": "shop11@abc.com",
+        "password": "1",
+        "salt": "test",
+        "shopId": 11
+    },
+    {
+        "email": "shop12@abc.com",
+        "password": "1",
+        "salt": "test",
+        "shopId": 12
+    },
+    {
+        "email": "shop13@abc.com",
+        "password": "1",
+        "salt": "test",
+        "shopId": 13
+    },
+    {
+        "email": "shop14@abc.com",
+        "password": "1",
+        "salt": "test",
+        "shopId": 14
+    },
+    {
+        "email": "shop15@abc.com",
+        "password": "1",
+        "salt": "test",
+        "shopId": 15
+    },
+    {
+        "email": "shop16@abc.com",
+        "password": "1",
+        "salt": "test",
+        "shopId": 16
+    },
+    {
+        "email": "shop17@abc.com",
+        "password": "1",
+        "salt": "test",
+        "shopId": 17
+    },
+    {
+        "email": "shop18@abc.com",
+        "password": "1",
+        "salt": "test",
+        "shopId": 18
+    },
+    {
+        "email": "shop19@abc.com",
+        "password": "1",
+        "salt": "test",
+        "shopId": 19
+    },
+    {
+        "email": "shop20@abc.com",
+        "password": "1",
+        "salt": "test",
+        "shopId": 20
+    },
+    {
+        "email": "shop21@abc.com",
+        "password": "1",
+        "salt": "test",
+        "shopId": 21
+    },
+    {
+        "email": "shop22@abc.com",
+        "password": "1",
+        "salt": "test",
+        "shopId": 22
+    },
+    {
+        "email": "shop23@abc.com",
+        "password": "1",
+        "salt": "test",
+        "shopId": 23
+    },
+    {
+        "email": "shop24@abc.com",
+        "password": "1",
+        "salt": "test",
+        "shopId": 24
+    },
+    {
+        "email": "shop25@abc.com",
+        "password": "1",
+        "salt": "test",
+        "shopId": 25
+    },
+    {
+        "email": "shop26@abc.com",
+        "password": "1",
+        "salt": "test",
+        "shopId": 26
+    },
+    {
+        "email": "shop27@abc.com",
+        "password": "1",
+        "salt": "test",
+        "shopId": 27
+    },
+    {
+        "email": "shop28@abc.com",
+        "password": "1",
+        "salt": "test",
+        "shopId": 28
+    },
+    {
+        "email": "shop29@abc.com",
+        "password": "1",
+        "salt": "test",
+        "shopId": 29
+    },
+    {
+        "email": "shop30@abc.com",
+        "password": "1",
+        "salt": "test",
+        "shopId": 30
+    },
+    {
+        "email": "shop31@abc.com",
+        "password": "1",
+        "salt": "test",
+        "shopId": 31
+    },
+    {
+        "email": "shop32@abc.com",
+        "password": "1",
+        "salt": "test",
+        "shopId": 32
+    },
+    {
+        "email": "shop33@abc.com",
+        "password": "1",
+        "salt": "test",
+        "shopId": 33
+    }
+]

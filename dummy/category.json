@@ -1,0 +1,15 @@
+[
+    { "name": "Beer", "code": "50202201A0000" },
+    { "name": "Gin", "code": "50202206A0000" },
+    { "name": "Hard seltzer", "code": "50202201A0000" },
+    { "name": "Holiday Baskets", "code": "50202206A0000" },
+    { "name": "Red Wine", "code": "50202203A0000" },
+    { "name": "Rum", "code": "50202201A0000" },
+    { "name": "Scotch", "code": "50202206A0000" },
+    { "name": "Sparkling Wine", "code": "50202203A0000" },
+    { "name": "Vodka", "code": "50202206A0000" },
+    { "name": "Whiskey", "code": "50202206A0000" },
+    { "name": "White Wine", "code": "50202203A0000" },
+    { "name": "Combo", "code": "50202203A0000" },
+    { "name": "Partner Combo", "code": "50202203A0000" }
+]

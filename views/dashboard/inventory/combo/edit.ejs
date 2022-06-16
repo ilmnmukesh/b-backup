@@ -1,0 +1,286 @@
+<%- contentFor('body') %>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/dashboard/inventory/combo">Combo</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Edit</li>
+    </ol>
+</nav>
+
+<div class="col-12 mt-3 container">
+    <div class="card">
+        <form
+            autocomplete="off"
+            method="post"
+            onsubmit="return confirm('Are you sure to update combo?');"
+        >
+            <div class="card-header">
+                Combo Edit
+                <a
+                    onclick="callDelete()"
+                    class="btn btn-sm round btn-outline-danger float-right mx-5"
+                >
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                    Delete
+                </a>
+                <button
+                    type="submit"
+                    class="btn btn-sm round btn-outline-secondary float-right"
+                >
+                    <i class="fa fa-save"></i>
+                    Save
+                </button>
+                <div class="text-center">
+                    <small class="text-center text-danger h5"
+                        ><%= typeof err=="undefined" ?"":err %></small
+                    >
+                </div>
+            </div>
+            <div class="card-content">
+                <div class="card-body">
+                    <div class="container row">
+                        <div class="col-md-8">
+                            <div class="mb-3">
+                                <h6>Name</h6>
+                                <div class="input-group">
+                                    <input
+                                        type="text"
+                                        class="form-control col-12"
+                                        placeholder="Set product name"
+                                        name="name"
+                                        required
+                                        value="<%= obj.name %>"
+                                        id="combo_name"
+                                    />
+                                </div>
+                                <code id="combo_name_help"></code>
+                            </div>
+                            <div class="mb-3">
+                                <h6>Image</h6>
+                                <div class="input-group">
+                                    <input
+                                        type="url"
+                                        class="form-control col-12"
+                                        placeholder="Set product image"
+                                        name="image"
+                                        required
+                                        value="<%= obj.image %>"
+                                        id="combo_image"
+                                    />
+                                </div>
+                                <code id="combo_image_help"></code>
+                            </div>
+
+                            <div class="mb-3">
+                                <h6>Description</h6>
+                                <div class="input-group text-left">
+                                    <textarea
+                                        class="form-control"
+                                        placeholder="Set product description"
+                                        name="description"
+                                        required
+                                        id="combo_desc"
+                                    >
+<%= obj.description %></textarea
+                                    >
+                                </div>
+                                <code id="combo_desc_help"></code>
+                            </div>
+                            <div class="row">
+                                <div class="mb-3 col-md-6">
+                                    <h6>Category</h6>
+                                    <code><%= obj.category?.name %></code>
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <h6>Brand</h6>
+                                    <code><%= obj.brand?.name %></code>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <img
+                                id="combo_image_render"
+                                src="<%= obj.image %>"
+                            />
+                            <br />
+                            <code id="combo_image_render_help"></code>
+                        </div>
+                    </div>
+                    <div class="container row mt-3">
+                        <% obj.varients?.forEach((x, i)=>{ %>
+                        <div class="card col-12">
+                            <div class="card-content">
+                                <div class="card-body row">
+                                    <div class="col-md-6">
+                                        <h6 class="card-title">
+                                            volume <%=i+1%>
+                                        </h6>
+                                        <div class="input-group">
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                placeholder="Set product volume <%=i+1%>"
+                                                name="volume"
+                                                required
+                                                value="<%= x.volume %>"
+                                                id="combo_volume_<%=i+1%>"
+                                            />
+                                        </div>
+                                        <code
+                                            id="combo_volume_<%=i+1%>_help"
+                                        ></code>
+                                        <h6 class="mt-3">MRP <%=i+1%></h6>
+                                        <div class="input-group">
+                                            <input
+                                                type="number"
+                                                min="0.01"
+                                                step="0.01"
+                                                class="form-control"
+                                                placeholder="Set product mrp <%=i+1%>"
+                                                name="mrp"
+                                                required
+                                                value="<%= x.mrp %>"
+                                                id="combo_mrp_<%=i+1%>"
+                                            />
+                                        </div>
+                                        <code
+                                            id="combo_mrp_<%=i+1%>_help"
+                                        ></code>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="card-title">
+                                            Price <%=i+1%>
+                                        </h6>
+                                        <div class="input-group">
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                placeholder="Set product volume <%=i+1%>"
+                                                name="price"
+                                                required
+                                                value="<%=x?.obj?.price%>"
+                                                id="combo_price_<%=i+1%>"
+                                            />
+                                        </div>
+                                        <code
+                                            id="combo_price_<%=i+1%>_help"
+                                        ></code>
+                                        <h6 class="mt-3">Discount <%=i+1%></h6>
+                                        <div class="input-group">
+                                            <input
+                                                type="text"
+                                                class="form-control border border-light"
+                                                placeholder="Set product mrp <%=i+1%>"
+                                                name="discount"
+                                                readonly
+                                                required
+                                                value="<%=x?.obj?.discount%>"
+                                                id="combo_discount_<%=i+1%>"
+                                            />
+                                        </div>
+                                        <code
+                                            id="combo_discount_<%=i+1%>_help"
+                                        ></code>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <%}) %>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    let json = {};
+    let len = 0;
+    $(document).ready(() => {
+        len = parseInt("<%= obj.varients.length%>");
+        let obj = ["#combo_name", "#combo_image", "#combo_desc"];
+        for (let i = 1; i < len + 1; i++) {
+            obj.push("#combo_volume_" + i);
+            obj.push("#combo_price_" + i);
+            obj.push("#combo_mrp_" + i);
+            $("#combo_mrp_" + i).on("change", (e) => {
+                $("#combo_price_" + i).attr("data-max", $(e.target).val());
+                let s = $(e.target).val();
+                let f = $("#combo_price_" + i).val();
+
+                $("#combo_price_" + i).data("max", s);
+
+                if (f > s) {
+                    $("#combo_price_" + i)
+                        .val(0)
+                        .change();
+                } else {
+                    $("#combo_price_" + i)
+                        .val(f)
+                        .change();
+                }
+            });
+            $("#combo_price_" + i).on("change", (e) => {
+                let s = $(e.target).val();
+                if (!$(e.target).data("max")) {
+                    $(e.target).val("");
+                    $("#help_sp").html(
+                        `<code>Kindly add price for mrp </code>`,
+                    );
+                    return;
+                }
+                if (s) {
+                    s = parseFloat(s);
+                    let org = parseFloat($(e.target).data("max"));
+                    $("#combo_discount_" + i).val(
+                        (((org - s) / org) * 100).toFixed(),
+                    );
+                } else {
+                    $("#combo_discount_" + i).val(0);
+                }
+            });
+        }
+        for (const x of obj) {
+            json[x] = $(x).val();
+        }
+        $(Object.keys(json).join()).on("keyup", (e) => {
+            if (json["#" + e.target.id] == $(e.target).val()) {
+                $(e.target).removeClass("border border-warning");
+                $("#" + e.target.id + "_help").html("");
+            } else {
+                $(e.target).addClass("border border-warning");
+                $("#" + e.target.id + "_help").html(json["#" + e.target.id]);
+            }
+        });
+        $("#combo_image").on("change", (e) => {
+            function imageExists(url, callback) {
+                var img = new Image();
+                img.onload = function () {
+                    callback(true);
+                };
+                img.onerror = function () {
+                    callback(false);
+                };
+                img.src = url;
+            }
+
+            var imageUrl = $(e.target).val();
+            imageExists(imageUrl, function (exists) {
+                if (exists) {
+                    $("#combo_image_render").attr("src", imageUrl);
+                    $("#combo_image_render_help").html("");
+                } else {
+                    $("#combo_image_render_help").html(
+                        "Image not found on " + imageUrl,
+                    );
+                }
+            });
+        });
+    });
+    const callDelete = () => {
+        if (confirm("Are you sure to delete combo?")) {
+            window.location.href = "/dashboard/inventory/combo/<%=id%>/delete/";
+        }
+    };
+</script>

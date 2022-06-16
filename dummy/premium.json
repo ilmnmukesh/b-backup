@@ -1,0 +1,22 @@
+[
+    {
+        "level": "free",
+        "deliveryWithin": 24,
+        "shotLimit": 1,
+        "price": 0,
+        "period": 0,
+        "deliveryCharge": true,
+        "description": "Free membership sponsored by Boozeo",
+        "coinDiscount": 0
+    },
+    {
+        "level": "premium",
+        "deliveryWithin": 4,
+        "shotLimit": 4,
+        "price": "39.99",
+        "period": 1,
+        "deliveryCharge": false,
+        "description": "1 special event/year sponsored by Boozeo.",
+        "coinDiscount": 10
+    }
+]

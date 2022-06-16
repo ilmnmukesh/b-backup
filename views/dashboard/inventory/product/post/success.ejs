@@ -1,0 +1,23 @@
+<%- contentFor('body') %>
+
+<div class="container">
+    <div class="card mt-1">
+        <div class="card-header">
+            <h4 class="card-title">Post Product for Selling</h4>
+        </div>
+        <div class="card-body text-center h-100">
+            <% if (typeof msg !="undefined" ){%>
+            <h4><%=msg %></h4>
+            <%}%> <% if (typeof error !="undefined" ){%>
+            <code><%=error %></code>
+            <%}%>
+            <br />
+            <a
+                href="/dashboard/inventory/product/post"
+                class="my-4 btn btn-sm btn-outline-danger"
+            >
+                <i class="fa fa-plus" aria-hidden="true"></i>Add more
+            </a>
+        </div>
+    </div>
+</div>

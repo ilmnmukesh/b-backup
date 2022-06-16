@@ -1,0 +1,650 @@
+<%- contentFor('body') %>
+
+<div class="col-12">
+    <div class="card">
+        <div class="card-header">
+            <form autocomplete="off">
+                <div class="row">
+                    <h4 class="card-title col-md-3 justify-center">
+                        Product details
+                        <span class="badge bg-orange"
+                            ><%= typeof count != "undefined"? count:'' %></span
+                        >
+                    </h4>
+
+                    <div
+                        class="form-group has-icon-left col-md-6 justify-center"
+                    >
+                        <div class="position-relative">
+                            <input
+                                required
+                                type="text"
+                                class="form-control"
+                                placeholder="Search Product Name"
+                                name="q"
+                            />
+                            <div class="form-control-icon">
+                                <i data-feather="search"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <input
+                        type="hidden"
+                        name="page"
+                        class="page_hidden_field"
+                    />
+                    <input type="hidden" name="brand" value="<%= brandQ%>" />
+
+                    <div class="col-md-3 justify-center">
+                        <button type="submit" class="btn btn-primary btn-sm">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="card-content">
+            <div class="card-body">
+                <div class="container">
+                    <div id="display_list_content">
+                        <a
+                            href="/dashboard/inventory/combo/add/"
+                            class="btn btn-outline-success mx-4 shadow float-right"
+                        >
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                            Add</a
+                        >
+                        <a
+                            data-toggle="modal"
+                            data-target="#filter_model"
+                            class="btn btn-sm btn-outline-primary mx-2 shadow float-left"
+                            ><i data-feather="menu" class="mb-1"></i
+                            >&emsp;Filter</a
+                        >
+
+                        <div class="float-right">
+                            <input
+                                id="csv"
+                                type="file"
+                                accept=".csv"
+                                class="d-none"
+                            />
+                            <label for="csv"
+                                ><a class="btn btn-sm btn-outline-danger shadow"
+                                    >Import CSV</a
+                                ></label
+                            >
+                        </div>
+                        <div class="float-right mr-4">
+                            <a
+                                class="btn btn-sm btn-outline-secondary shadow"
+                                id="combo_templete_download"
+                                ><i
+                                    class="fa fa-download"
+                                    aria-hidden="true"
+                                ></i>
+                                Templete</a
+                            >
+                            <script>
+                                let temp =
+                                    "name, description, image, mrp, volume, selling price, discount";
+                                $("#combo_templete_download").attr(
+                                    "href",
+                                    `data:text/csv;charset=utf-8,${encodeURIComponent(
+                                        temp,
+                                    )}`,
+                                );
+                                $("#combo_templete_download").attr(
+                                    "download",
+                                    "combo_templete.csv",
+                                );
+                            </script>
+                        </div>
+
+                        <a
+                            id="search-content-display"
+                            class="btn btn-sm btn-outline-warning round mx-2 shadow d-none"
+                            onclick="removeElement('search')"
+                            ><i class="mb-1" data-feather="search"></i>
+                        </a>
+
+                        <!-- <div id="display_list_content"></div> -->
+                    </div>
+                    <div class="toast" data-delay="3000">
+                        <div class="toast-body">
+                            Contact Boozeo to change this details
+                        </div>
+                    </div>
+                    <div class="col-12 row">
+                        <% data.forEach((obj)=>{%>
+                        <div class="card col-12">
+                            <div class="card-content">
+                                <div class="text-center float-left col-4">
+                                    <img
+                                        height="150"
+                                        class="ml-4"
+                                        src="<%= obj.image %>"
+                                        alt="Card image cap"
+                                    />
+                                </div>
+
+                                <div class="card-body">
+                                    <h4 class="card-title"><%= obj.name%></h4>
+                                    <p class="card-text ellipsis">
+                                        <code><%= obj.description %></code>
+                                    </p>
+                                    <small class="text-muted">
+                                        <span
+                                            title="Click this to filter this brand"
+                                            onclick="addBrand('<%=obj.brand?.name%>')"
+                                            class="badge bg-danger shadow"
+                                        >
+                                            <%=obj.brand?.name %>
+                                        </span>
+                                    </small>
+                                    <a
+                                        href="/dashboard/inventory/combo/<%=obj.id%>"
+                                        class="btn btn-sm round btn-outline-light float-right"
+                                    >
+                                        View
+                                        <i data-feather="chevron-right"></i>
+                                    </a>
+                                    <a
+                                        href="/dashboard/inventory/combo/<%=obj.id%>/edit"
+                                        class="btn btn-sm round btn-outline-danger mx-2 float-right"
+                                    >
+                                        Edit
+                                        <i data-feather="edit-3"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <% })%>
+                    </div>
+
+                    <nav aria-label="Page navigation">
+                        <ul
+                            class="pagination pagination-dark justify-content-center col-12"
+                        >
+                            <li class="page-item">
+                                <a
+                                    class="page-link btn btn-block"
+                                    id="page-left-move"
+                                    href="#"
+                                >
+                                    <i data-feather="chevron-left"></i>
+                                </a>
+                            </li>
+                            <% for(var i=1; i< count/10 +1 ;i++ ){ %>
+                            <li class="page-item href_item">
+                                <a
+                                    class="page-link"
+                                    href="/dashboard/inventory/combo/?q=<%=q%>&page=<%=i%>&brand=<%=brandQ%>"
+                                    ><%=i%></a
+                                >
+                            </li>
+                            <% }%>
+                            <li class="page-item">
+                                <a
+                                    class="page-link"
+                                    id="page-right-move"
+                                    href="#"
+                                >
+                                    <i data-feather="chevron-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div
+    class="modal fade"
+    id="filter_model"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="filter_model_title"
+    aria-hidden="true"
+>
+    <div
+        class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+        role="document"
+    >
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="filter_model_title">
+                    Select Filter Options
+                </h5>
+                <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                >
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form autocomplete="off">
+                    <input type="hidden" name="q" id="search_hidden_field" />
+                    <input
+                        type="hidden"
+                        name="page"
+                        class="page_hidden_field"
+                    />
+                    <div class="col-md-12">
+                        <label>Select Brand</label>
+                        <div class="input-group mb-3">
+                            <select
+                                class="form-select"
+                                name="brand"
+                                id="brand_options"
+                            >
+                                <option value="">Choose Options</option>
+                                <% brand.forEach(obj=>{ %> <% if(obj.name==
+                                brandQ){ %>
+
+                                <option value="<%=obj.name%>" selected>
+                                    <%=obj.name%>
+                                </option>
+                                <% }else {%>
+                                <option value="<%=obj.name%>">
+                                    <%=obj.name%>
+                                </option>
+                                <% }%> <% })%>
+                            </select>
+
+                            <button class="btn shadow btn-sm btn-secondary">
+                                Select
+                            </button>
+                            <br />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>
+
+<div
+    class="modal fade"
+    id="bulk_insert_modal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="bulk_insert_modal"
+    aria-hidden="true"
+>
+    <div
+        class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+        role="document"
+    >
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="bulk_insert_modal_title"></h5>
+                <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                    id="bulk_modal_close_btn"
+                    onclick="(()=>$('#csv').val())();"
+                >
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center row">
+                    <h5>
+                        Total count
+                        <code id="csv_total_cnt"></code>
+                    </h5>
+                </div>
+                <div class="text-center row">
+                    <h5>
+                        Valid
+                        <code id="csv_total_check"></code>
+                    </h5>
+                </div>
+                <div class="text-center" id="csv_completed"></div>
+
+                <div class="text-center" id="add_btn_insert"></div>
+
+                <div class="text-center">
+                    <small
+                        id="import_err"
+                        class="text-danger text-center"
+                    ></small>
+                </div>
+            </div>
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function getUrlVars() {
+        var vars = [],
+            hash;
+        var hashes = window.location.href
+            .slice(window.location.href.indexOf("?") + 1)
+            .split("&");
+        for (var i = 0; i < hashes.length; i++) {
+            hash = hashes[i].split("=");
+            vars.push(hash[0]);
+            vars[hash[0]] = hash[1];
+        }
+        return vars;
+    }
+    $(document).ready(() => {
+        let p = getUrlVars()["page"];
+        let searchQuery = window.location.search;
+        p = p == undefined ? 1 : p;
+        $(".page_hidden_field").val(p);
+        let cnt = parseInt("<%=count%>");
+        $(".pagination .page-item .page-link").each((e, i) => {
+            if ($(i).html() == p) {
+                $(i).parent().addClass("active");
+            }
+        });
+        $("#page-left-move").attr(
+            "href",
+            `/dashboard/inventory/combo/${searchQuery.replace(
+                `page=${p}`,
+                `page=${p == 1 ? 1 : parseInt(p) - 1}`,
+            )} `,
+        );
+        $("#page-right-move").attr(
+            "href",
+            `/dashboard/inventory/combo/${searchQuery.replace(
+                `page=${p}`,
+                `page=${parseInt(cnt / 10 + 1) == p ? p : parseInt(p) + 1}`,
+            )} `,
+        );
+        let search = getUrlVars()["q"];
+        if (search) {
+            $("#search-content-display").append(`
+                ${search}
+            `);
+            $("#search-content-display").removeClass("d-none");
+            $("#search_hidden_field").val(search);
+        }
+
+        let brand = getUrlVars()["brand"];
+
+        if (brand) {
+            $("#display_list_content").append(`
+                        <a
+                            class="btn btn-sm btn-danger round mx-2 shadow float-left"
+                            onclick="removeElement('brand')"
+                            >
+                            ${brand}
+                        </a>
+            `);
+        }
+    });
+    function removeElement(type) {
+        let search = getUrlVars()["q"];
+        let searchQuery = window.location.search;
+        let brand = getUrlVars()["brand"];
+
+        if (type == "search") {
+            window.location.search = searchQuery.replace(`q=${search}`, "q=");
+        }
+        if (type == "brand") {
+            window.location.search = searchQuery.replace(
+                `brand=${brand}`,
+                "brand=",
+            );
+        }
+    }
+
+    const addBrand = (name) => {
+        var url = new URL(window.location);
+        url.searchParams.set("brand", name);
+        window.location.href = url.href;
+    };
+</script>
+<script>
+    let err_data;
+    var fileInput = document.getElementById("csv");
+    let json;
+    const readFile = function () {
+        var reader = new FileReader();
+        reader.readAsBinaryString(fileInput.files[0]);
+        $(
+            "#import_err,#csv_total_check,#csv_total_cnt,#add_btn_insert,#csv_completed",
+        ).html("");
+        $("#bulk_insert_modal_title").html($("#csv").prop("files")[0]?.name);
+        $("#bulk_insert_modal").modal({
+            backdrop: "static",
+            keyboard: false,
+        });
+
+        const CSVToJSON = (csv) => {
+            csv = csv.trim();
+            const lines = csv.split("\n");
+            const keys = lines[0].split(",");
+            return lines.slice(1).map((line) => {
+                return line.split(",").reduce((acc, cur, i) => {
+                    const toAdd = {};
+                    try {
+                        toAdd[keys[i].trim()] = cur.trim();
+                    } catch {
+                        toAdd[keys[i]] = cur;
+                    }
+                    return { ...acc, ...toAdd };
+                }, {});
+            });
+        };
+        reader.onload = function () {
+            const checkColumn = (json) => {
+                if (json == null) {
+                    let str = `Enter value to check`;
+                    $("#import_err").html(str);
+                    return false;
+                }
+                let ret = `<ul class="text-center">`;
+                let check = true;
+                temp.split(",").map((e) => {
+                    let x = e.trim();
+                    if (json[x] == null) {
+                        check = false;
+                        ret += `<p><code class="text-blue">${x}</code> column name does not exits</p>`;
+                    }
+                });
+                ret + "</ul>";
+                if (!check) $("#import_err").html(ret);
+                return check;
+            };
+            const validURL = (str) => {
+                var pattern = new RegExp(
+                    "^(https?:\\/\\/)?" + // protocol
+                        "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
+                        "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
+                        "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // port and path
+                        "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
+                        "(\\#[-a-z\\d_]*)?$",
+                    "i",
+                ); // fragment locator
+                return !!pattern.test(str);
+            };
+            const checkValue = (json) => {
+                let ret = [];
+                let params = [];
+                const check = (j, v) => {
+                    if (j == null || j == "") {
+                        ret.push(v);
+                    }
+                };
+
+                if (!validURL(json?.image))
+                    params.push(
+                        'image is invalid url, if you upload image with same name use dummy url like "http://host.com"',
+                    );
+                if (isNaN(parseFloat(json?.mrp)))
+                    params.push("MRP is not a valid price");
+                if (isNaN(parseFloat(json["selling price"])))
+                    params.push("selling price is not a valid price");
+
+                temp.split(",").map((e) => check(json[e.trim()], e.trim()));
+                return [ret, params.join(",")];
+            };
+            if (
+                "application/vnd.ms-excel" ==
+                    $("#csv").prop("files")[0]?.type ||
+                $("#csv").prop("files")[0]?.name.split(".").pop() == "csv"
+            ) {
+                try {
+                    json = CSVToJSON(reader.result);
+                    //console.log(json);
+                    $("#csv_total_cnt").html(json.length);
+                    if (checkColumn(json[0])) {
+                        let err = `<ul class="float-left">`;
+                        let cnt = 0;
+                        json?.forEach((e, i) => {
+                            let [ret, params] = checkValue(e);
+
+                            if (ret.length > 0 && params != "")
+                                err += `<p class="p-0 m-0"><code>Column ${i}:</code>${ret} are empty. ${params} </p>`;
+                            else if (ret.length > 0)
+                                err += `<p class="p-0 m-0"><code>Column ${i}:</code>${ret} are empty. </p>`;
+                            else if (params != "")
+                                err += `<p class="p-0 m-0"><code>Column ${i}:</code>${params} </p>`;
+                            else cnt++;
+
+                            $("#csv_total_check").html(
+                                `${cnt} / ${json.length}`,
+                            );
+                        });
+                        err += "</ul>";
+                        if (err == `<ul class="float-left"></ul>`) {
+                            $("#add_btn_insert").html(`
+                            <button id="bulk_upload_btn" onclick="uploadFile()" class="btn btn-sm btn-success shadow">
+                                <span id="">Upload<span></button>
+                    `);
+                        } else $("#import_err").html(err);
+                    }
+                } catch (e) {
+                    $("#import_err").html("Invalid format");
+                }
+            } else {
+                $("#import_err").html("Invalid format of csv");
+            }
+        };
+    };
+
+    const uploadFile = async () => {
+        if (json == null && json.length == 0) {
+            return;
+        }
+        $("#bulk_modal_close_btn").addClass("d-none");
+        $("#bulk_upload_btn").html(
+            `<span class="spinner-border spinner-border-sm"></span>
+                                Processing...`,
+        );
+        $("#bulk_upload_btn").addClass("btn-dark");
+        $("#bulk_upload_btn").attr("disabled", "disabled");
+        $.ajax({
+            xhr: function () {
+                var xhr = new window.XMLHttpRequest();
+
+                // // Upload progress
+                // xhr.upload.addEventListener(
+                //     "progress",
+                //     function (evt) {
+                //         if (evt.lengthComputable) {
+                //             var percentComplete = evt.loaded / evt.total;
+                //             //Do something with upload progress
+                //             console.log(percentComplete);
+                //         }
+                //     },
+                //     false,
+                // );
+
+                // // Download progress
+                // xhr.addEventListener(
+                //     "progress",
+                //     function (evt) {
+                //         if (evt.lengthComputable) {
+                //             var percentComplete = evt.loaded / evt.total;
+                //             // Do something with download progress
+                //             console.log(percentComplete);
+                //         }
+                //     },
+                //     false,
+                // );
+
+                return xhr;
+            },
+            type: "POST",
+            url: "/dashboard/inventory/combo/add/bulk/",
+            data: {
+                obj: JSON.stringify(json),
+            },
+            success: function (data) {
+                err_data = data;
+                $("#csv_completed").html(`
+                    <h5>
+                        Process done
+                        <code>${json.length - data.length} / ${
+                    json.length
+                }</code>
+                <br/>
+                <br/>
+            
+                <button class="btn btn-sm btn-outline-danger" onclick="downloadError()">
+                    <i class="fa fa-download" aria-hidden="true"></i> 
+                    Error list</button>
+                    </h5> <br/>`);
+
+                $("#bulk_modal_close_btn").removeClass("d-none");
+                // $("#bulk_upload_btn").removeAttr("disabled");
+                $("#bulk_upload_btn").removeClass("btn-dark");
+                $("#bulk_upload_btn").html(
+                    "Process completed<i class='fa fa-check' aria-hidden='true'></i>",
+                );
+            },
+        });
+    };
+    fileInput.addEventListener("change", readFile);
+
+    const downloadError = () => {
+        const keys = [
+            "index",
+            "name",
+            "description",
+            "image",
+            "mrp",
+            "discount",
+            "volume",
+            "selling price",
+            "error",
+        ];
+        const JSONToCSV = (objArray) => {
+            let csv = keys.join(",");
+            objArray.forEach((row) => {
+                let values = [];
+                keys.forEach((key) => {
+                    values.push(row[key] || "");
+                });
+                csv += "\n" + values.join(",");
+            });
+            return csv;
+        };
+        if (err_data.length != 0) {
+            const csv = JSONToCSV(err_data);
+            var downloadLink = document.createElement("a");
+            var blob = new Blob(["\ufeff", csv]);
+            var url = URL.createObjectURL(blob);
+            downloadLink.href = url;
+            downloadLink.download = "combo_error.csv";
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+        }
+    };
+</script>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Age checking B2C</title>
+    </head>
+    <body>
+        <button id="checkout-button">Verify</button>
+    </body>
+
+    <noscript
+        ><meta
+            http-equiv="refresh"
+            content="0;url=https://agechecker.net/noscript"
+    /></noscript>
+    <script>
+        (function (w, d) {
+            var config = {
+                element: "#checkout-button",
+                key: "zuIFjxdYBrzjyXpMuPYaopInYb3oeQXr",
+                onpresubmit: async (data, done, cancel) => {
+                    console.log(data, done, cancel);
+                    console.log(await done());
+                    //cancel();
+                },
+                success: console.log,
+                data: {
+                    first_name: "Mukesh", //"<%= firstName %>",
+                    last_name: "<%= lastName %>" || "Ravi",
+                    dob_day: 28, //"<%= dob_day %>",
+                    dob_month: 3, //"<%= dob_month %>",
+                    dob_year: 1999, //"<%= dob_year %>",
+                    address: "No. 7",
+                    zip: "600070",
+                    city: "chennai",
+                    country: "India",
+                    state: "Tamil Nadu",
+                    comment: "test",
+                },
+            };
+
+            w.AgeCheckerConfig = config;
+            if (
+                config.path &&
+                (w.location.pathname + w.location.search).indexOf(config.path)
+            )
+                return;
+            var h = d.getElementsByTagName("head")[0];
+            var a = d.createElement("script");
+            a.src = "https://cdn.agechecker.net/static/popup/v1/popup.js";
+            a.crossOrigin = "anonymous";
+            a.onerror = function (a) {
+                w.location.href = "https://agechecker.net/loaderror";
+            };
+            h.insertBefore(a, h.firstChild);
+        })(window, document);
+    </script>
+</html>

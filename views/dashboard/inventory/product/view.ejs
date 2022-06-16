@@ -1,0 +1,113 @@
+<%- contentFor('body') %>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/dashboard/inventory/product">Product</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">View</li>
+    </ol>
+</nav>
+
+<div class="col-12 mt-3 container">
+    <div class="card">
+        <div class="card-header">
+            Product View
+            <a
+                href="/dashboard/inventory/product/<%=id%>/delete/"
+                class="btn btn-sm round btn-outline-danger float-right mx-5"
+            >
+                <i class="fa fa-trash" aria-hidden="true"></i>
+                Delete
+            </a>
+            <a
+                href="/dashboard/inventory/product/<%=id%>/edit"
+                class="btn btn-sm round btn-outline-secondary float-right"
+            >
+                <i class="fa fa-edit" aria-hidden="true"></i>
+                Edit
+            </a>
+        </div>
+        <div class="card-content">
+            <div class="card-body">
+                <div class="container row">
+                    <div class="col-md-8">
+                        <div class="mb-3">
+                            <h6>Name</h6>
+                            <code><%= obj.name %></code>
+                        </div>
+                        <div class="mb-3">
+                            <h6>Image</h6>
+                            <code><%= obj.image %></code>
+                        </div>
+
+                        <div class="mb-3">
+                            <h6>Description</h6>
+                            <code><%= obj.description %></code>
+                        </div>
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <h6>Category</h6>
+                                <code><%= obj.category?.name %></code>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <h6>Brand</h6>
+                                <code><%= obj.brand?.name %></code>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="<%= obj.image %>" />
+                    </div>
+                </div>
+                <div class="container row mt-3">
+                    <h6>Types of volume</h6>
+                    <% obj.varients?.forEach(x=>{ %>
+                    <div class="card col-md-4">
+                        <div class="card-content">
+                            <div class="card-body row">
+                                <div class="col-md-6">
+                                    <h4 class="card-title"><%= x.volume%></h4>
+                                    <code class="card-text ellipsis">
+                                        MRP: <%=x.mrp %>
+                                    </code>
+                                </div>
+                                <div class="col-md-6">
+                                    <% if ( typeof x.obj != "undefined" && x.obj
+                                    == null) {%>
+                                    <a
+                                        href="/dashboard/inventory/product/post?vid=<%=x?.id%>"
+                                        class="btn btn-sm round btn-outline-light"
+                                    >
+                                        <i
+                                            class="fa fa-plus"
+                                            aria-hidden="true"
+                                        ></i>
+
+                                        Add
+                                    </a>
+                                    <%}else{%>
+
+                                    <a
+                                        href="/dashboard/inventory/product/post/edit?i=<%=x?.obj?.id%>"
+                                        class="btn btn-sm round btn-outline-danger"
+                                    >
+                                        <i
+                                            class="fa fa-edit"
+                                            aria-hidden="true"
+                                        ></i>
+                                        Edit
+                                    </a>
+                                    <br />
+                                    <code>Price:<%=x?.obj?.price%></code>
+                                    <%}%>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <%}) %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

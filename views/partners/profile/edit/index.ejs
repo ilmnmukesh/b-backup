@@ -1,0 +1,321 @@
+<style>
+    h6 {
+        color: var(--sidebar-color) !important;
+    }
+    code {
+        color: black !important;
+    }
+</style>
+<div class="col-12">
+    <div class="card" style="min-height: 540px">
+        <div class="card-header pb-0">
+            <div class="row">
+                <div class="col-md-8">
+                    <h3 class="font-weight-bold">Profile Edit</h3>
+                    <h5 class="small">Boozeo partner</h5>
+                </div>
+
+                <div class="col-md-4">
+                    <a
+                        onclick="submitForm()"
+                        class="btn shadow btn-sm btn-secondary float-right mr-5"
+                    >
+                        <i class="fa fa-save"></i>
+                        SAVE
+                    </a>
+                </div>
+                <div class="text-center">
+                    <small class="text-center text-danger h5"
+                        ><%= typeof error=="undefined" ?"":error %></small
+                    >
+                </div>
+            </div>
+        </div>
+        <div class="card-content pt-0">
+            <div class="card-body pt-0">
+                <div class="card-body">
+                    <form
+                        id="shop_edit_form"
+                        autocomplete="off"
+                        method="post"
+                        onsubmit="()=> confirm('Are you sure to update profile ?');"
+                    >
+                        <div id="hidden_field_post">
+                            <button type="submit" class="d-none"></button>
+                        </div>
+
+                        <div class="card-content">
+                            <div class="card-body">
+                                <div class="container row">
+                                    <div class="col-md-8">
+                                        <div class="mb-3">
+                                            <h6>Name</h6>
+                                            <div class="input-group">
+                                                <input
+                                                    type="text"
+                                                    class="form-control col-12"
+                                                    placeholder="Set Shop name"
+                                                    name="name"
+                                                    required
+                                                    value="<%= obj.name %>"
+                                                    id="shop_name"
+                                                />
+                                            </div>
+                                            <code id="shop_name_help"></code>
+                                        </div>
+                                        <div class="mb-3">
+                                            <h6>Seller Name</h6>
+                                            <div class="input-group">
+                                                <input
+                                                    type="text"
+                                                    class="form-control col-12"
+                                                    placeholder="Set Seller name"
+                                                    name="seller_name"
+                                                    required
+                                                    value="<%= obj.sellerName %>"
+                                                    id="shop_seller_name"
+                                                />
+                                            </div>
+                                            <code
+                                                id="shop_seller_name_help"
+                                            ></code>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <h6>Image</h6>
+                                            <div class="input-group">
+                                                <input
+                                                    type="url"
+                                                    class="form-control col-12"
+                                                    placeholder="Set Shop image"
+                                                    name="image"
+                                                    required
+                                                    value="<%= obj.image %>"
+                                                    id="shop_image"
+                                                />
+                                            </div>
+                                            <code id="shop_image_help"></code>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <h6>About Shop</h6>
+                                            <div class="input-group text-left">
+                                                <textarea
+                                                    class="form-control"
+                                                    placeholder="Set shop description"
+                                                    name="about"
+                                                    required
+                                                    id="shop_about"
+                                                >
+<%= obj.about %></textarea
+                                                >
+                                            </div>
+                                            <code id="shop_about_help"></code>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                        <img
+                                            id="shop_image_render"
+                                            src="<%= obj.image %>"
+                                            height="200"
+                                            class="mt-5"
+                                        />
+                                        <br />
+                                        <code
+                                            id="shop_image_render_help"
+                                        ></code>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <h6>Contact mobile number</h6>
+                                        <div class="input-group">
+                                            <input
+                                                style="font-family: sans-serif"
+                                                type="text"
+                                                maxlength="20"
+                                                placeholder="(___) ___-____"
+                                                data-slots="_"
+                                                class="form-control col-12"
+                                                name="contact_number"
+                                                required
+                                                value="<%= obj.mobileNumber %>"
+                                                id="shop_mobile_number"
+                                            />
+                                        </div>
+                                        <code
+                                            id="shop_mobile_number_help"
+                                        ></code>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <h6>Contact number</h6>
+                                        <div class="input-group">
+                                            <input
+                                                style="font-family: sans-serif"
+                                                type="text"
+                                                placeholder="(___) ___-____"
+                                                data-slots="_"
+                                                class="form-control col-12"
+                                                name="telephone_number"
+                                                required
+                                                value="<%= obj.telephoneNumber %>"
+                                                id="shop_telephone_number"
+                                            />
+                                        </div>
+                                        <code
+                                            id="shop_telephone_number_help"
+                                        ></code>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <h6>Opening Time</h6>
+                                        <div class="input-group">
+                                            <input
+                                                type="time"
+                                                class="form-control col-12"
+                                                name="open_time"
+                                                required
+                                                value="<%= obj.openTime %>"
+                                                id="shop_open_time"
+                                            />
+                                        </div>
+                                        <code id="shop_open_time_help"></code>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <h6>Closing Time</h6>
+                                        <div class="input-group">
+                                            <input
+                                                type="time"
+                                                class="form-control col-12"
+                                                name="close_time"
+                                                required
+                                                value="<%= obj.closeTime %>"
+                                                id="shop_close_time"
+                                            />
+                                        </div>
+                                        <code id="shop_close_time_help"></code>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        for (const el of document.querySelectorAll(
+            "[placeholder][data-slots]",
+        )) {
+            const pattern = el.getAttribute("placeholder"),
+                slots = new Set(el.dataset.slots || "_"),
+                prev = ((j) =>
+                    Array.from(pattern, (c, i) =>
+                        slots.has(c) ? (j = i + 1) : j,
+                    ))(0),
+                first = [...pattern].findIndex((c) => slots.has(c)),
+                accept = new RegExp(el.dataset.accept || "\\d", "g"),
+                clean = (input) => {
+                    input = input.match(accept) || [];
+                    return Array.from(pattern, (c) =>
+                        input[0] === c || slots.has(c) ? input.shift() || c : c,
+                    );
+                },
+                format = () => {
+                    const [i, j] = [el.selectionStart, el.selectionEnd].map(
+                        (i) => {
+                            i = clean(el.value.slice(0, i)).findIndex((c) =>
+                                slots.has(c),
+                            );
+                            return i < 0
+                                ? prev[prev.length - 1]
+                                : back
+                                ? prev[i - 1] || first
+                                : i;
+                        },
+                    );
+                    el.value = clean(el.value).join``;
+                    el.setSelectionRange(i, j);
+                    back = false;
+                };
+            let back = false;
+            el.addEventListener(
+                "keydown",
+                (e) => (back = e.key === "Backspace"),
+            );
+            el.addEventListener("input", format);
+            el.addEventListener("focus", format);
+            el.addEventListener(
+                "blur",
+                () => el.value === pattern && (el.value = ""),
+            );
+            format();
+        }
+    });
+</script>
+
+<script>
+    $(document).ready(() => {
+        let old = {};
+        let arr = [
+            "#shop_name",
+            "#shop_seller_name",
+            "#shop_image",
+            "#shop_about",
+            "#shop_mobile_number",
+            "#shop_telephone_number",
+            "#shop_open_time",
+            "#shop_close_time",
+        ];
+
+        arr.forEach((e) => {
+            old[e] = $(e).val();
+        });
+
+        $(arr.join()).on("keyup change", (e) => {
+            if (old["#" + e.target.id] == $(e.target).val()) {
+                $(e.target).removeClass("border border-warning");
+                $("#" + e.target.id + "_help").html("");
+            } else {
+                $(e.target).addClass("border border-warning");
+                console.log(old["#" + e.target.id]);
+                $("#" + e.target.id + "_help").html(old["#" + e.target.id]);
+            }
+        });
+
+        $("#shop_image").on("change", (e) => {
+            $("#shop_image_render_help").html(
+                `<span class="ml-5 mt-2 text-center spinner-border spinner-border-sm"></span>`,
+            );
+            function imageExists(url, callback) {
+                var img = new Image();
+                img.onload = function () {
+                    callback(true);
+                };
+                img.onerror = function () {
+                    callback(false);
+                };
+                img.src = url;
+            }
+
+            var imageUrl = $(e.target).val();
+            imageExists(imageUrl, function (exists) {
+                if (exists) {
+                    $("#shop_image_render").attr("src", imageUrl);
+                    $("#shop_image_render_help").html("");
+                } else {
+                    $("#shop_image_render_help").html(
+                        "Image not found on " + imageUrl,
+                    );
+                }
+            });
+        });
+    });
+
+    const submitForm = () => {
+        $("#shop_edit_form").submit();
+    };
+</script>

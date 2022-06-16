@@ -1,0 +1,129 @@
+<%- contentFor('body') %>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/dashboard/inventory/category">Category</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Add</li>
+    </ol>
+</nav>
+
+<div class="container col-12 col-md-6 offset-md-3 my-md-5">
+    <div class="card mt-5">
+        <div class="card-header">
+            <h4 class="card-title">Create Category</h4>
+        </div>
+        <div class="card-content">
+            <div class="card-body">
+                <form
+                    autocomplete="off"
+                    class="form form-vertical"
+                    enctype="application/x-www-form-urlencoded"
+                    method="post"
+                    onsubmit="return confirm('Are you sure to create category?');"
+                >
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-12 mb-4">
+                                <div class="form-group has-icon-left">
+                                    <label for="category_name"
+                                        >Category Name</label
+                                    >
+                                    <div class="position-relative">
+                                        <input
+                                            required
+                                            type="text"
+                                            class="form-control"
+                                            placeholder="Category Name"
+                                            name="category_name"
+                                        />
+                                        <div class="form-control-icon">
+                                            <i data-feather="wind"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label>Category Belong Code</label>
+                                <div class="input-group mb-3">
+                                    <select
+                                        class="form-select"
+                                        name="category_code"
+                                        id="category_code"
+                                        required
+                                    >
+                                        <option
+                                            value="50202206A0000"
+                                            data-desc="Food and Beverage - Alcoholic beverages - Spirits"
+                                        >
+                                            50202206A0000
+                                        </option>
+                                        <option
+                                            value="50202201A0000"
+                                            data-desc="Food and Beverage - Alcoholic beverages - Beer/Malt Beverages"
+                                        >
+                                            50202201A0000
+                                        </option>
+                                        <option
+                                            value="50202203A0000"
+                                            data-desc="Food and Beverage - Wine"
+                                        >
+                                            50202203A0000
+                                        </option>
+                                    </select>
+                                    <label
+                                        class="input-group-text"
+                                        for="inputGroupSelect01"
+                                        >Options</label
+                                    >
+                                    <br />
+                                </div>
+                            </div>
+
+                            <small id="code_desc" class="mb-5"></small>
+                            <script>
+                                $("#category_code")
+                                    .change(function () {
+                                        var $selected =
+                                            $(this).find(":selected");
+                                        $("#code_desc").html(
+                                            $selected.data("desc"),
+                                        );
+                                    })
+                                    .trigger("change"); // run handler immediately
+                            </script>
+                            <div class="col-12 d-flex justify-content-center">
+                                <button
+                                    type="submit"
+                                    class="btn btn-success mr-1 mb-1 shadow"
+                                >
+                                    Create
+                                </button>
+                                <button
+                                    type="reset"
+                                    class="btn btn-danger mr-1 mb-1 shadow"
+                                >
+                                    Clear
+                                </button>
+                            </div>
+                            <small class="my-3 text-center text-danger"
+                                ><%= typeof details !="undefined" ? details:""
+                                %></small
+                            >
+                            <script>
+                                let success =
+                                    '<%= typeof success !="undefined" ? success:""%>';
+
+                                if (success == "true") {
+                                    alert("Successfully created");
+                                    window.location.href =
+                                        "/dashboard/inventory/category";
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

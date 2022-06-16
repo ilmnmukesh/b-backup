@@ -1,0 +1,101 @@
+<tr
+    class="<%= (aaa ==false)? 'bga':'bgb'; %>"
+    style="font-size: small"
+    id="table_content_<%=obj.id%>"
+>
+    <td class="col-1 px-0 text-center text-bold-500">
+        <span class="text-warning">#</span>
+        <span class="text-black"><%= obj.id%></span>
+    </td>
+    <td class="col-1 px-0 text-center"><%= obj?.shipping_detail?.name %></td>
+    <td class="col-2 px-0 text-center"><%= obj.shipping_detail.address %></td>
+    <td class="col-1 px-0 text-center">
+        <%= obj.shipping_detail.city +","+obj.shipping_detail.country +" "+
+        obj?.shipping_detail?.postalCode %>
+    </td>
+    <td class="col-2 px-0 text-center">
+        <%= moment(obj.createdAt) .format(`lll`) %>
+    </td>
+    <td
+        class="col-1 px-0 text-center"
+        id="time_left_<%= obj.id %>"
+        data-time-left="<%= moment(obj.createdAt).add({minute:30})%>"
+    >
+        30m 00s
+    </td>
+    <td class="col-1 px-0 text-center">$ <%= obj.totalAmount %></td>
+
+    <td class="col-1 px-0 text-center">
+        <a class="btn btn-sm" onclick="toggleNewOrder(this,'<%= obj.id %>')">
+            <span class="mr-2"><%= obj.order_products.length %></span>
+            <i
+                class="fa shadow fa-eye text-warning toggle_new_order_<%= obj.id %>"
+            ></i>
+        </a>
+    </td>
+    <td class="col-2 px-0 text-center">
+        <a
+            class="btn btn-sm"
+            style="outline: none"
+            onclick="confirmStatus('<%=obj.id%>', 'created', '<%= obj.customerId%>')"
+        >
+            <i class="fa fa-2x shadow fa-check-circle text-success"></i>
+        </a>
+        <a
+            class="btn btn-sm"
+            style="outline: none"
+            onclick="confirmStatus('<%=obj.id%>', 'cancelled', '<%= obj.customerId%>')"
+        >
+            <i class="fa shadow fa-times-circle fa-2x text-danger"></i>
+        </a>
+    </td>
+</tr>
+
+<% for(const prod of obj.order_products){%>
+<tr class="d-none table_order_content_<%= obj.id %>">
+    <td colspan="2" class="px-0 text-center">
+        <img height="40" src="<%= prod.image %>" />
+    </td>
+    <td colspan="3" class="px-0">
+        <code
+            style="
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+            "
+            class="float-left small"
+            ><%= prod.name%>
+        </code>
+    </td>
+    <td class="col-1 px-0 text-center"><code>X <%= prod.quantity %></code></td>
+    <td class="col-1 px-0 text-center"><code>$ <%= prod.price %></code></td>
+    <td class="col-1 px-0 text-center">
+        <code><%= prod?.varient?.volume %></code>
+    </td>
+    <td class="px-0 text-center">
+        <code>$ <%= (prod.quantity * prod.price).toFixed(2) %></code>
+        <a
+            class="btn btn-sm"
+            href="/partners/inventory/product/<%= prod.varient.productId %>"
+            ><i class="fa fa-chevron-right" aria-hidden="true"></i
+        ></a>
+    </td>
+</tr>
+<%}%>
+
+<script>
+    $(document).ready(() => {
+        var s;
+        s = setInterval(() => {
+            const time = $("#time_left_<%= obj.id %>").data("time-left");
+            if (time > 0) clearInterval(s);
+            $("#time_left_<%= obj.id %>").html(
+                `${moment().diff(time, "minutes") * -1}m ${
+                    (moment().diff(time, "seconds") * -1) % 60
+                }s`,
+            );
+        }, 1000);
+    });
+</script>

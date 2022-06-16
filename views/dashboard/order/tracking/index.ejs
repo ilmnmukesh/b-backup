@@ -1,0 +1,209 @@
+<div class="col-12">
+    <div class="card" style="min-height: 540px">
+        <div class="card-header pb-0">
+            <h3 class="font-weight-bold">Order</h3>
+            <h5 class="small">
+                <span id="new_order_count"
+                    ><%= typeof count == "undefined"?0 : count%></span
+                >
+                order found
+            </h5>
+        </div>
+        <div class="card-content pt-0">
+            <div class="card-body pt-0" id="table-content">
+                <%- include("./table") %>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // const socket = io();
+    // socket.on("connect", () => {
+    //     console.log(socket.id); // x8WIv7-mJelg7on_ALbx
+    // });
+    socket.removeAllListeners("alert_shop_<%= shopId%>");
+
+    socket.on("shopListener_<%= shopId%>", (data) => {
+        console.log("received welcome-message >>", data);
+        if (!data.display) return;
+        let obj = data.data;
+        $("#new_order_count").html(parseInt($("#new_order_count").html()) + 1);
+        let html = `
+            <tr style="font-size: small" id="table_content_${
+                obj.id
+            }"     onmouseout="remove_alert('${obj.id}')">
+                <td class="col-1 px-0 text-center text-bold-500">#${obj.id}<i
+                    id="alert_icon_${obj.id}"
+                    class="mdi mdi-clock-alert text-danger"
+                    style="font-size: smaller"
+                    ></i>
+                </td>
+                <td class="col-1 px-0 text-center">${
+                    obj?.shipping_detail?.name
+                }</td>
+                <td class="col-2 px-0 text-center">${
+                    obj.shipping_detail.address
+                }</td>
+                <td class="col-1 px-0 text-center">
+                    ${
+                        obj.shipping_detail.city +
+                        "," +
+                        obj.shipping_detail.country +
+                        " " +
+                        obj?.shipping_detail?.postalCode
+                    }
+                </td>
+                <td class="col-2 px-0 text-center">
+                    ${moment(obj.createdAt).format(`lll`)}
+                </td>
+                <td
+                    class="col-1 px-0 text-center"
+                    id="time_left_${obj.id}"
+                    data-time-left="${moment(obj.createdAt).add({
+                        minute: 30,
+                    })}"
+                >
+                    30m 00s
+                </td>
+                <td class="col-1 px-0 text-center">$ ${obj.totalAmount}</td>
+
+                <td class="col-1 px-0 text-center">
+                    <a class="btn btn-sm" onclick="toggleNewOrder(this,'${
+                        obj.id
+                    }')">
+                        <span class="mr-2"
+                            >${obj.order_products.length}</span
+                        >
+                        <i class="fa shadow fa-eye toggle_new_order_${
+                            obj.id
+                        }"></i>
+                    </a>
+                </td>
+                <td class="col-2 px-0 text-center">
+                    <a
+                        class="btn btn-sm"
+                        style="outline: none"
+                        onclick="updateStatus('${obj.id}', 'created','${
+            obj.customerId
+        }')"
+                    >
+                        <i class="fa fa-2x shadow fa-check-circle text-success"></i>
+                    </a>
+                    <a
+                        class="btn btn-sm"
+                        style="outline: none"
+                        onclick="updateStatus('${obj.id}', 'cancelled', '${
+            obj.customerId
+        }')"
+                    >
+                        <i class="fa shadow fa-times-circle fa-2x text-danger"></i>
+                    </a>
+                </td>
+            </tr>
+
+        `;
+
+        for (const prod of obj.order_products) {
+            html += `
+            <tr class="d-none table_order_content_${obj.id}">
+                <td colspan="2" class="px-0 text-center">
+                    <img height="40" src="${prod.image}" />
+                </td>
+                <td colspan="3" class="px-0">
+                    <code
+                        style="
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 1;
+                            -webkit-box-orient: vertical;
+                        "
+                        class="float-left small"
+                        >${prod.name}
+                    </code>
+                </td>
+                <td class="col-1 px-0 text-center"><code>X ${
+                    prod.quantity
+                }</code></td>
+                <td class="col-1 px-0 text-center"><code>$ ${
+                    prod.price
+                }</code></td>
+                <td class="col-1 px-0 text-center">
+                    <code>${prod?.varient?.volume}</code>
+                </td>
+                <td class="px-0 text-center">
+                    <code>$ ${prod.quantity * prod.price}</code>
+                    <a
+                        class="btn btn-sm"
+                        href="/dashboard/inventory/product/${
+                            prod.varient.productId
+                        }"
+                        ><i class="fa fa-chevron-right" aria-hidden="true"></i
+                    ></a>
+                </td>
+            </tr>`;
+        }
+        if ($("#table-body").html().trim().length == 0) {
+            $("#no_result_found").remove();
+        }
+        $("#table-body").append(html);
+        $("#bell_sound")[0].pause();
+        $("#bell_sound")[0].play();
+        var s;
+        s = setInterval(() => {
+            const time = $("#time_left_" + obj.id).data("time-left");
+            if (time > 0) clearInterval(s);
+            $(`#time_left_${obj.id}`).html(
+                `${moment().diff(time, "minutes") * -1}m ${
+                    (moment().diff(time, "seconds") * -1) % 60
+                }s`,
+            );
+        }, 1000);
+    });
+
+    const toggleNewOrder = (e, id) => {
+        $(".table_order_content_" + id).toggleClass(
+            "d-none",
+            1000,
+            "easeInElastic",
+        );
+        $(e + " .toggle_new_order_" + id).toggleClass("fa-eye-slash");
+    };
+
+    const confirmStatus = (id, status, cid) => {
+        if (confirm("Are you sure to " + status + " ?")) {
+            updateStatus(id, status, cid);
+        }
+    };
+
+    const updateStatus = (id, status, cid) => {
+        $.ajax({
+            method: "post",
+            url: "/dashboard/order/tracking/update",
+            data: {
+                id,
+                status,
+                cid,
+            },
+            success: (data) => {
+                if (data.success) {
+                    $("#table_content_" + id).remove();
+                    $(".table_order_content_" + id).remove();
+                    if ($("#table-body").html().trim().length == 0) {
+                        $("#table-content").append(
+                            `<h1 id="no_result_found" class="text-center mt-5">No result found</h1>`,
+                        );
+                    }
+                } else {
+                    alert("update error due from database");
+                }
+            },
+        });
+    };
+</script>
+
+<script>
+    const remove_alert = (id) => {
+        $("#alert_icon_" + id).addClass("d-none");
+    };
+</script>

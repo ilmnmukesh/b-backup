@@ -1,0 +1,141 @@
+<div class="table-responsive">
+    <table class="table mb-0">
+        <thead>
+            <tr>
+                <th class="col-1 px-0 text-center">ID</th>
+                <th class="col-1 px-0 text-center">Name</th>
+                <th class="col-2 px-0 text-center">Address</th>
+                <th class="col-1 px-0 text-center">Location</th>
+                <th class="col-2 px-0 text-center">Date</th>
+                <th class="col-1 px-0 text-center">Time</th>
+                <th class="col-1 px-0 text-center">Amount</th>
+                <th class="col-1 px-0 text-center">Status</th>
+                <th class="col-1 px-0 text-center">Product</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            <% for(const obj of data){ %>
+            <tr style="font-size: small">
+                <td class="col-1 px-0 text-center text-bold-500">
+                    #<%= obj.id%>
+                </td>
+                <td class="col-1 px-0 text-center">
+                    <%= obj?.shipping_detail?.name %>
+                </td>
+                <td class="col-2 px-0 text-center">
+                    <%= obj.shipping_detail.address %>
+                </td>
+                <td class="col-1 px-0 text-center">
+                    <%= obj.shipping_detail.city
+                    +","+obj.shipping_detail.country +" "+
+                    obj?.shipping_detail?.postalCode %>
+                </td>
+                <td class="col-2 px-0 text-center">
+                    <%= moment(obj.createdAt) .format(`lll`) %>
+                </td>
+                <td class="col-1 px-0 text-center">
+                    <%= moment(obj.createdAt).startOf('min').fromNow() %>
+                </td>
+                <td class="col-1 px-0 text-center">$ <%= obj.totalAmount %></td>
+                <td
+                    class="col-1 px-0 text-center"
+                    style="font-weight: 500 !important"
+                    id="table_status_<%= obj.id%>"
+                >
+                    <% if(obj.status == "created"){%>
+                    <span class="shadow badge bg-success"
+                        >New
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </span>
+                    <%} else if(obj.status == "shipping"){%>
+                    <span class="shadow badge bg-info"
+                        >Shipping
+                        <i data-feather="git-pull-request"></i>
+                    </span>
+                    <%} else if(obj.status == "dispatch"){%>
+                    <span class="shadow badge bg-warning"
+                        >Dispatch
+                        <i data-feather="git-commit"></i>
+                    </span>
+                    <%} else if(obj.status == "delivered"){%>
+                    <span class="shadow badge bg-success">
+                        Delivered
+                        <i class="fa fa-check-double"></i>
+                    </span>
+                    <%} else if(obj.status == "cancelled"){%>
+                    <span class="shadow badge bg-danger"
+                        >Cancelled
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </span>
+                    <%} %>
+                </td>
+                <td class="col-1 px-0 text-center">
+                    <a
+                        class="btn btn-sm"
+                        onclick="toggleNewOrder(this,'<%= obj.id %>')"
+                    >
+                        <span class="mr-2"
+                            ><%= obj.order_products.length %></span
+                        >
+                        <i
+                            class="fa shadow fa-eye toggle_new_order_<%= obj.id %>"
+                        ></i>
+                    </a>
+                </td>
+            </tr>
+            <% for(const prod of obj.order_products){%>
+            <tr class="d-none table_order_content_<%= obj.id %>">
+                <td colspan="1" class="px-0 text-center">
+                    <img height="40" src="<%= prod.image %>" />
+                </td>
+                <td colspan="3" class="px-0">
+                    <code
+                        style="
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 1;
+                            -webkit-box-orient: vertical;
+                        "
+                        class="float-left small"
+                        ><%= prod.name%>
+                    </code>
+                </td>
+                <td class="col-1 px-0 text-center">
+                    <code>X <%= prod.quantity %></code>
+                </td>
+                <td class="col-1 px-0 text-center">
+                    <code>$ <%= prod.price %></code>
+                </td>
+                <td class="col-1 px-0 text-center">
+                    <code><%= prod?.varient?.volume %></code>
+                </td>
+                <td class="px-0 text-center">
+                    <code>$ <%= prod.quantity * prod.price %></code>
+                </td>
+                <td class="px-0 text-center">
+                    <a
+                        class="btn btn-sm"
+                        href="/dashboard/inventory/product/<%= prod.varient.productId %>"
+                        ><i class="fa fa-chevron-right" aria-hidden="true"></i
+                    ></a>
+                </td>
+            </tr>
+            <%} }%>
+        </tbody>
+    </table>
+    <h6 class="text-center mt-5" id="table-err"></h6>
+    <% if(data.length == 0) {%>
+    <h1 id="no_result_found" class="text-center mt-5 pb-4">No result found</h1>
+    <%}%>
+</div>
+<script>
+    const toggleNewOrder = (e, id) => {
+        $(".table_order_content_" + id).toggleClass(
+            "d-none",
+            1000,
+            "easeInElastic",
+        );
+        $(e + " .toggle_new_order_" + id).toggleClass("fa-eye-slash");
+    };
+</script>

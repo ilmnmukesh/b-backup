@@ -1,0 +1,27 @@
+<% data.forEach((x)=>{%>
+<div class="card offset-md-2 col-md-8 default-product-bg shadow-none">
+    <div class="card-content">
+        <div class="card-body row">
+            <div class="col-md-6">
+                <h4 class="card-title"><%= x.volume%></h4>
+                <code class="card-text ellipsis"> MRP: <%=x.mrp %> </code>
+            </div>
+            <div class="col-md-6">
+                <button
+                    onclick='addVolumeToPost(
+                        btoa("<%= x.id%>"), 
+                        btoa("<%= x.volume%>"),
+                        btoa("<%= x.mrp %>"),
+                        btoa("<%= x.multipler.id%>"),
+                        btoa("<%= x.multipler.value%>"),
+                        btoa("<%= x.productId %>"))'
+                    class="btn btn-sm round btn-outline-light border-0 float-right"
+                >
+                    <i class="fa fa-plus text-warning mb-1"></i>
+                    Add
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<% })%>

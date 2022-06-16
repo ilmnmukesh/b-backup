@@ -1,0 +1,314 @@
+<%- contentFor('body') %>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/dashboard/order/details">Order</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">View</li>
+    </ol>
+</nav>
+
+<div class="col-12 mt-3 container">
+    <div class="card">
+        <div class="card-header">
+            Order View
+            <h4 class="text-center">
+                Order #<%= obj.id %>
+                <div class="mt-2">
+                    <% if(obj.status == "created"){%>
+                    <span class="shadow badge bg-success"
+                        >New
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </span>
+                    <%} else if(obj.status == "shipping"){%>
+                    <span class="shadow badge bg-info"
+                        >Shipping
+                        <i data-feather="git-pull-request"></i>
+                    </span>
+                    <%} else if(obj.status == "dispatch"){%>
+                    <span class="shadow badge bg-warning"
+                        >Dispatch
+                        <i data-feather="git-commit"></i>
+                    </span>
+                    <%} else if(obj.status == "delivered"){%>
+                    <span class="shadow badge bg-success">
+                        Delivered
+                        <i class="fa fa-check-double"></i>
+                    </span>
+                    <%} else if(obj.status == "cancelled"){%>
+                    <span class="shadow badge bg-danger"
+                        >Cancelled
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </span>
+                    <%} %>
+                </div>
+            </h4>
+        </div>
+        <div class="card-content">
+            <div class="card-body">
+                <div class="container row">
+                    <div class="mb-4 mt-0 col-12">
+                        <div>
+                            <h3 class="text-light">Product details</h3>
+                        </div>
+
+                        <table class="col-12">
+                            <tbody>
+                                <% for(const prod of obj.order_products){%>
+                                <tr class="table_order_content_<%= obj.id %>">
+                                    <td colspan="2" class="px-0 text-center">
+                                        <img
+                                            height="40"
+                                            src="<%= prod.image %>"
+                                        />
+                                    </td>
+                                    <td colspan="3" class="px-0">
+                                        <code
+                                            style="
+                                                overflow: hidden;
+                                                text-overflow: ellipsis;
+                                                display: -webkit-box;
+                                                -webkit-line-clamp: 1;
+                                                -webkit-box-orient: vertical;
+                                            "
+                                            class="float-left small"
+                                            ><%= prod.name%>
+                                        </code>
+                                    </td>
+                                    <td class="col-1 px-0 text-center">
+                                        <code>X <%= prod.quantity %></code>
+                                    </td>
+                                    <td class="col-1 px-0 text-center">
+                                        <code>$ <%= prod.price %></code>
+                                    </td>
+                                    <td class="col-1 px-0 text-center">
+                                        <code
+                                            ><%= prod?.varient?.volume %></code
+                                        >
+                                    </td>
+                                    <td class="px-0 text-center">
+                                        <code
+                                            >$ <%= prod.quantity * prod.price
+                                            %></code
+                                        >
+                                    </td>
+                                    <td class="px-0 text-center">
+                                        <a
+                                            class="btn btn-sm"
+                                            href="/dashboard/inventory/product/<%= prod.varient.productId %>"
+                                            ><i
+                                                class="fa fa-chevron-right"
+                                                aria-hidden="true"
+                                            ></i
+                                        ></a>
+                                    </td>
+                                </tr>
+                                <%} %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            <h3 class="text-light">Payment Details</h3>
+                        </div>
+                        <div class="mt-3 row">
+                            <small class="col-6">Subtotal</small>
+                            <code class="col-6">$<%= obj.subTotal %></code>
+                        </div>
+
+                        <div class="row">
+                            <small class="col-6">Taxes</small>
+                            <code class="col-6">$<%= obj.taxes %></code>
+                        </div>
+
+                        <div class="row">
+                            <small class="col-6">Convenience fee</small>
+                            <code class="col-6"
+                                >$<%= obj.convenienceFee %></code
+                            >
+                        </div>
+
+                        <div class="row">
+                            <small class="col-6">Shippingcost</small>
+                            <code class="col-6"
+                                >$<%= parseFloat(obj.shippingCost) +
+                                parseFloat(obj.extra) %></code
+                            >
+                        </div>
+
+                        <div class="row">
+                            <small class="col-6">Tip to Driver</small>
+                            <code class="col-6">$<%= obj.tipForDriver %></code>
+                        </div>
+
+                        <hr class="p-0 my-2" />
+
+                        <div class="row">
+                            <small class="col-6">Total amount</small>
+                            <code class="col-6">$<%= obj.totalAmount %></code>
+                        </div>
+
+                        <div class="row mt-1">
+                            <small class="col-6">Transaction fee</small>
+                            <code class="col-6">- $<%= obj.txnFee %></code>
+                        </div>
+
+                        <div class="row">
+                            <small class="col-6">Convenience fee</small>
+                            <code class="col-6"
+                                >- $<%= obj.convenienceFee %></code
+                            >
+                        </div>
+
+                        <hr class="p-0 my-2" />
+
+                        <div class="row">
+                            <small class="col-6">Transfer amount</small>
+                            <code class="col-6"
+                                >$<%= (parseFloat(obj.totalAmount)-
+                                parseFloat(obj.convenienceFee) -
+                                parseFloat(obj.txnFee)).toFixed(2) %></code
+                            >
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <div>
+                            <h3 class="text-light">Shipping Address</h3>
+                        </div>
+                        <h5>
+                            <strong><%= obj?.shipping_detail.name %></strong>
+                        </h5>
+                        <small class="text-light">
+                            <%= obj?.shipping_detail.address %>, <%=
+                            obj?.shipping_detail.city %><br />
+                            <%= obj?.shipping_detail.state %>, <%=
+                            obj?.shipping_detail.country %><br />
+                            <%= obj?.shipping_detail.postalCode %>
+                        </small>
+                        <br />
+                        <small>
+                            <strong>Contact:</strong> <%=
+                            obj?.customer.mobileNumber %>
+                        </small>
+                        <hr />
+
+                        <% if(obj?.order_cancel!=null){%>
+                        <div class="mt-3">
+                            <div>
+                                <h6 class="text-light">Order Cancel</h6>
+                            </div>
+                            <div class="row">
+                                <small class="col-4 text-right">Reason</small
+                                ><br />
+                                <code class="col-8 text-left"
+                                    ><%= obj?.order_cancel?.reason %></code
+                                >
+                            </div>
+
+                            <div class="row">
+                                <small class="col-4 text-right"
+                                    >Refund amount</small
+                                ><br />
+                                <code class="col-8 text-left"
+                                    >$<%= obj?.order_cancel?.amount %></code
+                                >
+                            </div>
+                        </div>
+                        <%}else if(moment(obj.createdAt).add({minutes:30}) <
+                        moment() ){%>
+                        <div class="mt-3">
+                            <div>
+                                <h6 class="text-light">Transfer status</h6>
+                            </div>
+                            <% if(obj?.amountTransferred) {%>
+
+                            <div>
+                                <span class="shadow badge bg-success">
+                                    Succeeded
+                                    <i class="fa fa-check-double"></i>
+                                </span>
+                            </div>
+                            <%}else{%>
+                            <div id="retry_content">
+                                <span class="shadow badge bg-warning">
+                                    Failed
+                                    <i class="fa fa-times"></i>
+                                </span>
+                                <a
+                                    class="ml-3"
+                                    id="retry_btn"
+                                    onclick="retryTransfer()"
+                                >
+                                    <i
+                                        class="mdi mdi-reload-alert"
+                                        style="font-size: 30px"
+                                    ></i>
+                                </a>
+                            </div>
+
+                            <%}%>
+
+                            <div class="row mt-2">
+                                <small class="col-6 text-right"
+                                    >Transferred</small
+                                ><br />
+                                <code class="col-6 text-left"
+                                    >$<%= parseFloat(obj.totalAmount)-
+                                    parseFloat(obj.convenienceFee) -
+                                    parseFloat(obj.txnFee) %>
+                                </code>
+                            </div>
+                        </div>
+                        <%}else{%>
+                        <div>
+                            <h6>Waiting for processing...</h6>
+                        </div>
+                        <%}%>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const retryTransfer = () => {
+        $("#retry_btn").html(
+            `<span class="ml-2 spinner-border spinner-border-sm"></span>`,
+        );
+
+        $.ajax({
+            method: "post",
+            url: "/dashboard/order/details/<%= obj.id %>/retry/",
+            data: {},
+            success: (data) => {
+                if (data.success) {
+                    $("#retry_content").html(`  <div>
+                                <span class="shadow badge bg-success">
+                                    Succeeded
+                                    <i class="fa fa-check-double"></i>
+                                </span>
+                            </div>
+                          `);
+                } else {
+                    alert(data.msg);
+                    $("#retry_btn").html(` <i
+                                        class="mdi mdi-reload-alert"
+                                        style="font-size: 30px"
+                                    ></i>`);
+                }
+                // if (data.success) {
+                //     $("#table_content_" + id).remove();
+                //     $(".table_order_content_" + id).remove();
+                //     if ($("#table-body").html().trim().length == 0) {
+                //         $("#table-content").append(
+                //             `<h1 id="no_result_found" class="text-center mt-5">No result found</h1>`,
+                //         );
+                //     }
+                // } else {
+                //     alert("update error due from database");
+                // }
+            },
+        });
+    };
+</script>

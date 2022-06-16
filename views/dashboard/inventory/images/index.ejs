@@ -1,0 +1,302 @@
+<%- contentFor('body') %>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jimp/0.16.2-canary.1070.1265.0/jimp.js"
+    integrity="sha512-s6OcmxNWduMzGZbiuVW+CLo9rTfhdKXUiBDKd/Da8RH65plN98t1iOnrHr2/mpP+MasS40Lyjt2qv8+/eUe/4w=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+></script>
+<div class="text-center mr-4 col-12" id="import_png">
+    <input id="png" type="file" accept="image/*" class="d-none" multiple />
+    <label for="png"
+        ><a class="btn btn-sm btn-outline-danger shadow">
+            <i class="fa fa-upload" aria-hidden="true"></i>
+            Select Image</a
+        ></label
+    >
+</div>
+<div class="row" id="root"></div>
+
+<div
+    class="modal fade"
+    id="search_prod_modal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="search_prod_model_title"
+    aria-hidden="true"
+>
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="search_prod_model_title">
+                    Select Product
+                </h5>
+                <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                >
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-12 mb-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">
+                            <i data-feather="search"></i>
+                        </span>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Search Product name"
+                            id="search_prod_key"
+                        />
+                        <button
+                            class="btn btn-outline-danger"
+                            onclick="searchProduct()"
+                            type="button"
+                            id="search_prod_btn"
+                        >
+                            Search
+                        </button>
+                    </div>
+                </div>
+                <div id="append_product_list" class="col-12 row"></div>
+            </div>
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(() => {
+        const checkName = () => {};
+        const func = (img, i) => {
+            Jimp.read(img, function (err, image) {
+                if (err) reject(err);
+                else {
+                    $("#root").append(
+                        `
+                        <div class="row mt-3" id="content_${i}">
+                            <div class="col-md-6 text-center">
+                                <div class="d-none" id="bg_${i}">
+                                    <img style="background-color: #ffa012" id="none_${i}" />
+                                </div>
+                            </div> 
+                            <div class="col-md-6 text-center" id="display_content_${i}">  
+                            
+                                <div class="mb-3">
+                                    <div class="row">
+                                        <h6 class="col-8 text-left">Product name</h6>
+                                        <div class="col-4 mb-3">
+                                            <button
+                                                id="product_add_btn_${i}"
+                                                onclick="popup(${i})"
+                                                type="button"
+                                                class="btn btn-sm btn-outline-danger float-right shadow"
+                                            >
+                                                <i
+                                                    class="fa fa-plus justify-center"
+                                                    aria-hidden="true"
+                                                ></i>
+                                                Product add
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="input-group">
+                                        <input
+                                            autocomplete="off"
+                                            onkeypress="onChangeImageName(${i})"
+                                            type="text"
+                                            class="form-control col-12"
+                                            placeholder="Enter product name"
+                                            required
+                                            id="product_name_${i}"
+                                        />
+                                    </div>
+                                </div> 
+                                <div class="d-none init_data_${i} mt-5" id="init_data_id_${i}">
+                                </div>  
+                                <br/><br/>
+                                <div id="error_mention_${i}" class="d-none init_data_${i}">
+                                    <code>Your product image look like this in Application</code>
+                                </div>    
+                                <div id="loaded_url_${i}"></div>                         
+                            </div>
+                        </div>
+                        `,
+                    );
+                    image.scan(
+                        0,
+                        0,
+                        image.bitmap.width,
+                        image.bitmap.height,
+                        function (x, y, idx) {
+                            if (
+                                this.bitmap.data[idx] >= 225 &&
+                                this.bitmap.data[idx + 1] >= 225 &&
+                                this.bitmap.data[idx + 2] >= 225
+                            ) {
+                                this.bitmap.data[idx] = 255;
+                                this.bitmap.data[idx + 1] = 255;
+                                this.bitmap.data[idx + 2] = 255;
+                                this.bitmap.data[idx + 3] = 0;
+                            }
+                        },
+                    );
+                    image
+                        .resize(280, 320)
+                        .quality(100)
+                        .background(0x000000ff)
+                        .getBase64(Jimp.MIME_PNG, (err, src) => {
+                            if (err) reject(err);
+                            else {
+                                $("#none_" + i).attr("src", src);
+                            }
+                        });
+                    $("#bg_" + i).removeClass("d-none");
+                    $(".init_data_" + i).removeClass("d-none");
+                }
+            });
+        };
+        $("#png").on("change", () => {
+            var files = document.getElementById("png").files;
+            var reader = new FileReader();
+            $("#root").html("");
+
+            function readFile(index) {
+                if (index >= files.length) return;
+                var file = files[index];
+                reader.readAsArrayBuffer(file);
+                reader.onload = function (e) {
+                    func(reader.result, index);
+                    readFile(index + 1);
+                };
+            }
+            for (let i = 0; i < files.length; i++) {
+                readFile(i);
+            }
+            $("#bg").removeClass("d-none");
+        });
+    });
+    const removeLoadedImg = (i) => {
+        $("#content_" + i).remove();
+    };
+    const uploadImg = (i, pid = null) => {
+        $("#confirm_btn_" + i).attr("disabled", "disabled");
+        $("#product_name_" + i).attr("disabled", "disabled");
+        $("#product_add_btn_" + i).attr("disabled", "disabled");
+        $("#confirm_btn_" + i).append(
+            `<span class="ml-2 text-center spinner-border spinner-border-sm"></span>`,
+        );
+        $.ajax({
+            method: "POST",
+            url: "/dashboard/inventory/images/upload",
+            data: {
+                encodeImg: $("#none_" + i).attr("src"),
+                productId: pid,
+                name: $("#product_name_" + i).val(),
+            },
+            success: ({ err, data }) => {
+                $("#confirm_btn_" + i + " span").remove();
+                if (err) {
+                    $("#error_mention_" + i).html(
+                        "<code>Unable to upload...</code>",
+                    );
+                    $("#confirm_btn_" + i).removeAttr("disabled");
+                    $("#product_name_" + i).removeAttr("disabled");
+                    $("#product_add_btn_" + i).removeAttr("disabled");
+                    return;
+                }
+
+                $("#loaded_url_" + i).html(
+                    "<code>Image url:<br/>" + data.Location + "</code>",
+                );
+            },
+        });
+    };
+</script>
+
+<script>
+    const popup = (i) => {
+        $("#search_prod_modal").modal("toggle");
+        $("#search_prod_btn").data("id", i);
+        $("#search_prod_key").focus();
+    };
+    const searchProduct = () => {
+        const q = $("#search_prod_key").val();
+        $("#append_product_list").load(
+            "/dashboard/inventory/product/post/search?q=" + q,
+        );
+        $("#search_prod_key").focus();
+    };
+    const isUrlValid = (userInput) => {
+        var res = userInput.match(
+            /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g,
+        );
+        if (res == null) return false;
+        else return true;
+    };
+
+    const addProductToPost = (
+        pid,
+        name,
+        img,
+        desc,
+        cat,
+        brand,
+        toggle = true,
+    ) => {
+        pid = atob(pid);
+        name = atob(name);
+        img = atob(img);
+        let i = $("#search_prod_btn").data("id");
+        $("#product_name_" + i).val(name);
+        $("#product_name_" + i).focus();
+        $("#search_prod_modal").modal("toggle");
+
+        if (
+            isUrlValid(img) &&
+            img != "<%= process.env.HOST%>/images/loading.png"
+        ) {
+            $("#init_data_id_" + i).html(`
+                
+                    <code> Do you want change image url? </code>
+                    <br/><br/>
+                    <button id="confirm_btn_${i}" onclick="uploadImg(${i}, '${pid}')" class="mt-2 mr-2 btn btn-sm btn-outline-success shadow">
+                        Change
+                    </button>
+                    <button onclick="removeLoadedImg(${i})" class="mt-2 ml-2 btn btn-sm btn-outline-secondary shadow">
+                        No
+                    </button>
+            `);
+        } else {
+            $("#init_data_id_" + i).html(`
+                    <code> Do you want save this? </code>
+                    <br/><br/>
+                    <button id="confirm_btn_${i}" onclick="uploadImg(${i}, '${pid}')" class="mt-2 mr-2 btn btn-sm btn-outline-success shadow">
+                        Yes
+                    </button>
+                    <button onclick="removeLoadedImg(${i})" class="mt-2 ml-2 btn btn-sm btn-outline-secondary shadow">
+                        No
+                    </button>
+            `);
+        }
+        $("#bg_" + i).removeClass("d-none");
+        $(".init_data_" + i).removeClass("d-none");
+    };
+
+    const onChangeImageName = (i) => {
+        $("#init_data_id_" + i).html(`
+            <code> Do you want add this? </code>
+            <br/><br/>
+            <button id="confirm_btn_${i}" onclick="uploadImg(${i})" class="mt-2 mr-2 btn btn-sm btn-outline-success shadow">
+                Add new
+            </button>
+            <button onclick="removeLoadedImg(${i})" class="mt-2 ml-2 btn btn-sm btn-outline-secondary shadow">
+                No
+            </button>                      
+            `);
+    };
+</script>

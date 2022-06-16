@@ -1,0 +1,1028 @@
+<%- contentFor('body') %>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item default">
+            <a href="/partners/inventory/combo" class="default-text">Combo</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Add</li>
+    </ol>
+</nav>
+
+<style>
+    code {
+        color: var(--secondary-text-color) !important;
+    }
+    h6 {
+        color: var(--sidebar-color) !important;
+    }
+    #combo_name_1,
+    #combo_name_2,
+    #combo_desc_1,
+    #combo_desc_2 {
+        font-weight: 100;
+    }
+    small {
+        font-weight: 600;
+    }
+</style>
+<div class="container">
+    <div class="card default-product-bg shadow-none mt-1">
+        <div class="card-header default-product-bg row">
+            <h4 class="card-title col-4">Add Combo Product</h4>
+
+            <div class="text-center text-danger col-5">
+                <small id="err">
+                    <%= typeof err != "undefined"? err: "" %>
+                </small>
+            </div>
+            <div class="col-3">
+                <button
+                    type="submit"
+                    onclick="submit_form()"
+                    class="btn btn-sm round btn-outline-secondary float-right"
+                >
+                    <i class="fa fa-save"></i>
+                    Save
+                </button>
+            </div>
+        </div>
+        <div class="card-content">
+            <div class="card-body">
+                <form
+                    id="combo_form"
+                    autocomplete="off"
+                    method="post"
+                    class="form form-vertical row"
+                >
+                    <div class="col-md-7">
+                        <div class="row">
+                            <h5 class="col-md-6 mt-2">Select Product</h5>
+                            <div class="col-md-4" id="add_btn_prod">
+                                <button
+                                    id="add_product_details"
+                                    data-target="#search_prod_modal"
+                                    data-toggle="modal"
+                                    type="button"
+                                    class="btn btn-sm btn-outline-light round border-0"
+                                >
+                                    <i
+                                        class="fa fa-plus justify-center default-text"
+                                        aria-hidden="true"
+                                    ></i>
+                                    ADD
+                                </button>
+                            </div>
+                        </div>
+
+                        <div
+                            id="display_product"
+                            class="row default-product-bg"
+                        ></div>
+                        <div class="row mt-3">
+                            <h5 class="col-md-6 mt-2">Select Kitchen Item</h5>
+                            <div class="col-md-4" id="add_btn_prod_kit">
+                                <button
+                                    id="add_kit_product_details"
+                                    data-target="#search_kitchen_modal"
+                                    data-toggle="modal"
+                                    type="button"
+                                    class="btn btn-sm btn-outline-light round border-0"
+                                >
+                                    <i
+                                        class="fa fa-plus justify-center default-text"
+                                        aria-hidden="true"
+                                    ></i>
+                                    ADD
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="display_kitchen_product" class="row"></div>
+                    </div>
+                    <div class="col-md-5 my-auto">
+                        <div>
+                            <code id="combo_name"></code>
+                        </div>
+                        <div class="mt-4 mb-3">
+                            <code id="combo_desc"></code>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span
+                                class="input-group-text bg-grey default-product-bg"
+                            >
+                                <i
+                                    data-feather="link-2"
+                                    class="default-text"
+                                ></i>
+                            </span>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Combo Image"
+                                name="image"
+                                required
+                                id="combo_img"
+                            />
+                            <input
+                                id="image_upload"
+                                type="file"
+                                name="image_upload"
+                                accept="image/*"
+                                class="d-none"
+                            />
+                            <label for="image_upload">
+                                <a
+                                    class="input-group-text bg-grey default-product-bg"
+                                >
+                                    <i
+                                        class="mdi mt-2 mdi-tray-arrow-up default-text"
+                                    ></i
+                                ></a>
+                            </label>
+                        </div>
+
+                        <div class="input-group">
+                            <span
+                                class="input-group-text bg-grey default-product-bg"
+                            >
+                                <i
+                                    data-feather="dollar-sign"
+                                    class="default-text"
+                                ></i>
+                            </span>
+
+                            <input
+                                type="number"
+                                class="form-control"
+                                placeholder="Set Selling Price"
+                                name="selling_price"
+                                min="0.01"
+                                step="0.01"
+                                required
+                                id="selling_price"
+                                onchange="updateMRP(this)"
+                            />
+                        </div>
+                        <div class="mb-3" id="help_sp"></div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text default-product-bg">
+                                <i
+                                    data-feather="percent"
+                                    class="default-text"
+                                ></i>
+                            </span>
+
+                            <input
+                                onchange="updateMRP()"
+                                type="number"
+                                id="discount"
+                                class="form-control"
+                                placeholder="Set Discount"
+                                name="discount"
+                                min="0"
+                                step="0.01"
+                                required
+                                max="100"
+                            />
+                        </div>
+                        <div class="input-group mb-3">
+                            <span
+                                class="input-group-text bg-grey default-product-bg"
+                            >
+                                <i
+                                    data-feather="activity"
+                                    class="default-text"
+                                ></i>
+                            </span>
+
+                            <input
+                                readonly="readonly"
+                                type="number"
+                                class="form-control"
+                                placeholder="No. of Shots Each"
+                                name="shots"
+                                min="0"
+                                required
+                                id="combo_volume"
+                            />
+                        </div>
+                        <div class="input-group mb-3">
+                            <span
+                                class="input-group-text bg-grey default-product-bg"
+                            >
+                                <i
+                                    data-feather="dollar-sign"
+                                    class="default-text"
+                                ></i>
+                            </span>
+
+                            <input
+                                type="number"
+                                class="form-control"
+                                placeholder="Combo Market Retail Price (mrp)"
+                                name="mrp"
+                                min="0.01"
+                                step="0.01"
+                                required
+                                id="combo_mrp"
+                                onchange="updateDiscount(this)"
+                            />
+                        </div>
+                        <div class="text-center">
+                            <input
+                                type="submit"
+                                id="hidden_submit"
+                                class="btn btn-sm btn-success text-center d-none"
+                                value="Create"
+                            />
+                        </div>
+                    </div>
+                    <input
+                        required
+                        type="hidden"
+                        name="image_encrypt"
+                        id="image_hidden_field"
+                    />
+                    <input
+                        required
+                        type="hidden"
+                        name="name"
+                        id="product_hidden_field"
+                    />
+                    <input
+                        required
+                        type="hidden"
+                        name="description"
+                        id="prod_desc_hidden_field"
+                    />
+                    <input type="hidden" name="multiplerId" id="multipler_id" />
+                </form>
+            </div>
+            <% if(typeof details !="undefined"){%>
+            <div>
+                <div
+                    class="card offset-md-3 shadow-none text-center col-md-6 mt-3"
+                >
+                    <div class="card-content">
+                        <div class="float-left col-3">
+                            <img
+                                height="150"
+                                class="ml-4"
+                                src="<%= details?.image%>"
+                            />
+                        </div>
+
+                        <div class="card-body text-center float-right">
+                            <h4 class="card-title"><%= details?.name%></h4>
+                            <p class="card-text ellipsis">
+                                <code><%= details?.description%></code>
+                            </p>
+                            <h5 class="text-black-50">
+                                MRP: <%= details?.mrp %>
+                            </h5>
+                            <code>
+                                Volume: <%= details?.volume %><br />
+                                Price: <%= details?.selling_price %><br />
+                            </code>
+                            <h6 class="text-black-50">
+                                Discount: <%= details?.discount %> %
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%}%>
+        </div>
+    </div>
+</div>
+
+<div
+    class="modal fade"
+    id="search_prod_modal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="search_prod_model_title"
+    aria-hidden="true"
+>
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="search_prod_model_title">
+                    Select Product
+                </h5>
+                <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                >
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-12 mb-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text default-product-bg">
+                            <i data-feather="search" class="default-text"></i>
+                        </span>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Search Product name"
+                            id="search_prod_key"
+                        />
+                        <button
+                            class="btn btn-outline-warning"
+                            onclick="searchProduct()"
+                            type="button"
+                        >
+                            Search
+                        </button>
+                    </div>
+                </div>
+                <div id="append_product_list" class="col-12 row"></div>
+            </div>
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>
+
+<div
+    class="modal fade"
+    id="choose_varient_modal"
+    tabindex="-1"
+    role="dialog"
+    aria-hidden="true"
+>
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="search_prod_model_title">
+                    Select Volume
+                </h5>
+                <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                >
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="append_volume_list" class="col-12 row"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div
+    class="modal fade"
+    id="edit_modal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="Edit modal"
+    aria-hidden="true"
+>
+    <div
+        class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+        role="document"
+    >
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="edit_modal_title"></h5>
+                <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                >
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="edit_modal_box" class="input-group mb-3"></div>
+            </div>
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>
+
+<div
+    class="modal fade"
+    id="search_kitchen_modal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="search_prod_model_title"
+    aria-hidden="true"
+>
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="search_prod_model_title">
+                    Select Kitchen Item
+                </h5>
+                <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                >
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-12 mb-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text default-product-bg">
+                            <i data-feather="search" class="default-text"></i>
+                        </span>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Search Kitchen Item name"
+                            id="search_kit_prod_key"
+                        />
+                        <button
+                            class="btn btn-outline-warning"
+                            onclick="searchKitchenProduct()"
+                            type="button"
+                        >
+                            Search
+                        </button>
+                    </div>
+                </div>
+                <div id="append_kit_product_list" class="col-12 row"></div>
+            </div>
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var valid = {
+        productAdded: false,
+        volumeAdded: false,
+        kitchenItemAdded: false,
+    };
+    $(document).ready(() => {
+        $("#search_prod_key").keypress((e) => {
+            if (e.which == 13) {
+                searchProduct();
+            }
+        });
+        $("#search_kit_prod_key").keypress((e) => {
+            if (e.which == 13) {
+                searchKitchenProduct();
+            }
+        });
+        $("#image_upload").change((e) => {
+            $("#combo_img").val(
+                e.target.files && e.target.files.length
+                    ? e.target.files[0].name
+                    : "",
+            );
+        });
+        console.log("ASD");
+
+        if (`<%= ( varient != null)? 1: 0 %>` == "1") {
+            addProductToPost(
+                btoa("<%= varient?.product?.id%>"),
+                btoa("<%= varient?.product?.name%>"),
+                btoa("<%= varient?.product?.image %>"),
+                btoa("<%= varient?.product?.description %>"),
+                btoa("<%= varient?.product?.category?.name%>"),
+                btoa("<%= varient?.product?.brand?.name %>"),
+                false,
+            );
+            addVolumeToPost(
+                btoa("<%= varient?.id%>"),
+                btoa("<%= varient?.volume%>"),
+                btoa("<%= varient?.mrp %>"),
+                btoa("<%= varient?.multipler.id%>"),
+                btoa("<%= varient?.multipler.value%>"),
+                btoa("<%= varient?.productId %>"),
+                false,
+            );
+        }
+
+        if (`<%=(kitchenItem != null)? 1: 0 %>` == "1") {
+            addKicthenProductToPost(
+                btoa("<%=kitchenItem?.id %>"),
+                btoa("<%=kitchenItem?.name %>"),
+                btoa("<%=kitchenItem?.image %>"),
+                btoa("<%=kitchenItem?.description %>"),
+                btoa("<%=kitchenItem?.menu_type?.type %>"),
+                false,
+            );
+        }
+    });
+    const searchProduct = () => {
+        const q = $("#search_prod_key").val();
+        $("#append_product_list").html(`loading....`);
+        $("#append_product_list").load(
+            "/partners/inventory/product/search/?q=" + q,
+        );
+    };
+
+    const searchKitchenProduct = () => {
+        const q = $("#search_kit_prod_key").val();
+        $("#append_kit_product_list").html(`loading....`);
+        $("#append_kit_product_list").load(
+            "/partners/inventory/combo/kitchen/?q=" + q,
+        );
+    };
+
+    const loadProductVolume = (pid) => {
+        const q = parseInt(pid);
+        $("#append_volume_list").html(`loading....`);
+        $("#append_volume_list").load(
+            "/partners/inventory/product/volume/" + q,
+        );
+    };
+    const removeProduct = () => {
+        valid.volumeAdded = false;
+        valid.productAdded = false;
+        $("#display_product").html("");
+        $("#combo_desc").parent().html(`<code id="combo_desc"></code>`);
+        $("#combo_name").parent().html(` <code id="combo_name"></code>`);
+        $("#add_product_details")
+            .html(`<i class="fa fa-plus justify-center default-text"
+                                        aria-hidden="true"
+                                    ></i>
+                                    ADD`);
+    };
+    const addProductToPost = (
+        pid,
+        name,
+        img,
+        desc,
+        cat,
+        brand,
+        toggle = true,
+    ) => {
+        pid = atob(pid);
+        name = atob(name);
+        img = atob(img);
+        desc = atob(desc);
+        cat = atob(cat);
+        brand = atob(brand);
+
+        $("#varient_hidden_field").val(null);
+        if (toggle) $("#search_prod_modal").modal("toggle");
+
+        $("#display_product").html(`
+            <div class="card shadow-none col-8 mt-3 default-product-bg">
+                <div class="card-content">
+                    <div class="float-left col-3">
+                        <img
+                            height="150"
+                            class="mr-2"
+                            src="${img}"
+                        />
+                    </div>
+                
+                    <div class="card-body">
+                        <h5
+                            class="card-title"
+                            style="
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                display: -webkit-box;
+                                -webkit-line-clamp: 1;
+                                -webkit-box-orient: vertical;
+                            "
+                        >
+                            ${name}
+                        </h5>
+                        <p
+                            class="card-text ellipsis"
+                            style="
+                                color: #434e5b;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                display: -webkit-box;
+                                -webkit-line-clamp: 2;
+                                min-height: 44px;
+                                -webkit-box-orient: vertical;
+                            "
+                        >
+                            <code style="color: #434e5b !important"
+                                >${desc}</code
+                            >
+                        </p>
+                        <small class="text-muted">
+                            <span
+                                title="Click this to filter this brand"
+                                class="badge border-primary border text-primary"
+                            >
+                                ${brand}
+                            </span>
+                        </small>
+
+                        <button
+                            onclick="removeProduct()"
+                            type="button"
+                            class="btn btn-sm round btn-grey border-0 float-right"
+                        >
+                            <i class="fa fa-trash text-light"></i>
+                            Remove
+                        </button>
+                    </div>
+                </div>
+            </div>      
+            <div class="col-4 mt-3">
+                <button
+                    onclick="loadProductVolume('${pid}')"
+                    data-toggle="modal"
+                    data-target="#choose_varient_modal"
+                    type="button"
+                    
+                    class="btn btn-sm round btn-outline-light border-0 float-right"
+                >
+                    <i id="volume_icon" class="mdi mdi-vector-selection text-warning"></i>
+                    Volume
+                </button>
+                <div id="volume_select_one" class="pt-5">
+
+                </div>
+            </div>  
+        `);
+
+        $("#add_product_details").html(`<i
+                                        class="fa fa-edit justify-center text-light"
+                                        aria-hidden="true"
+                                    ></i>
+                                    CHANGE`);
+
+        $("#add_product_details").addClass("btn-grey");
+        $("#add_product_details").removeClass("btn-outline-light");
+        valid.productAdded = true;
+
+        if ($("#combo_name").children().length <= 1) {
+            if ($("#combo_name").html() == "")
+                $("#combo_name").parent().prepend(`<h5>Combo name
+                    <button type="button" class="btn float-right btn-sm btn-outline-warning border-0" onclick="editName()">
+                                <i class="fa fa-edit"></i>
+                                Edit
+                            </button></h5>`);
+            $("#combo_name").html(`<code id="combo_name_2">${name}</code>`);
+            $("#product_hidden_field").val(`${name}`);
+        } else {
+            let prod = $("#combo_name_1").html();
+            $("#combo_name").html(
+                `<code id="combo_name_1">${prod}</code> with <code id="combo_name_2">${name}</code>`,
+            );
+            $("#product_hidden_field").val(`${prod} with ${name}`);
+        }
+        if ($("#combo_desc").children().length == 0) {
+            if ($("#combo_desc").html() == "")
+                $("#combo_desc").parent().prepend(`<h5>Description name
+                    <button type="button" class="btn float-right btn-sm btn-outline-warning border-0" onclick="editDesc()">
+                                <i class="fa fa-edit"></i>
+                                Edit
+                            </button></h5>`);
+            $("#combo_desc").html(`<code id="combo_desc_2">${desc}</code>`);
+            $("#prod_desc_hidden_field").val(`${desc}`);
+        } else {
+            let prod = $("#combo_desc_1").html();
+            $("#combo_desc").html(
+                `<code id="combo_desc_1">${prod}</code> with <code id="combo_desc_2">${desc}</code>`,
+            );
+            $("#prod_desc_hidden_field").val(`${prod} with ${desc}`);
+        }
+    };
+    const updateMRP = () => {
+        let s = $("#selling_price").val();
+        let d = $("#discount").val();
+        if (d != null && d != "" && s != null && s != "") {
+            $("#combo_mrp").val((s / (1 - d / 100)).toFixed(2));
+        } else if (s != null && s != "") {
+            $("#combo_mrp").val(s);
+        }
+    };
+    const updateDiscount = (e) => {
+        let o = $(e).val();
+        let s = $("#selling_price").val();
+        if (s) {
+            s = parseFloat(s);
+            $("#discount").val((((o - s) / o) * 100).toFixed());
+        } else {
+            $("#discount").val(0);
+        }
+    };
+
+    const updateSellingPrice = (e) => {
+        let s = $(e).val();
+        let f = $("#selling_price").val();
+
+        $("#selling_price").data("max", s);
+
+        if (f > s) {
+            $("#selling_price").val(0).change();
+        } else {
+            $("#selling_price").val(f).change();
+        }
+    };
+
+    const editName = () => {
+        $("#edit_modal_title").html(
+            `<i class="fa fa-edit fa-3x text-danger"></i> Edit name`,
+        );
+        $("#edit_modal_box").html(
+            `   <input
+                        type="url"
+                        class="form-control"
+                        placeholder="name"
+                        value = "${$("#product_hidden_field").val()}"
+                        required
+                        id="edit_modal_input"
+                    />
+                    <a class="btn btn-sm" onclick="updateName()">
+                        <span class="input-group-text bg-success">
+                            <i
+                                class="fa fa-check text-white"
+                                aria-hidden="true"
+                            ></i>
+                        </span>
+                    </a>
+                    `,
+        );
+        $("#edit_modal_input").on("keypress", (e) => {
+            if (e.keyCode == 13) {
+                updateName();
+            }
+        });
+        $("#edit_modal").modal("show");
+    };
+    const editDesc = () => {
+        $("#edit_modal_title").html(
+            `<i class="fa fa-edit fa-3x text-grey"></i> Edit description`,
+        );
+
+        $("#edit_modal_box").html(
+            `   
+                    <textarea rows="5"
+                        class="form-control" 
+                        id="edit_modal_input" required>${$(
+                            "#prod_desc_hidden_field",
+                        ).val()}</textarea>
+                    <a class="btn btn-sm" onclick="updateDesc()">
+                        <span class="input-group-text bg-success">
+                            <i
+                                class="fa fa-check text-white"
+                                aria-hidden="true"
+                            ></i>
+                        </span>
+                    </a>
+                    `,
+        );
+        $("#edit_modal_input").on("keypress", (e) => {
+            if (e.keyCode == 13 && !e.shiftKey) {
+                updateDesc();
+            }
+        });
+        $("#edit_modal").modal("show");
+    };
+    const updateDesc = () => {
+        let a = $("#edit_modal_input").val();
+        $("#combo_desc").html(a);
+        $("#prod_desc_hidden_field").val(a);
+        $("#edit_modal").modal("hide");
+    };
+    const updateName = () => {
+        let a = $("#edit_modal_input").val();
+        $("#combo_name").html(a);
+        $("#product_hidden_field").val(a);
+        $("#edit_modal").modal("hide");
+    };
+</script>
+
+<script>
+    const addVolumeToPost = (
+        id,
+        volume,
+        mrp,
+        mid,
+        mvalue,
+        pid,
+        toggle = true,
+    ) => {
+        id = atob(id);
+        volume = atob(volume);
+        mrp = atob(mrp);
+        pid = atob(pid);
+        mvalue = atob(mvalue);
+        mid = atob(mid);
+        // $("#varient_hidden_field").val(null);
+        if (toggle) $("#choose_varient_modal").modal("toggle");
+        $("#volume_select_one").html(`
+        <div class="card col-12 default-product-bg shadow-none">
+            <div class="card-content">
+                <div class="card-body row">
+                    <div class="col-md-12">
+                        <h4 class="card-title">${volume}</h4>
+                        <code class="card-text ellipsis"> MRP: ${mrp}</code>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        `);
+        $("#volume_icon").addClass("text-light");
+
+        $("#volume_select_one").addClass("btn-grey");
+        $("#volume_select_one").removeClass("btn-outline-light");
+        valid.volumeAdded = true;
+        $("#multipler_id").val(mid);
+        $("#combo_volume").val(mvalue);
+    };
+
+    const addKicthenProductToPost = (
+        mid,
+        name,
+        img,
+        desc,
+        menuType,
+        toggle = true,
+    ) => {
+        mid = atob(mid);
+        name = atob(name);
+        img = atob(img);
+        desc = atob(desc);
+        menuType = atob(menuType);
+
+        $("#display_kitchen_product").html(`
+        <div class="card shadow-none default-product-bg">
+            <div class="card-content">
+                <div class="float-left col-5">
+                    <img
+                        width="100"
+                        class="ml-4 mt-4"
+                        src="${img}"
+                        alt="Card image cap"
+                    />
+                </div>
+
+                <div class="card-body">
+                    <h5
+                        class="card-title"
+                        style="
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 1;
+                            -webkit-box-orient: vertical;
+                        "
+                    >
+                        ${name}
+                    </h5>
+                    <p
+                        class="card-text ellipsis"
+                        style="
+                            color: #434e5b;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 2;
+                            min-height: 44px;
+                            -webkit-box-orient: vertical;
+                        "
+                    >
+                        <code style="color: #434e5b !important"
+                            >${desc}</code
+                        >
+                    </p>
+                    <small class="text-muted float-left ml-3 pb-4">
+                        <span class="badge border-primary border text-primary">
+                            ${menuType}
+                        </span>
+                    </small>
+
+                </div>
+            </div>
+        </div>
+        `);
+
+        $("#add_kit_product_details").html(`<i
+                                        class="fa fa-edit justify-center text-light"
+                                        aria-hidden="true"
+                                    ></i>
+                                    CHANGE`);
+        $("#add_kit_product_details").addClass("btn-grey");
+        $("#add_kit_product_details").removeClass("btn-outline-light");
+
+        if (toggle) $("#search_kitchen_modal").modal("toggle");
+        if ($("#combo_name").children().length == 0) {
+            if ($("#combo_name").html() == "")
+                $("#combo_name").parent().prepend(`<h5>Combo name
+                    <button type="button" class="btn float-right btn-sm btn-outline-warning border-0" onclick="editName()">
+                                <i class="fa fa-edit"></i>
+                                Edit
+                            </button></h5>`);
+            $("#combo_name").html(`<code id="combo_name_1">${name}</code>`);
+            $("#product_hidden_field").val(name);
+        } else {
+            let prod = $("#combo_name_2").html();
+            $("#combo_name").html(
+                `<code id="combo_name_1">${name}</code> with <code id="combo_name_2">${prod}</code>`,
+            );
+            $("#product_hidden_field").val(name + " with " + prod);
+        }
+
+        if ($("#combo_desc").children().length == 0) {
+            if ($("#combo_desc").html() == "")
+                $("#combo_desc").parent().prepend(`<h5>Description name
+                    <button type="button" class="btn float-right btn-sm btn-outline-warning border-0" onclick="editDesc()">
+                                <i class="fa fa-edit"></i>
+                                Edit
+                            </button></h5>`);
+            $("#combo_desc").html(`<code id="combo_desc_1">${desc}</code>`);
+            $("#prod_desc_hidden_field").val(desc);
+        } else {
+            let prod = $("#combo_desc_2").html();
+            $("#combo_desc").html(
+                `<code id="combo_desc_1">${desc}</code> with <code id="combo_desc_2">${prod}</code>`,
+            );
+            $("#prod_desc_hidden_field").val(desc + " with " + prod);
+        }
+        valid.kitchenItemAdded = true;
+    };
+</script>
+
+<script>
+    const submit_form = () => {
+        $("#hidden_submit").click();
+    };
+    $("#combo_form").submit((e) => {
+        $("#err").html("");
+        const fn = (name) => {
+            return name == "" || name == null;
+        };
+
+        function isUrlValid(userInput) {
+            var res = userInput.match(
+                /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g,
+            );
+            if (res == null) return false;
+            else return true;
+        }
+
+        if (!valid.productAdded) {
+            $("#err").html("Should select product using add button!");
+            return false;
+        }
+
+        if (!valid.volumeAdded) {
+            $("#err").html("Should select volume using volume!");
+            return false;
+        }
+        if (!valid.kitchenItemAdded) {
+            $("#err").html("Should select kitchen item using add button!");
+            return false;
+        }
+        const prod = $("#product_hidden_field").val();
+        if (fn(prod)) {
+            $("#err").html("Product name does not exist");
+            return false;
+        }
+        const desc = $("#prod_desc_hidden_field").val();
+        if (fn(desc)) {
+            $("#err").html("Product name does not exist");
+            return false;
+        }
+        if (
+            $("#image_upload").get(0).files.length == 0 &&
+            !isUrlValid($("#combo_img").val())
+        ) {
+            $("#err").html("Enter valid image url");
+            return false;
+        }
+        return confirm("Are you sure to create combo?");
+    });
+
+    $("#image_upload").change(async (e) => {
+        function getBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = (error) => reject(error);
+            });
+        }
+        let file = $("#image_upload").get(0).files[0];
+        getBase64(file)
+            .then((data) => {
+                $("#image_hidden_field").val(data);
+            })
+            .catch((e) => {
+                console.log(e);
+                $("#err").html("Image conversion failed...");
+            });
+    });
+</script>

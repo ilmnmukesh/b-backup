@@ -1,0 +1,16 @@
+[
+    {
+        "name": "superuser",
+        "email": "su@boozeo.co",
+        "password": "1",
+        "role": "superuser",
+        "partnerId": 1
+    },
+    {
+        "name": "admin",
+        "email": "ad@boozeo.co",
+        "password": "1",
+        "role": "restricted",
+        "partnerId": 1
+    }
+]

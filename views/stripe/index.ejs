@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Verify your identity</title>
+        <script src="https://js.stripe.com/v3/"></script>
+    </head>
+    <body>
+        <button id="verify-button">Verify</button>
+
+        <script type="text/javascript">
+            // Set your publishable key: remember to change this to your live publishable key in production
+            // See your keys here: https://dashboard.stripe.com/apikeys
+            var stripe = Stripe(
+                "pk_test_51JXRGZSDKA2THXpAiL2Wy5Gv1jkBoleEglMCvasffxgsrtHpKwCrVXuuofDOx7wjmDMPlV3cOUk3HxDsT0jwsWYL00bQhnAYPn",
+            );
+
+            var verifyButton = document.getElementById("verify-button");
+
+            verifyButton.addEventListener("click", function () {
+                // Get the VerificationSession client secret using the server-side
+                // endpoint you created in step 3.
+                fetch("./session", {
+                    method: "POST",
+                })
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(function (session) {
+                        // Show the verification modal.
+                        console.log(session);
+                        return stripe.verifyIdentity(session.client_secret);
+                    })
+                    .then(function (result) {
+                        // If `verifyIdentity` fails, you should display the localized
+                        // error message to your user using `error.message`.
+                        if (result.error) {
+                            window.location.href = "submitted.html";
+                        }
+                    })
+                    .catch(function (error) {
+                        console.error("Error:", error);
+                    });
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,143 @@
+<div class="col-12">
+    <div class="card" style="min-height: 540px">
+        <div class="card-header pb-0">
+            <div class="row">
+                <div class="col-md-8">
+                    <h3 class="font-weight-bold">Profile</h3>
+                    <h5 class="small">Boozeo sellers</h5>
+                </div>
+                <div class="col-md-4">
+                    <a
+                        href="/dashboard/profile/edit"
+                        class="btn btn-sm round btn-outline-secondary shadow float-right mr-5"
+                    >
+                        <i class="fa fa-edit" aria-hidden="true"></i>
+                        Edit
+                    </a>
+                    <a
+                        href="/dashboard/profile/details/location"
+                        class="btn btn-sm round btn-outline-warning shadow float-right mr-5 ch_loc"
+                    >
+                        <i
+                            class="mdi mdi-map-marker-radius-outline mt-1 text-warning"
+                            aria-hidden="true"
+                        ></i>
+                        <style>
+                            .ch_loc:hover,
+                            .ch_loc:hover .mdi-map-marker-radius-outline {
+                                color: black !important;
+                            }
+                        </style>
+                        Change location
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="card-content pt-0">
+            <div class="card-body pt-0" id="table-content">
+                <div class="card-body">
+                    <div
+                        class="container row"
+                        style="font-family: var(--bs-font-monospace)"
+                    >
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="mb-3 col-md-8">
+                                    <h6>Name</h6>
+                                    <code><%= obj.name %></code>
+                                </div>
+
+                                <div class="col-md-4 mb-3">
+                                    <h6>Rating</h6>
+                                    <code
+                                        ><i
+                                            style="
+                                                color: hsla(0, 50%, 50%, 0.5);
+                                            "
+                                            class="fa fa-star"
+                                            aria-hidden="true"
+                                        ></i>
+                                        <%= obj.rating %>
+                                    </code>
+                                </div>
+                                <div class="mb-3 col-md-8">
+                                    <h6>Seller name</h6>
+                                    <code><%= obj.sellerName %></code>
+                                </div>
+                                <div class="mb-3 col-md-4">
+                                    <h6>Boozeo</h6>
+                                    <code>
+                                        <% if(obj.isPreferred){%><span
+                                            class="text-success mdi mdi-shield-check"
+                                        ></span>
+                                        Preferred<%}else{%><span
+                                            class="text-danger mdi mdi-shield-alert"
+                                        ></span>
+                                        Not preferred<%}%>
+                                    </code>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <h6>About</h6>
+                                <code><%= obj.about %></code>
+                            </div>
+                            <div class="mb-3">
+                                <h6>Image</h6>
+                                <code><%= obj.image %></code>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <img
+                                width="300"
+                                class="shadow"
+                                src="<%= obj.image %>"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="container row">
+                        <div class="col-md-3 mb-3">
+                            <h6>Contact Person number</h6>
+                            <code><%= obj.mobileNumber %></code>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <h6>Contact number</h6>
+                            <code><%= obj.telephoneNumber %></code>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <h6>Opening Time</h6>
+                            <code
+                                ><%=
+                                moment().set({hours:obj.openTime.split(":")[0],minutes:obj.openTime.split(":")[1]}).format("LT")
+                                %></code
+                            >
+                        </div>
+
+                        <div class="col-md-3 mb-3">
+                            <h6>Closing Time</h6>
+                            <code
+                                ><%=
+                                moment().set({hours:obj.closeTime.split(":")[0],minutes:obj.closeTime.split(":")[1]}).format("LT")
+                                %></code
+                            >
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <h6>Location</h6>
+                            <code><%= obj.location%></code>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <h6>Latitude</h6>
+                            <code><%= obj.latitude %></code>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <h6>Longitude</h6>
+                            <code><%= obj.longitude %></code>
+                        </div>
+                    </div>
+                    <div class="container row mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

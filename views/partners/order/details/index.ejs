@@ -1,0 +1,302 @@
+<%- contentFor('body') %>
+<style>
+    code {
+        color: var(--secondary-text-color) !important;
+    }
+
+    th {
+        font-weight: 500;
+        color: black !important;
+    }
+    td {
+        font-weight: 400;
+        color: black !important;
+    }
+    .bga {
+        --bs-table-accent-bg: var(--sidebar-seller-bg) !important;
+    }
+    .bgb {
+        --bs-table-accent-bg: white !important;
+    }
+</style>
+
+<div class="col-12">
+    <div class="card shadow-none" style="min-height: 540px">
+        <div class="card-header pb-0">
+            <h3 class="font-weight-bold">Order</h3>
+            <h5 class="small">
+                <%= typeof count == "undefined"?0 : count%> order found
+            </h5>
+            <style>
+                #order_navbar > li > .nav-link {
+                    color: grey;
+                    opacity: 0.7;
+                    -webkit-touch-callout: none; /* iOS Safari */
+                    -webkit-user-select: none; /* Safari */
+                    -khtml-user-select: none; /* Konqueror HTML */
+                    -moz-user-select: none; /* Old versions of Firefox */
+                    -ms-user-select: none; /* Internet Explorer/Edge */
+                    user-select: none;
+                    padding-bottom: 5px;
+                }
+                #order_navbar > .active > .nav-link {
+                    color: var(--sidebar-color);
+                    opacity: 1;
+                    font-weight: 600 !important;
+                    border-bottom: 2px solid var(--sidebar-color);
+                }
+                .dropdown-item:hover {
+                    -webkit-touch-callout: none; /* iOS Safari */
+                    -webkit-user-select: none; /* Safari */
+                    -khtml-user-select: none; /* Konqueror HTML */
+                    -moz-user-select: none; /* Old versions of Firefox */
+                    -ms-user-select: none; /* Internet Explorer/Edge */
+                    user-select: none;
+                    background-color: #00000033 !important;
+                }
+            </style>
+            <div>
+                <nav class="navbar navbar-expand">
+                    <div
+                        class="collapse navbar-collapse grey"
+                        id="collapsibleNavId"
+                    >
+                        <ul
+                            id="order_navbar"
+                            class="navbar-nav mr-auto mt-2 mt-lg-0 d-none"
+                        >
+                            <li class="nav-item active" id="nav_all">
+                                <a class="nav-link" onclick="changeType()"
+                                    >All Order
+                                </a>
+                            </li>
+                            <li class="nav-item" id="nav_created">
+                                <a
+                                    class="nav-link"
+                                    onclick="changeType('created')"
+                                    >New
+                                </a>
+                            </li>
+                            <li class="nav-item" id="nav_shipping">
+                                <a
+                                    class="nav-link"
+                                    onclick="changeType('shipping')"
+                                    >Shipping</a
+                                >
+                            </li>
+                            <li class="nav-item" id="nav_dispatch">
+                                <a
+                                    class="nav-link"
+                                    onclick="changeType('dispatch')"
+                                    >Dispatch</a
+                                >
+                            </li>
+                            <li class="nav-item" id="nav_delivered">
+                                <a
+                                    class="nav-link"
+                                    onclick="changeType('delivered')"
+                                    >Delivered</a
+                                >
+                            </li>
+                            <li class="nav-item" id="nav_cancelled">
+                                <a
+                                    class="nav-link"
+                                    onclick="changeType('cancelled')"
+                                    >Cancel</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="card-content pt-0">
+            <div class="card-body pt-0" id="table-content">
+                <%- include("./table") %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var wait = false;
+    $("#order_navbar li a").on("click", (e) => {
+        $(e.target).parent().siblings().removeClass("active");
+        $(e.target).parent().addClass("active");
+    });
+    const changeStatus = (id, status, cid) => {
+        $("#table_status_" + id + " span i").remove();
+        $("#table_status_" + id + " span").addClass("bg-grey text-dark");
+        $("#table_status_" + id + " span").append(
+            `<span class="ml-2 spinner-border spinner-border-sm"></span>`,
+        );
+        $.ajax({
+            method: "post",
+            url: "/partners/order/details/change",
+            data: {
+                cid,
+                update: status,
+                status: getUrlVars()["t"],
+                id,
+            },
+            success: (data) => {
+                $("#table-content").html(data);
+                // if (data.success) {
+                //     let d = "";
+                //     if (status == "created") {
+                //         d = "<span class='shadow badge bg-success'>New</span>";
+                //     } else if (status == "shipping") {
+                //         d =
+                //             "<span class='shadow badge bg-info'>Shipping</span>";
+                //     } else if (status == "dispatch") {
+                //         d =
+                //             "<span class='shadow badge bg-warning'>Dispatch</span>";
+                //     } else if (status == "delivered") {
+                //         d =
+                //             "<span class='shadow badge bg-success'>Delivered</span>";
+                //     } else if (status == "cancelled") {
+                //         d =
+                //             "<span class='shadow badge bg-danger'>Cancelled</span>";
+                //     }
+                //     $("#table_status_" + id).html(d);
+                // } else {
+                //     $("#table_status_" + id + " span").removeClass(
+                //         "bg-grey text-dark",
+                //     );
+                //     $("#table_status_" + id + " span span").remove();
+                //     $("#table_status_" + id + " span").append(
+                //         `<i class="fa fa-exclamation ml-2" aria-hidden="true"></i>`,
+                //     );
+                //     // feather.replace();
+                // }
+            },
+        });
+    };
+
+    function getUrlVars() {
+        var vars = [],
+            hash;
+        var hashes = window.location.href
+            .slice(window.location.href.indexOf("?") + 1)
+            .split("&");
+        for (var i = 0; i < hashes.length; i++) {
+            hash = hashes[i].split("=");
+            vars.push(hash[0]);
+            vars[hash[0]] = hash[1];
+        }
+        return vars;
+    }
+
+    const changeOrder = (date, amount) => {
+        if (wait) return;
+        let amt = getUrlVars()["amount"];
+        let dt = getUrlVars()["date"];
+        let t = getUrlVars()["t"];
+
+        if (date) {
+            amount = amt == null ? 1 : amt;
+            date = dt == null || dt == "-1" ? 1 : -1;
+            $("#table_head_date i").remove();
+            $("#table_head_date").append(
+                `<span class="ml-2 text-center spinner-border spinner-border-sm"></span>`,
+            );
+        } else {
+            amount = amt == null || amt == "1" ? -1 : 1;
+            date = dt == null ? 1 : dt;
+            $("#table_head_amount i").remove();
+            $("#table_head_amount").append(
+                `<span class="ml-2 text-center spinner-border spinner-border-sm"></span>`,
+            );
+        }
+
+        wait = true;
+        if (t == null || t == "") {
+            $("#table-content").load(
+                `/partners/order/details/change?date=${date}&amount=${amount}`,
+            );
+            window.history.replaceState(
+                {},
+                {},
+                window.location.href.split("?")[0] +
+                    `?date=${date}&amount=${amount}`,
+            );
+        } else {
+            $("#table-content").load(
+                `/partners/order/details/change?t=${t}&date=${date}&amount=${amount}`,
+            );
+            window.history.replaceState(
+                {},
+                {},
+                window.location.href.split("?")[0] +
+                    `?t=${t}&date=${date}&amount=${amount}`,
+            );
+        }
+    };
+
+    const changeType = (type) => {
+        if (getUrlVars()["t"] == type) return;
+        $("#table-body, #no_result_found").html("");
+        $("#table-err").html(
+            `<span class="ml-2 text-center spinner-border spinner-border-md mt-5"></span>`,
+        );
+        if (type == null || type == "") {
+            $("#table-content").load(`/partners/order/details/change`);
+            window.history.pushState(
+                {},
+                {},
+                window.location.href.split("?")[0],
+            );
+        } else {
+            $("#table-content").load(
+                `/partners/order/details/change?t=${type}`,
+            );
+            window.history.pushState(
+                {},
+                {},
+                window.location.href.split("?")[0] + `?t=${type}`,
+            );
+        }
+    };
+
+    const changeArrow = () => {
+        const asc = `<i class="fa fa-chevron-down" aria-hidden="true"></i>`;
+        const desc = `<i class="fa fa-chevron-up" aria-hidden="true"></i>`;
+        $("#table_head_date").append(
+            getUrlVars()["date"] == "-1" || getUrlVars()["date"] == null
+                ? desc
+                : asc,
+        );
+        $("#table_head_amount").append(
+            getUrlVars()["amount"] == "1" || getUrlVars()["amount"] == null
+                ? asc
+                : desc,
+        );
+    };
+
+    const changerNavHeader = () => {
+        let t = getUrlVars()["t"];
+        const check = [
+            "created",
+            "dispatch",
+            "delivered",
+            "shipping",
+            "cancelled",
+        ];
+        t = check.includes(t) || t != null ? t : "all";
+        $("#nav_" + t)
+            .siblings()
+            .removeClass("active");
+        $("#nav_" + t).addClass("active");
+        $("#order_navbar").removeClass("d-none");
+        wait = false;
+    };
+
+    const toggleNewOrder = (e, id) => {
+        $(".table_order_content_" + id).toggleClass(
+            "d-none",
+            1000,
+            "easeInElastic",
+        );
+        $(e + " .toggle_new_order_" + id).toggleClass("fa-eye-slash");
+    };
+</script>

@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        <title>AdminPanel</title>
+        <style data-styled="true" data-styled-version="5.3.1">
+            .hYmRVo {
+                font-size: 14px;
+                background-color: transparent;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                outline: 0;
+                display: inline-block;
+                font-family: "Roboto", sans-serif;
+                line-height: 24px;
+                vertical-align: middle;
+                border: 1px solid #4268f6;
+                color: #4268f6;
+                -webkit-text-decoration: none;
+                text-decoration: none;
+                padding: 4px 32px;
+                box-sizing: border-box;
+                background-color: #4268f6;
+                color: #fff;
+                border-color: transparent;
+            } /*!sc*/
+            .hYmRVo > .admin-bro_Icon {
+                vertical-align: middle;
+            } /*!sc*/
+            .hYmRVo > .admin-bro_Icon svg {
+                margin: 0 8px 0 0;
+            } /*!sc*/
+            .hYmRVo .admin-bro_Icon svg {
+                fill: #4268f6;
+            } /*!sc*/
+            .hYmRVo:hover {
+                color: #fff;
+                background: #535b8e;
+                border-color: #535b8e;
+            } /*!sc*/
+            .hYmRVo:hover .admin-bro_Icon svg {
+                fill: #fff;
+            } /*!sc*/
+            .hYmRVo:focus {
+                border-color: #38caf1;
+                box-shadow: 0 1px 4px 0 rgba(56, 202, 241, 0.58);
+            } /*!sc*/
+            .hYmRVo:disabled {
+                color: #898a9a;
+                border-color: #454655;
+                background: #fff;
+                cursor: default;
+            } /*!sc*/
+            .hYmRVo:disabled .admin-bro_Icon svg {
+                fill: #898a9a;
+            } /*!sc*/
+            .hYmRVo:hover {
+                background-color: #535b8e;
+            } /*!sc*/
+            .hYmRVo .admin-bro_Icon svg {
+                fill: #fff;
+            } /*!sc*/
+            .hYmRVo:disabled {
+                background-color: #c0c0ca;
+            } /*!sc*/
+            data-styled.g3[id="sc-gsTEea"] {
+                content: "hYmRVo,";
+            } /*!sc*/
+            .glHofc {
+                display: block;
+                font-family: "Roboto", sans-serif;
+                font-size: 12px;
+                line-height: 16px;
+                margin-bottom: 8px;
+            } /*!sc*/
+            .glHofc:before {
+                content: "*";
+                color: #4268f6;
+                margin-right: 4px;
+                display: block-inline;
+            } /*!sc*/
+            .glHofc > .admin-bro_Icon:first-child {
+                margin-right: 8px;
+            } /*!sc*/
+            data-styled.g4[id="sc-dlfnuX"] {
+                content: "glHofc,";
+            } /*!sc*/
+            .bENmct {
+                font-family: "Roboto", sans-serif;
+                font-size: 14px;
+                line-height: 24px;
+                font-weight: 300;
+                font-weight: 200;
+                margin-top: 8px;
+            } /*!sc*/
+            .bENmct div:not([class*="admin-bro_"]),
+            .bENmct span:not([class*="admin-bro_"]),
+            .bENmct applet:not([class*="admin-bro_"]),
+            .bENmct object:not([class*="admin-bro_"]),
+            .bENmct iframe:not([class*="admin-bro_"]),
+            .bENmct h1:not([class*="admin-bro_"]),
+            .bENmct h2:not([class*="admin-bro_"]),
+            .bENmct h3:not([class*="admin-bro_"]),
+            .bENmct h4:not([class*="admin-bro_"]),
+            .bENmct h5:not([class*="admin-bro_"]),
+            .bENmct h6:not([class*="admin-bro_"]),
+            .bENmct p:not([class*="admin-bro_"]),
+            .bENmct blockquote:not([class*="admin-bro_"]),
+            .bENmct pre:not([class*="admin-bro_"]),
+            .bENmct a:not([class*="admin-bro_"]),
+            .bENmct abbr:not([class*="admin-bro_"]),
+            .bENmct acronym:not([class*="admin-bro_"]),
+            .bENmct address:not([class*="admin-bro_"]),
+            .bENmct big:not([class*="admin-bro_"]),
+            .bENmct cite:not([class*="admin-bro_"]),
+            .bENmct code:not([class*="admin-bro_"]),
+            .bENmct del:not([class*="admin-bro_"]),
+            .bENmct dfn:not([class*="admin-bro_"]),
+            .bENmct em:not([class*="admin-bro_"]),
+            .bENmct img:not([class*="admin-bro_"]),
+            .bENmct ins:not([class*="admin-bro_"]),
+            .bENmct kbd:not([class*="admin-bro_"]),
+            .bENmct q:not([class*="admin-bro_"]),
+            .bENmct s:not([class*="admin-bro_"]),
+            .bENmct samp:not([class*="admin-bro_"]),
+            .bENmct small:not([class*="admin-bro_"]),
+            .bENmct strike:not([class*="admin-bro_"]),
+            .bENmct strong:not([class*="admin-bro_"]),
+            .bENmct sub:not([class*="admin-bro_"]),
+            .bENmct sup:not([class*="admin-bro_"]),
+            .bENmct tt:not([class*="admin-bro_"]),
+            .bENmct var:not([class*="admin-bro_"]),
+            .bENmct b:not([class*="admin-bro_"]),
+            .bENmct u:not([class*="admin-bro_"]),
+            .bENmct i:not([class*="admin-bro_"]),
+            .bENmct center:not([class*="admin-bro_"]),
+            .bENmct dl:not([class*="admin-bro_"]),
+            .bENmct dt:not([class*="admin-bro_"]),
+            .bENmct dd:not([class*="admin-bro_"]),
+            .bENmct ol:not([class*="admin-bro_"]),
+            .bENmct ul:not([class*="admin-bro_"]),
+            .bENmct li:not([class*="admin-bro_"]),
+            .bENmct fieldset:not([class*="admin-bro_"]),
+            .bENmct form:not([class*="admin-bro_"]),
+            .bENmct label:not([class*="admin-bro_"]),
+            .bENmct legend:not([class*="admin-bro_"]),
+            .bENmct table:not([class*="admin-bro_"]),
+            .bENmct caption:not([class*="admin-bro_"]),
+            .bENmct tbody:not([class*="admin-bro_"]),
+            .bENmct tfoot:not([class*="admin-bro_"]),
+            .bENmct thead:not([class*="admin-bro_"]),
+            .bENmct tr:not([class*="admin-bro_"]),
+            .bENmct th:not([class*="admin-bro_"]),
+            .bENmct td:not([class*="admin-bro_"]),
+            .bENmct article:not([class*="admin-bro_"]),
+            .bENmct aside:not([class*="admin-bro_"]),
+            .bENmct canvas:not([class*="admin-bro_"]),
+            .bENmct details:not([class*="admin-bro_"]),
+            .bENmct embed:not([class*="admin-bro_"]),
+            .bENmct figure:not([class*="admin-bro_"]),
+            .bENmct figcaption:not([class*="admin-bro_"]),
+            .bENmct footer:not([class*="admin-bro_"]),
+            .bENmct header:not([class*="admin-bro_"]),
+            .bENmct hgroup:not([class*="admin-bro_"]),
+            .bENmct main:not([class*="admin-bro_"]),
+            .bENmct menu:not([class*="admin-bro_"]),
+            .bENmct nav:not([class*="admin-bro_"]),
+            .bENmct output:not([class*="admin-bro_"]),
+            .bENmct ruby:not([class*="admin-bro_"]),
+            .bENmct section:not([class*="admin-bro_"]),
+            .bENmct summary:not([class*="admin-bro_"]),
+            .bENmct time:not([class*="admin-bro_"]),
+            .bENmct mark:not([class*="admin-bro_"]),
+            .bENmct audio:not([class*="admin-bro_"]),
+            .bENmct video:not([class*="admin-bro_"]) {
+                margin: 0;
+                padding: 0;
+            } /*!sc*/
+            .bENmct img {
+                max-width: 100%;
+            } /*!sc*/
+            .bENmct p,
+            .bENmct div {
+                margin-bottom: 24px;
+                font-size: 14px;
+                font-weight: 300;
+            } /*!sc*/
+            .bENmct strong,
+            .bENmct b {
+                font-weight: 900;
+            } /*!sc*/
+            .bENmct li + li {
+                margin-top: 8px;
+            } /*!sc*/
+            .bENmct p:not(:last-child),
+            .bENmct dl:not(:last-child),
+            .bENmct ol:not(:last-child),
+            .bENmct ul:not(:last-child),
+            .bENmct blockquote:not(:last-child),
+            .bENmct pre:not(:last-child),
+            .bENmct table:not(:last-child) {
+                margin-bottom: 24px;
+            } /*!sc*/
+            .bENmct pre {
+                background-color: #f6f7fb;
+                border: 1px solid #c0c0ca;
+                padding: 24px;
+                margin: 24px 0 32px;
+                white-space: pre;
+                font-family: "Courier New", Courier, monospace;
+            } /*!sc*/
+            .bENmct h1,
+            .bENmct h2,
+            .bENmct h3,
+            .bENmct h4,
+            .bENmct h5,
+            .bENmct h6 {
+                font-weight: 300;
+                line-height: 32px;
+                font-size: 28px;
+                margin-top: 32px;
+                margin-bottom: 24px;
+            } /*!sc*/
+            .bENmct h1:first-child,
+            .bENmct h2:first-child,
+            .bENmct h3:first-child,
+            .bENmct h4:first-child,
+            .bENmct h5:first-child,
+            .bENmct h6:first-child {
+                margin-top: 4px;
+            } /*!sc*/
+            .bENmct h1 {
+                font-size: 40px;
+                line-height: 40px;
+                margin-top: 64px;
+                margin-bottom: 48px;
+            } /*!sc*/
+            .bENmct h2 {
+                font-size: 32px;
+                line-height: 40px;
+                margin-top: 48px;
+                margin-bottom: 32px;
+            } /*!sc*/
+            .bENmct h4 {
+                font-size: 24px;
+                line-height: 32px;
+                margin-top: 32px;
+                margin-bottom: 24px;
+            } /*!sc*/
+            .bENmct h5 {
+                font-size: 18px;
+                line-height: 24px;
+                margin-top: 24px;
+                margin-bottom: 16px;
+                font-weight: 400;
+            } /*!sc*/
+            .bENmct h6 {
+                font-size: 16px;
+                line-height: 24px;
+                margin-top: 16px;
+                margin-bottom: 8px;
+                font-weight: 400;
+            } /*!sc*/
+            .bENmct blockquote {
+                background-color: #f6f7fb;
+                border-left: 4px solid #cbd5fd;
+                padding: 24px;
+                margin: 32px 0;
+            } /*!sc*/
+            .bENmct ol {
+                list-style-position: outside;
+                margin-top: 16px;
+                margin-left: 24px;
+            } /*!sc*/
+            .bENmct ol:not([type]) {
+                list-style-type: decimal;
+            } /*!sc*/
+            .bENmct ol:not([type]).is-lower-alpha {
+                list-style-type: lower-alpha;
+            } /*!sc*/
+            .bENmct ol:not([type]).is-lower-roman {
+                list-style-type: lower-roman;
+            } /*!sc*/
+            .bENmct ol:not([type]).is-upper-alpha {
+                list-style-type: upper-alpha;
+            } /*!sc*/
+            .bENmct ol:not([type]).is-upper-roman {
+                list-style-type: upper-roman;
+            } /*!sc*/
+            .bENmct ul {
+                list-style: disc outside;
+                margin-left: 24px;
+                margin-top: 16px;
+            } /*!sc*/
+            .bENmct ul ul {
+                list-style-type: circle;
+                margin-top: 4px;
+            } /*!sc*/
+            .bENmct ul ul ul {
+                list-style-type: square;
+            } /*!sc*/
+            .bENmct em {
+                font-style: italic;
+            } /*!sc*/
+            .bENmct dd {
+                margin-left: 24px;
+            } /*!sc*/
+            .bENmct figure {
+                margin-left: 8px;
+                margin-right: 8px;
+                text-align: center;
+            } /*!sc*/
+            .bENmct figure:not(:first-child) {
+                margin-top: 8px;
+            } /*!sc*/
+            .bENmct figure:not(:last-child) {
+                margin-bottom: 8px;
+            } /*!sc*/
+            .bENmct figure img {
+                display: inline-block;
+            } /*!sc*/
+            .bENmct figure figcaption {
+                font-style: italic;
+            } /*!sc*/
+            .bENmct sup,
+            .bENmct sub {
+                font-size: 75%;
+            } /*!sc*/
+            .bENmct table {
+                width: 100%;
+                margin: 24px 0;
+            } /*!sc*/
+            .bENmct table td,
+            .bENmct table th {
+                padding: 16px;
+                vertical-align: top;
+            } /*!sc*/
+            .bENmct table th {
+                color: #898a9a;
+                border-bottom: 1px solid #c0c0ca;
+            } /*!sc*/
+            .bENmct table td {
+                border-bottom: 1px solid #f6f7fb;
+            } /*!sc*/
+            .bENmct table th:not([align]) {
+                text-align: inherit;
+            } /*!sc*/
+            .bENmct table thead td,
+            .bENmct table thead th {
+                border-bottom: 1px solid #c0c0ca;
+                color: #898a9a;
+            } /*!sc*/
+            .bENmct table tfoot td,
+            .bENmct table tfoot th {
+                border-bottom: 1px solid #c0c0ca;
+                color: #898a9a;
+            } /*!sc*/
+            .bENmct table tbody tr:last-child td,
+            .bENmct table tbody tr:last-child th {
+                border-bottom-width: 0;
+            } /*!sc*/
+            .bENmct .tabs li + li {
+                margin-top: 0;
+            } /*!sc*/
+            .gotxoj {
+                font-family: "Roboto", sans-serif;
+                font-size: 14px;
+                line-height: 24px;
+                font-weight: 300;
+                text-align: center;
+                padding: 32px;
+            } /*!sc*/
+            .gotxoj div:not([class*="admin-bro_"]),
+            .gotxoj span:not([class*="admin-bro_"]),
+            .gotxoj applet:not([class*="admin-bro_"]),
+            .gotxoj object:not([class*="admin-bro_"]),
+            .gotxoj iframe:not([class*="admin-bro_"]),
+            .gotxoj h1:not([class*="admin-bro_"]),
+            .gotxoj h2:not([class*="admin-bro_"]),
+            .gotxoj h3:not([class*="admin-bro_"]),
+            .gotxoj h4:not([class*="admin-bro_"]),
+            .gotxoj h5:not([class*="admin-bro_"]),
+            .gotxoj h6:not([class*="admin-bro_"]),
+            .gotxoj p:not([class*="admin-bro_"]),
+            .gotxoj blockquote:not([class*="admin-bro_"]),
+            .gotxoj pre:not([class*="admin-bro_"]),
+            .gotxoj a:not([class*="admin-bro_"]),
+            .gotxoj abbr:not([class*="admin-bro_"]),
+            .gotxoj acronym:not([class*="admin-bro_"]),
+            .gotxoj address:not([class*="admin-bro_"]),
+            .gotxoj big:not([class*="admin-bro_"]),
+            .gotxoj cite:not([class*="admin-bro_"]),
+            .gotxoj code:not([class*="admin-bro_"]),
+            .gotxoj del:not([class*="admin-bro_"]),
+            .gotxoj dfn:not([class*="admin-bro_"]),
+            .gotxoj em:not([class*="admin-bro_"]),
+            .gotxoj img:not([class*="admin-bro_"]),
+            .gotxoj ins:not([class*="admin-bro_"]),
+            .gotxoj kbd:not([class*="admin-bro_"]),
+            .gotxoj q:not([class*="admin-bro_"]),
+            .gotxoj s:not([class*="admin-bro_"]),
+            .gotxoj samp:not([class*="admin-bro_"]),
+            .gotxoj small:not([class*="admin-bro_"]),
+            .gotxoj strike:not([class*="admin-bro_"]),
+            .gotxoj strong:not([class*="admin-bro_"]),
+            .gotxoj sub:not([class*="admin-bro_"]),
+            .gotxoj sup:not([class*="admin-bro_"]),
+            .gotxoj tt:not([class*="admin-bro_"]),
+            .gotxoj var:not([class*="admin-bro_"]),
+            .gotxoj b:not([class*="admin-bro_"]),
+            .gotxoj u:not([class*="admin-bro_"]),
+            .gotxoj i:not([class*="admin-bro_"]),
+            .gotxoj center:not([class*="admin-bro_"]),
+            .gotxoj dl:not([class*="admin-bro_"]),
+            .gotxoj dt:not([class*="admin-bro_"]),
+            .gotxoj dd:not([class*="admin-bro_"]),
+            .gotxoj ol:not([class*="admin-bro_"]),
+            .gotxoj ul:not([class*="admin-bro_"]),
+            .gotxoj li:not([class*="admin-bro_"]),
+            .gotxoj fieldset:not([class*="admin-bro_"]),
+            .gotxoj form:not([class*="admin-bro_"]),
+            .gotxoj label:not([class*="admin-bro_"]),
+            .gotxoj legend:not([class*="admin-bro_"]),
+            .gotxoj table:not([class*="admin-bro_"]),
+            .gotxoj caption:not([class*="admin-bro_"]),
+            .gotxoj tbody:not([class*="admin-bro_"]),
+            .gotxoj tfoot:not([class*="admin-bro_"]),
+            .gotxoj thead:not([class*="admin-bro_"]),
+            .gotxoj tr:not([class*="admin-bro_"]),
+            .gotxoj th:not([class*="admin-bro_"]),
+            .gotxoj td:not([class*="admin-bro_"]),
+            .gotxoj article:not([class*="admin-bro_"]),
+            .gotxoj aside:not([class*="admin-bro_"]),
+            .gotxoj canvas:not([class*="admin-bro_"]),
+            .gotxoj details:not([class*="admin-bro_"]),
+            .gotxoj embed:not([class*="admin-bro_"]),
+            .gotxoj figure:not([class*="admin-bro_"]),
+            .gotxoj figcaption:not([class*="admin-bro_"]),
+            .gotxoj footer:not([class*="admin-bro_"]),
+            .gotxoj header:not([class*="admin-bro_"]),
+            .gotxoj hgroup:not([class*="admin-bro_"]),
+            .gotxoj main:not([class*="admin-bro_"]),
+            .gotxoj menu:not([class*="admin-bro_"]),
+            .gotxoj nav:not([class*="admin-bro_"]),
+            .gotxoj output:not([class*="admin-bro_"]),
+            .gotxoj ruby:not([class*="admin-bro_"]),
+            .gotxoj section:not([class*="admin-bro_"]),
+            .gotxoj summary:not([class*="admin-bro_"]),
+            .gotxoj time:not([class*="admin-bro_"]),
+            .gotxoj mark:not([class*="admin-bro_"]),
+            .gotxoj audio:not([class*="admin-bro_"]),
+            .gotxoj video:not([class*="admin-bro_"]) {
+                margin: 0;
+                padding: 0;
+            } /*!sc*/
+            .gotxoj img {
+                max-width: 100%;
+            } /*!sc*/
+            .gotxoj p,
+            .gotxoj div {
+                margin-bottom: 24px;
+                font-size: 14px;
+                font-weight: 300;
+            } /*!sc*/
+            .gotxoj strong,
+            .gotxoj b {
+                font-weight: 900;
+            } /*!sc*/
+            .gotxoj li + li {
+                margin-top: 8px;
+            } /*!sc*/
+            .gotxoj p:not(:last-child),
+            .gotxoj dl:not(:last-child),
+            .gotxoj ol:not(:last-child),
+            .gotxoj ul:not(:last-child),
+            .gotxoj blockquote:not(:last-child),
+            .gotxoj pre:not(:last-child),
+            .gotxoj table:not(:last-child) {
+                margin-bottom: 24px;
+            } /*!sc*/
+            .gotxoj pre {
+                background-color: #f6f7fb;
+                border: 1px solid #c0c0ca;
+                padding: 24px;
+                margin: 24px 0 32px;
+                white-space: pre;
+                font-family: "Courier New", Courier, monospace;
+            } /*!sc*/
+            .gotxoj h1,
+            .gotxoj h2,
+            .gotxoj h3,
+            .gotxoj h4,
+            .gotxoj h5,
+            .gotxoj h6 {
+                font-weight: 300;
+                line-height: 32px;
+                font-size: 28px;
+                margin-top: 32px;
+                margin-bottom: 24px;
+            } /*!sc*/
+            .gotxoj h1:first-child,
+            .gotxoj h2:first-child,
+            .gotxoj h3:first-child,
+            .gotxoj h4:first-child,
+            .gotxoj h5:first-child,
+            .gotxoj h6:first-child {
+                margin-top: 4px;
+            } /*!sc*/
+            .gotxoj h1 {
+                font-size: 40px;
+                line-height: 40px;
+                margin-top: 64px;
+                margin-bottom: 48px;
+            } /*!sc*/
+            .gotxoj h2 {
+                font-size: 32px;
+                line-height: 40px;
+                margin-top: 48px;
+                margin-bottom: 32px;
+            } /*!sc*/
+            .gotxoj h4 {
+                font-size: 24px;
+                line-height: 32px;
+                margin-top: 32px;
+                margin-bottom: 24px;
+            } /*!sc*/
+            .gotxoj h5 {
+                font-size: 18px;
+                line-height: 24px;
+                margin-top: 24px;
+                margin-bottom: 16px;
+                font-weight: 400;
+            } /*!sc*/
+            .gotxoj h6 {
+                font-size: 16px;
+                line-height: 24px;
+                margin-top: 16px;
+                margin-bottom: 8px;
+                font-weight: 400;
+            } /*!sc*/
+            .gotxoj blockquote {
+                background-color: #f6f7fb;
+                border-left: 4px solid #cbd5fd;
+                padding: 24px;
+                margin: 32px 0;
+            } /*!sc*/
+            .gotxoj ol {
+                list-style-position: outside;
+                margin-top: 16px;
+                margin-left: 24px;
+            } /*!sc*/
+            .gotxoj ol:not([type]) {
+                list-style-type: decimal;
+            } /*!sc*/
+            .gotxoj ol:not([type]).is-lower-alpha {
+                list-style-type: lower-alpha;
+            } /*!sc*/
+            .gotxoj ol:not([type]).is-lower-roman {
+                list-style-type: lower-roman;
+            } /*!sc*/
+            .gotxoj ol:not([type]).is-upper-alpha {
+                list-style-type: upper-alpha;
+            } /*!sc*/
+            .gotxoj ol:not([type]).is-upper-roman {
+                list-style-type: upper-roman;
+            } /*!sc*/
+            .gotxoj ul {
+                list-style: disc outside;
+                margin-left: 24px;
+                margin-top: 16px;
+            } /*!sc*/
+            .gotxoj ul ul {
+                list-style-type: circle;
+                margin-top: 4px;
+            } /*!sc*/
+            .gotxoj ul ul ul {
+                list-style-type: square;
+            } /*!sc*/
+            .gotxoj em {
+                font-style: italic;
+            } /*!sc*/
+            .gotxoj dd {
+                margin-left: 24px;
+            } /*!sc*/
+            .gotxoj figure {
+                margin-left: 8px;
+                margin-right: 8px;
+                text-align: center;
+            } /*!sc*/
+            .gotxoj figure:not(:first-child) {
+                margin-top: 8px;
+            } /*!sc*/
+            .gotxoj figure:not(:last-child) {
+                margin-bottom: 8px;
+            } /*!sc*/
+            .gotxoj figure img {
+                display: inline-block;
+            } /*!sc*/
+            .gotxoj figure figcaption {
+                font-style: italic;
+            } /*!sc*/
+            .gotxoj sup,
+            .gotxoj sub {
+                font-size: 75%;
+            } /*!sc*/
+            .gotxoj table {
+                width: 100%;
+                margin: 24px 0;
+            } /*!sc*/
+            .gotxoj table td,
+            .gotxoj table th {
+                padding: 16px;
+                vertical-align: top;
+            } /*!sc*/
+            .gotxoj table th {
+                color: #898a9a;
+                border-bottom: 1px solid #c0c0ca;
+            } /*!sc*/
+            .gotxoj table td {
+                border-bottom: 1px solid #f6f7fb;
+            } /*!sc*/
+            .gotxoj table th:not([align]) {
+                text-align: inherit;
+            } /*!sc*/
+            .gotxoj table thead td,
+            .gotxoj table thead th {
+                border-bottom: 1px solid #c0c0ca;
+                color: #898a9a;
+            } /*!sc*/
+            .gotxoj table tfoot td,
+            .gotxoj table tfoot th {
+                border-bottom: 1px solid #c0c0ca;
+                color: #898a9a;
+            } /*!sc*/
+            .gotxoj table tbody tr:last-child td,
+            .gotxoj table tbody tr:last-child th {
+                border-bottom-width: 0;
+            } /*!sc*/
+            .gotxoj .tabs li + li {
+                margin-top: 0;
+            } /*!sc*/
+            .gSHXbB {
+                font-family: "Roboto", sans-serif;
+                font-size: 14px;
+                line-height: 24px;
+                font-weight: 300;
+                text-align: center;
+                margin-top: 24px;
+            } /*!sc*/
+            .gSHXbB div:not([class*="admin-bro_"]),
+            .gSHXbB span:not([class*="admin-bro_"]),
+            .gSHXbB applet:not([class*="admin-bro_"]),
+            .gSHXbB object:not([class*="admin-bro_"]),
+            .gSHXbB iframe:not([class*="admin-bro_"]),
+            .gSHXbB h1:not([class*="admin-bro_"]),
+            .gSHXbB h2:not([class*="admin-bro_"]),
+            .gSHXbB h3:not([class*="admin-bro_"]),
+            .gSHXbB h4:not([class*="admin-bro_"]),
+            .gSHXbB h5:not([class*="admin-bro_"]),
+            .gSHXbB h6:not([class*="admin-bro_"]),
+            .gSHXbB p:not([class*="admin-bro_"]),
+            .gSHXbB blockquote:not([class*="admin-bro_"]),
+            .gSHXbB pre:not([class*="admin-bro_"]),
+            .gSHXbB a:not([class*="admin-bro_"]),
+            .gSHXbB abbr:not([class*="admin-bro_"]),
+            .gSHXbB acronym:not([class*="admin-bro_"]),
+            .gSHXbB address:not([class*="admin-bro_"]),
+            .gSHXbB big:not([class*="admin-bro_"]),
+            .gSHXbB cite:not([class*="admin-bro_"]),
+            .gSHXbB code:not([class*="admin-bro_"]),
+            .gSHXbB del:not([class*="admin-bro_"]),
+            .gSHXbB dfn:not([class*="admin-bro_"]),
+            .gSHXbB em:not([class*="admin-bro_"]),
+            .gSHXbB img:not([class*="admin-bro_"]),
+            .gSHXbB ins:not([class*="admin-bro_"]),
+            .gSHXbB kbd:not([class*="admin-bro_"]),
+            .gSHXbB q:not([class*="admin-bro_"]),
+            .gSHXbB s:not([class*="admin-bro_"]),
+            .gSHXbB samp:not([class*="admin-bro_"]),
+            .gSHXbB small:not([class*="admin-bro_"]),
+            .gSHXbB strike:not([class*="admin-bro_"]),
+            .gSHXbB strong:not([class*="admin-bro_"]),
+            .gSHXbB sub:not([class*="admin-bro_"]),
+            .gSHXbB sup:not([class*="admin-bro_"]),
+            .gSHXbB tt:not([class*="admin-bro_"]),
+            .gSHXbB var:not([class*="admin-bro_"]),
+            .gSHXbB b:not([class*="admin-bro_"]),
+            .gSHXbB u:not([class*="admin-bro_"]),
+            .gSHXbB i:not([class*="admin-bro_"]),
+            .gSHXbB center:not([class*="admin-bro_"]),
+            .gSHXbB dl:not([class*="admin-bro_"]),
+            .gSHXbB dt:not([class*="admin-bro_"]),
+            .gSHXbB dd:not([class*="admin-bro_"]),
+            .gSHXbB ol:not([class*="admin-bro_"]),
+            .gSHXbB ul:not([class*="admin-bro_"]),
+            .gSHXbB li:not([class*="admin-bro_"]),
+            .gSHXbB fieldset:not([class*="admin-bro_"]),
+            .gSHXbB form:not([class*="admin-bro_"]),
+            .gSHXbB label:not([class*="admin-bro_"]),
+            .gSHXbB legend:not([class*="admin-bro_"]),
+            .gSHXbB table:not([class*="admin-bro_"]),
+            .gSHXbB caption:not([class*="admin-bro_"]),
+            .gSHXbB tbody:not([class*="admin-bro_"]),
+            .gSHXbB tfoot:not([class*="admin-bro_"]),
+            .gSHXbB thead:not([class*="admin-bro_"]),
+            .gSHXbB tr:not([class*="admin-bro_"]),
+            .gSHXbB th:not([class*="admin-bro_"]),
+            .gSHXbB td:not([class*="admin-bro_"]),
+            .gSHXbB article:not([class*="admin-bro_"]),
+            .gSHXbB aside:not([class*="admin-bro_"]),
+            .gSHXbB canvas:not([class*="admin-bro_"]),
+            .gSHXbB details:not([class*="admin-bro_"]),
+            .gSHXbB embed:not([class*="admin-bro_"]),
+            .gSHXbB figure:not([class*="admin-bro_"]),
+            .gSHXbB figcaption:not([class*="admin-bro_"]),
+            .gSHXbB footer:not([class*="admin-bro_"]),
+            .gSHXbB header:not([class*="admin-bro_"]),
+            .gSHXbB hgroup:not([class*="admin-bro_"]),
+            .gSHXbB main:not([class*="admin-bro_"]),
+            .gSHXbB menu:not([class*="admin-bro_"]),
+            .gSHXbB nav:not([class*="admin-bro_"]),
+            .gSHXbB output:not([class*="admin-bro_"]),
+            .gSHXbB ruby:not([class*="admin-bro_"]),
+            .gSHXbB section:not([class*="admin-bro_"]),
+            .gSHXbB summary:not([class*="admin-bro_"]),
+            .gSHXbB time:not([class*="admin-bro_"]),
+            .gSHXbB mark:not([class*="admin-bro_"]),
+            .gSHXbB audio:not([class*="admin-bro_"]),
+            .gSHXbB video:not([class*="admin-bro_"]) {
+                margin: 0;
+                padding: 0;
+            } /*!sc*/
+            .gSHXbB img {
+                max-width: 100%;
+            } /*!sc*/
+            .gSHXbB p,
+            .gSHXbB div {
+                margin-bottom: 24px;
+                font-size: 14px;
+                font-weight: 300;
+            } /*!sc*/
+            .gSHXbB strong,
+            .gSHXbB b {
+                font-weight: 900;
+            } /*!sc*/
+            .gSHXbB li + li {
+                margin-top: 8px;
+            } /*!sc*/
+            .gSHXbB p:not(:last-child),
+            .gSHXbB dl:not(:last-child),
+            .gSHXbB ol:not(:last-child),
+            .gSHXbB ul:not(:last-child),
+            .gSHXbB blockquote:not(:last-child),
+            .gSHXbB pre:not(:last-child),
+            .gSHXbB table:not(:last-child) {
+                margin-bottom: 24px;
+            } /*!sc*/
+            .gSHXbB pre {
+                background-color: #f6f7fb;
+                border: 1px solid #c0c0ca;
+                padding: 24px;
+                margin: 24px 0 32px;
+                white-space: pre;
+                font-family: "Courier New", Courier, monospace;
+            } /*!sc*/
+            .gSHXbB h1,
+            .gSHXbB h2,
+            .gSHXbB h3,
+            .gSHXbB h4,
+            .gSHXbB h5,
+            .gSHXbB h6 {
+                font-weight: 300;
+                line-height: 32px;
+                font-size: 28px;
+                margin-top: 32px;
+                margin-bottom: 24px;
+            } /*!sc*/
+            .gSHXbB h1:first-child,
+            .gSHXbB h2:first-child,
+            .gSHXbB h3:first-child,
+            .gSHXbB h4:first-child,
+            .gSHXbB h5:first-child,
+            .gSHXbB h6:first-child {
+                margin-top: 4px;
+            } /*!sc*/
+            .gSHXbB h1 {
+                font-size: 40px;
+                line-height: 40px;
+                margin-top: 64px;
+                margin-bottom: 48px;
+            } /*!sc*/
+            .gSHXbB h2 {
+                font-size: 32px;
+                line-height: 40px;
+                margin-top: 48px;
+                margin-bottom: 32px;
+            } /*!sc*/
+            .gSHXbB h4 {
+                font-size: 24px;
+                line-height: 32px;
+                margin-top: 32px;
+                margin-bottom: 24px;
+            } /*!sc*/
+            .gSHXbB h5 {
+                font-size: 18px;
+                line-height: 24px;
+                margin-top: 24px;
+                margin-bottom: 16px;
+                font-weight: 400;
+            } /*!sc*/
+            .gSHXbB h6 {
+                font-size: 16px;
+                line-height: 24px;
+                margin-top: 16px;
+                margin-bottom: 8px;
+                font-weight: 400;
+            } /*!sc*/
+            .gSHXbB blockquote {
+                background-color: #f6f7fb;
+                border-left: 4px solid #cbd5fd;
+                padding: 24px;
+                margin: 32px 0;
+            } /*!sc*/
+            .gSHXbB ol {
+                list-style-position: outside;
+                margin-top: 16px;
+                margin-left: 24px;
+            } /*!sc*/
+            .gSHXbB ol:not([type]) {
+                list-style-type: decimal;
+            } /*!sc*/
+            .gSHXbB ol:not([type]).is-lower-alpha {
+                list-style-type: lower-alpha;
+            } /*!sc*/
+            .gSHXbB ol:not([type]).is-lower-roman {
+                list-style-type: lower-roman;
+            } /*!sc*/
+            .gSHXbB ol:not([type]).is-upper-alpha {
+                list-style-type: upper-alpha;
+            } /*!sc*/
+            .gSHXbB ol:not([type]).is-upper-roman {
+                list-style-type: upper-roman;
+            } /*!sc*/
+            .gSHXbB ul {
+                list-style: disc outside;
+                margin-left: 24px;
+                margin-top: 16px;
+            } /*!sc*/
+            .gSHXbB ul ul {
+                list-style-type: circle;
+                margin-top: 4px;
+            } /*!sc*/
+            .gSHXbB ul ul ul {
+                list-style-type: square;
+            } /*!sc*/
+            .gSHXbB em {
+                font-style: italic;
+            } /*!sc*/
+            .gSHXbB dd {
+                margin-left: 24px;
+            } /*!sc*/
+            .gSHXbB figure {
+                margin-left: 8px;
+                margin-right: 8px;
+                text-align: center;
+            } /*!sc*/
+            .gSHXbB figure:not(:first-child) {
+                margin-top: 8px;
+            } /*!sc*/
+            .gSHXbB figure:not(:last-child) {
+                margin-bottom: 8px;
+            } /*!sc*/
+            .gSHXbB figure img {
+                display: inline-block;
+            } /*!sc*/
+            .gSHXbB figure figcaption {
+                font-style: italic;
+            } /*!sc*/
+            .gSHXbB sup,
+            .gSHXbB sub {
+                font-size: 75%;
+            } /*!sc*/
+            .gSHXbB table {
+                width: 100%;
+                margin: 24px 0;
+            } /*!sc*/
+            .gSHXbB table td,
+            .gSHXbB table th {
+                padding: 16px;
+                vertical-align: top;
+            } /*!sc*/
+            .gSHXbB table th {
+                color: #898a9a;
+                border-bottom: 1px solid #c0c0ca;
+            } /*!sc*/
+            .gSHXbB table td {
+                border-bottom: 1px solid #f6f7fb;
+            } /*!sc*/
+            .gSHXbB table th:not([align]) {
+                text-align: inherit;
+            } /*!sc*/
+            .gSHXbB table thead td,
+            .gSHXbB table thead th {
+                border-bottom: 1px solid #c0c0ca;
+                color: #898a9a;
+            } /*!sc*/
+            .gSHXbB table tfoot td,
+            .gSHXbB table tfoot th {
+                border-bottom: 1px solid #c0c0ca;
+                color: #898a9a;
+            } /*!sc*/
+            .gSHXbB table tbody tr:last-child td,
+            .gSHXbB table tbody tr:last-child th {
+                border-bottom-width: 0;
+            } /*!sc*/
+            .gSHXbB .tabs li + li {
+                margin-top: 0;
+            } /*!sc*/
+            .qEIrd {
+                font-family: "Roboto", sans-serif;
+                font-size: 14px;
+                line-height: 24px;
+                font-weight: 300;
+                text-align: center;
+                color: #898a9a;
+            } /*!sc*/
+            .qEIrd div:not([class*="admin-bro_"]),
+            .qEIrd span:not([class*="admin-bro_"]),
+            .qEIrd applet:not([class*="admin-bro_"]),
+            .qEIrd object:not([class*="admin-bro_"]),
+            .qEIrd iframe:not([class*="admin-bro_"]),
+            .qEIrd h1:not([class*="admin-bro_"]),
+            .qEIrd h2:not([class*="admin-bro_"]),
+            .qEIrd h3:not([class*="admin-bro_"]),
+            .qEIrd h4:not([class*="admin-bro_"]),
+            .qEIrd h5:not([class*="admin-bro_"]),
+            .qEIrd h6:not([class*="admin-bro_"]),
+            .qEIrd p:not([class*="admin-bro_"]),
+            .qEIrd blockquote:not([class*="admin-bro_"]),
+            .qEIrd pre:not([class*="admin-bro_"]),
+            .qEIrd a:not([class*="admin-bro_"]),
+            .qEIrd abbr:not([class*="admin-bro_"]),
+            .qEIrd acronym:not([class*="admin-bro_"]),
+            .qEIrd address:not([class*="admin-bro_"]),
+            .qEIrd big:not([class*="admin-bro_"]),
+            .qEIrd cite:not([class*="admin-bro_"]),
+            .qEIrd code:not([class*="admin-bro_"]),
+            .qEIrd del:not([class*="admin-bro_"]),
+            .qEIrd dfn:not([class*="admin-bro_"]),
+            .qEIrd em:not([class*="admin-bro_"]),
+            .qEIrd img:not([class*="admin-bro_"]),
+            .qEIrd ins:not([class*="admin-bro_"]),
+            .qEIrd kbd:not([class*="admin-bro_"]),
+            .qEIrd q:not([class*="admin-bro_"]),
+            .qEIrd s:not([class*="admin-bro_"]),
+            .qEIrd samp:not([class*="admin-bro_"]),
+            .qEIrd small:not([class*="admin-bro_"]),
+            .qEIrd strike:not([class*="admin-bro_"]),
+            .qEIrd strong:not([class*="admin-bro_"]),
+            .qEIrd sub:not([class*="admin-bro_"]),
+            .qEIrd sup:not([class*="admin-bro_"]),
+            .qEIrd tt:not([class*="admin-bro_"]),
+            .qEIrd var:not([class*="admin-bro_"]),
+            .qEIrd b:not([class*="admin-bro_"]),
+            .qEIrd u:not([class*="admin-bro_"]),
+            .qEIrd i:not([class*="admin-bro_"]),
+            .qEIrd center:not([class*="admin-bro_"]),
+            .qEIrd dl:not([class*="admin-bro_"]),
+            .qEIrd dt:not([class*="admin-bro_"]),
+            .qEIrd dd:not([class*="admin-bro_"]),
+            .qEIrd ol:not([class*="admin-bro_"]),
+            .qEIrd ul:not([class*="admin-bro_"]),
+            .qEIrd li:not([class*="admin-bro_"]),
+            .qEIrd fieldset:not([class*="admin-bro_"]),
+            .qEIrd form:not([class*="admin-bro_"]),
+            .qEIrd label:not([class*="admin-bro_"]),
+            .qEIrd legend:not([class*="admin-bro_"]),
+            .qEIrd table:not([class*="admin-bro_"]),
+            .qEIrd caption:not([class*="admin-bro_"]),
+            .qEIrd tbody:not([class*="admin-bro_"]),
+            .qEIrd tfoot:not([class*="admin-bro_"]),
+            .qEIrd thead:not([class*="admin-bro_"]),
+            .qEIrd tr:not([class*="admin-bro_"]),
+            .qEIrd th:not([class*="admin-bro_"]),
+            .qEIrd td:not([class*="admin-bro_"]),
+            .qEIrd article:not([class*="admin-bro_"]),
+            .qEIrd aside:not([class*="admin-bro_"]),
+            .qEIrd canvas:not([class*="admin-bro_"]),
+            .qEIrd details:not([class*="admin-bro_"]),
+            .qEIrd embed:not([class*="admin-bro_"]),
+            .qEIrd figure:not([class*="admin-bro_"]),
+            .qEIrd figcaption:not([class*="admin-bro_"]),
+            .qEIrd footer:not([class*="admin-bro_"]),
+            .qEIrd header:not([class*="admin-bro_"]),
+            .qEIrd hgroup:not([class*="admin-bro_"]),
+            .qEIrd main:not([class*="admin-bro_"]),
+            .qEIrd menu:not([class*="admin-bro_"]),
+            .qEIrd nav:not([class*="admin-bro_"]),
+            .qEIrd output:not([class*="admin-bro_"]),
+            .qEIrd ruby:not([class*="admin-bro_"]),
+            .qEIrd section:not([class*="admin-bro_"]),
+            .qEIrd summary:not([class*="admin-bro_"]),
+            .qEIrd time:not([class*="admin-bro_"]),
+            .qEIrd mark:not([class*="admin-bro_"]),
+            .qEIrd audio:not([class*="admin-bro_"]),
+            .qEIrd video:not([class*="admin-bro_"]) {
+                margin: 0;
+                padding: 0;
+            } /*!sc*/
+            .qEIrd img {
+                max-width: 100%;
+            } /*!sc*/
+            .qEIrd p,
+            .qEIrd div {
+                margin-bottom: 24px;
+                font-size: 14px;
+                font-weight: 300;
+            } /*!sc*/
+            .qEIrd strong,
+            .qEIrd b {
+                font-weight: 900;
+            } /*!sc*/
+            .qEIrd li + li {
+                margin-top: 8px;
+            } /*!sc*/
+            .qEIrd p:not(:last-child),
+            .qEIrd dl:not(:last-child),
+            .qEIrd ol:not(:last-child),
+            .qEIrd ul:not(:last-child),
+            .qEIrd blockquote:not(:last-child),
+            .qEIrd pre:not(:last-child),
+            .qEIrd table:not(:last-child) {
+                margin-bottom: 24px;
+            } /*!sc*/
+            .qEIrd pre {
+                background-color: #f6f7fb;
+                border: 1px solid #c0c0ca;
+                padding: 24px;
+                margin: 24px 0 32px;
+                white-space: pre;
+                font-family: "Courier New", Courier, monospace;
+            } /*!sc*/
+            .qEIrd h1,
+            .qEIrd h2,
+            .qEIrd h3,
+            .qEIrd h4,
+            .qEIrd h5,
+            .qEIrd h6 {
+                font-weight: 300;
+                line-height: 32px;
+                font-size: 28px;
+                margin-top: 32px;
+                margin-bottom: 24px;
+            } /*!sc*/
+            .qEIrd h1:first-child,
+            .qEIrd h2:first-child,
+            .qEIrd h3:first-child,
+            .qEIrd h4:first-child,
+            .qEIrd h5:first-child,
+            .qEIrd h6:first-child {
+                margin-top: 4px;
+            } /*!sc*/
+            .qEIrd h1 {
+                font-size: 40px;
+                line-height: 40px;
+                margin-top: 64px;
+                margin-bottom: 48px;
+            } /*!sc*/
+            .qEIrd h2 {
+                font-size: 32px;
+                line-height: 40px;
+                margin-top: 48px;
+                margin-bottom: 32px;
+            } /*!sc*/
+            .qEIrd h4 {
+                font-size: 24px;
+                line-height: 32px;
+                margin-top: 32px;
+                margin-bottom: 24px;
+            } /*!sc*/
+            .qEIrd h5 {
+                font-size: 18px;
+                line-height: 24px;
+                margin-top: 24px;
+                margin-bottom: 16px;
+                font-weight: 400;
+            } /*!sc*/
+            .qEIrd h6 {
+                font-size: 16px;
+                line-height: 24px;
+                margin-top: 16px;
+                margin-bottom: 8px;
+                font-weight: 400;
+            } /*!sc*/
+            .qEIrd blockquote {
+                background-color: #f6f7fb;
+                border-left: 4px solid #cbd5fd;
+                padding: 24px;
+                margin: 32px 0;
+            } /*!sc*/
+            .qEIrd ol {
+                list-style-position: outside;
+                margin-top: 16px;
+                margin-left: 24px;
+            } /*!sc*/
+            .qEIrd ol:not([type]) {
+                list-style-type: decimal;
+            } /*!sc*/
+            .qEIrd ol:not([type]).is-lower-alpha {
+                list-style-type: lower-alpha;
+            } /*!sc*/
+            .qEIrd ol:not([type]).is-lower-roman {
+                list-style-type: lower-roman;
+            } /*!sc*/
+            .qEIrd ol:not([type]).is-upper-alpha {
+                list-style-type: upper-alpha;
+            } /*!sc*/
+            .qEIrd ol:not([type]).is-upper-roman {
+                list-style-type: upper-roman;
+            } /*!sc*/
+            .qEIrd ul {
+                list-style: disc outside;
+                margin-left: 24px;
+                margin-top: 16px;
+            } /*!sc*/
+            .qEIrd ul ul {
+                list-style-type: circle;
+                margin-top: 4px;
+            } /*!sc*/
+            .qEIrd ul ul ul {
+                list-style-type: square;
+            } /*!sc*/
+            .qEIrd em {
+                font-style: italic;
+            } /*!sc*/
+            .qEIrd dd {
+                margin-left: 24px;
+            } /*!sc*/
+            .qEIrd figure {
+                margin-left: 8px;
+                margin-right: 8px;
+                text-align: center;
+            } /*!sc*/
+            .qEIrd figure:not(:first-child) {
+                margin-top: 8px;
+            } /*!sc*/
+            .qEIrd figure:not(:last-child) {
+                margin-bottom: 8px;
+            } /*!sc*/
+            .qEIrd figure img {
+                display: inline-block;
+            } /*!sc*/
+            .qEIrd figure figcaption {
+                font-style: italic;
+            } /*!sc*/
+            .qEIrd sup,
+            .qEIrd sub {
+                font-size: 75%;
+            } /*!sc*/
+            .qEIrd table {
+                width: 100%;
+                margin: 24px 0;
+            } /*!sc*/
+            .qEIrd table td,
+            .qEIrd table th {
+                padding: 16px;
+                vertical-align: top;
+            } /*!sc*/
+            .qEIrd table th {
+                color: #898a9a;
+                border-bottom: 1px solid #c0c0ca;
+            } /*!sc*/
+            .qEIrd table td {
+                border-bottom: 1px solid #f6f7fb;
+            } /*!sc*/
+            .qEIrd table th:not([align]) {
+                text-align: inherit;
+            } /*!sc*/
+            .qEIrd table thead td,
+            .qEIrd table thead th {
+                border-bottom: 1px solid #c0c0ca;
+                color: #898a9a;
+            } /*!sc*/
+            .qEIrd table tfoot td,
+            .qEIrd table tfoot th {
+                border-bottom: 1px solid #c0c0ca;
+                color: #898a9a;
+            } /*!sc*/
+            .qEIrd table tbody tr:last-child td,
+            .qEIrd table tbody tr:last-child th {
+                border-bottom-width: 0;
+            } /*!sc*/
+            .qEIrd .tabs li + li {
+                margin-top: 0;
+            } /*!sc*/
+            data-styled.g12[id="sc-jrAFXE"] {
+                content: "bENmct,gotxoj,gSHXbB,qEIrd,";
+            } /*!sc*/
+            .fkmmgb {
+                box-sizing: border-box;
+                color: #454655;
+                background: transparent;
+                border: 1px solid #c0c0ca;
+                font-size: 14px;
+                line-height: 24px;
+                font-family: "Roboto", sans-serif;
+                outline: none;
+                padding-left: 8px;
+                padding-right: 8px;
+                padding-top: 4px;
+                padding-bottom: 4px;
+            } /*!sc*/
+            .fkmmgb:hover {
+                border-color: #898a9a;
+            } /*!sc*/
+            .fkmmgb:focus {
+                border-color: #4268f6;
+                box-shadow: 0 1px 4px 0 rgba(56, 202, 241, 0.58);
+            } /*!sc*/
+            .fkmmgb:disabled {
+                color: rgba(69, 70, 85, 0.5);
+                border-color: rgba(192, 192, 202, 0.5);
+            } /*!sc*/
+            data-styled.g14[id="sc-iqHYmW"] {
+                content: "fkmmgb,";
+            } /*!sc*/
+            .jnISUM {
+                box-sizing: border-box;
+                min-width: 0;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                font-family: "Roboto", sans-serif;
+                line-height: 16px;
+                font-size: 14px;
+                font-weight: normal;
+                -webkit-box-flex: 1;
+                -webkit-flex-grow: 1;
+                -ms-flex-positive: 1;
+                flex-grow: 1;
+                background-color: #f6f7fb;
+                padding-top: 24px;
+                padding-bottom: 24px;
+                padding-left: 0;
+                padding-right: 0;
+            } /*!sc*/
+            @media screen and (min-width: 577px) {
+                .jnISUM {
+                    padding-left: 24px;
+                    padding-right: 24px;
+                }
+            } /*!sc*/
+            .jqLNdK {
+                box-sizing: border-box;
+                min-width: 0;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                font-family: "Roboto", sans-serif;
+                line-height: 16px;
+                font-size: 14px;
+                font-weight: normal;
+                background-color: #fff;
+                height: 440px;
+                width: 100%;
+                box-shadow: 0 15px 24px 0 rgba(137, 138, 154, 0.15);
+            } /*!sc*/
+            @media screen and (min-width: 577px) {
+                .jqLNdK {
+                    width: 66.66666666666666%;
+                }
+            } /*!sc*/
+            @media screen and (min-width: 769px) {
+                .jqLNdK {
+                    width: auto;
+                }
+            } /*!sc*/
+            .dTQAQF {
+                box-sizing: border-box;
+                min-width: 0;
+                font-family: "Roboto", sans-serif;
+                line-height: 16px;
+                font-size: 14px;
+                font-weight: normal;
+                padding: 48px;
+                background-color: #4268f6;
+                color: #fff;
+                width: 380px;
+                display: none;
+                -webkit-box-flex: 0;
+                -webkit-flex-grow: 0;
+                -ms-flex-positive: 0;
+                flex-grow: 0;
+                position: relative;
+            } /*!sc*/
+            @media screen and (min-width: 577px) {
+                .dTQAQF {
+                    display: none;
+                }
+            } /*!sc*/
+            @media screen and (min-width: 769px) {
+                .dTQAQF {
+                    display: block;
+                }
+            } /*!sc*/
+            .cBpLsh {
+                box-sizing: border-box;
+                min-width: 0;
+                font-family: "Roboto", sans-serif;
+                line-height: 16px;
+                font-size: 14px;
+                font-weight: normal;
+                margin-right: 8px;
+                display: inline;
+            } /*!sc*/
+            .lghQZb {
+                box-sizing: border-box;
+                min-width: 0;
+                font-family: "Roboto", sans-serif;
+                line-height: 16px;
+                font-size: 14px;
+                font-weight: normal;
+                display: inline;
+            } /*!sc*/
+            .icjwvy {
+                box-sizing: border-box;
+                min-width: 0;
+                font-family: "Roboto", sans-serif;
+                line-height: 16px;
+                font-size: 14px;
+                font-weight: normal;
+                display: inline;
+                position: relative;
+                top: -20px;
+            } /*!sc*/
+            .jCbvSI {
+                box-sizing: border-box;
+                min-width: 0;
+                font-family: "Roboto", sans-serif;
+                line-height: 16px;
+                font-size: 14px;
+                font-weight: normal;
+                padding: 48px;
+                width: 100%;
+                -webkit-box-flex: 1;
+                -webkit-flex-grow: 1;
+                -ms-flex-positive: 1;
+                flex-grow: 1;
+            } /*!sc*/
+            @media screen and (min-width: 577px) {
+                .jCbvSI {
+                    width: 100%;
+                }
+            } /*!sc*/
+            @media screen and (min-width: 769px) {
+                .jCbvSI {
+                    width: 480px;
+                }
+            } /*!sc*/
+            .eQAEtV {
+                box-sizing: border-box;
+                min-width: 0;
+                font-family: "Roboto", sans-serif;
+                line-height: 16px;
+                font-size: 14px;
+                font-weight: normal;
+                margin-top: 16px;
+                margin-bottom: 16px;
+            } /*!sc*/
+            .DWzSq {
+                box-sizing: border-box;
+                min-width: 0;
+                font-family: "Roboto", sans-serif;
+                line-height: 16px;
+                font-size: 14px;
+                font-weight: normal;
+                padding-left: 24px;
+                padding-right: 24px;
+                padding-top: 16px;
+                padding-bottom: 16px;
+            } /*!sc*/
+            .fKahqV {
+                box-sizing: border-box;
+                min-width: 0;
+                font-family: "Roboto", sans-serif;
+                line-height: 16px;
+                font-size: 14px;
+                font-weight: normal;
+                margin-top: 32px;
+            } /*!sc*/
+            data-styled.g16[id="sc-dQoVA"] {
+                content: "jnISUM,jqLNdK,dTQAQF,cBpLsh,lghQZb,icjwvy,jCbvSI,eQAEtV,DWzSq,fKahqV,";
+            } /*!sc*/
+            .gFpdcm {
+                font-family: "Roboto", sans-serif;
+                vertical-align: middle;
+                padding: 0;
+                font-weight: 200;
+                font-size: 32px;
+                line-height: 40px;
+                margin-top: 48px;
+                margin-bottom: 32px;
+            } /*!sc*/
+            .gFpdcm * {
+                vertical-align: middle;
+            } /*!sc*/
+            .gFpdcm .sc-gsTEea,
+            .gFpdcm a {
+                vertical-align: bottom;
+            } /*!sc*/
+            * > .sc-dIUeWJ:first-child {
+                margin-top: 4px;
+            } /*!sc*/
+            .gFpdcm .sc-bdfBQB {
+                vertical-align: middle;
+            } /*!sc*/
+            .jqSWgQ {
+                font-family: "Roboto", sans-serif;
+                vertical-align: middle;
+                padding: 0;
+                font-size: 18px;
+                line-height: 24px;
+                font-weight: 400;
+                margin-bottom: 32px;
+                margin-top: 24px;
+            } /*!sc*/
+            .jqSWgQ * {
+                vertical-align: middle;
+            } /*!sc*/
+            .jqSWgQ .sc-gsTEea,
+            .jqSWgQ a {
+                vertical-align: bottom;
+            } /*!sc*/
+            * > .sc-dIUeWJ:first-child {
+                margin-top: 4px;
+            } /*!sc*/
+            .jqSWgQ .sc-bdfBQB {
+                vertical-align: middle;
+            } /*!sc*/
+            data-styled.g24[id="sc-dIUeWJ"] {
+                content: "gFpdcm,jqSWgQ,";
+            } /*!sc*/
+            .dovGpF .sc-gsTEea,
+            .dovGpF a {
+                margin-bottom: 4px;
+            } /*!sc*/
+            data-styled.g26[id="sc-dmlqKv"] {
+                content: "dovGpF,";
+            } /*!sc*/
+            .gDjQNw {
+                vertical-align: middle;
+                display: inline-block;
+                line-height: 12px;
+                font-size: 12px;
+                color: #e6282b;
+            } /*!sc*/
+            .gDjQNw > svg {
+                fill: #e6282b;
+            } /*!sc*/
+            data-styled.g34[id="sc-giImIA"] {
+                content: "gDjQNw,";
+            } /*!sc*/
+            .bbJGno {
+                width: 100%;
+                margin-bottom: 16px;
+            } /*!sc*/
+            .bbJGno > .sc-iqHYmW {
+                width: 100%;
+            } /*!sc*/
+            .bbJGno .sc-iqHYmW:hover {
+                border-color: #898a9a;
+            } /*!sc*/
+            data-styled.g41[id="sc-gWHigU"] {
+                content: "bbJGno,";
+            } /*!sc*/
+            .huqRlo {
+                line-height: 16px;
+                box-shadow: 0 2px 0 0 #70c9b0;
+                background: #dbf0f1;
+                color: #454655;
+                background-color: #ffa5b5;
+                box-shadow: 0 2px 0 0 #ff4567;
+            } /*!sc*/
+            .huqRlo > .sc-gsTEea {
+                float: right;
+                margin: 8px;
+            } /*!sc*/
+            .huqRlo > .sc-gsTEea svg {
+                fill: #454655;
+            } /*!sc*/
+            .huqRlo + section {
+                border-color: #ffa5b5;
+            } /*!sc*/
+            data-styled.g46[id="sc-iUuxjF"] {
+                content: "huqRlo,";
+            } /*!sc*/
+            .cQxOeo {
+                font-size: 12px;
+            } /*!sc*/
+            .cQxOeo > a {
+                color: #898a9a;
+                font-size: 12px;
+                -webkit-text-decoration: none;
+                text-decoration: none;
+                margin-left: 2px;
+            } /*!sc*/
+            .cQxOeo > a:hover {
+                color: #e6282b;
+            } /*!sc*/
+            .cQxOeo > .admin-bro_Icon {
+                padding: 0 2px;
+            } /*!sc*/
+            data-styled.g76[id="sc-jONnzC"] {
+                content: "cQxOeo,";
+            } /*!sc*/
+            html,
+            body,
+            #app {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            } /*!sc*/
+            data-styled.g79[id="sc-global-gJLYzA1"] {
+                content: "sc-global-gJLYzA1,";
+            } /*!sc*/
+            .kdaLQk {
+                -webkit-align-items: center;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                align-items: center;
+                -webkit-box-pack: center;
+                -webkit-justify-content: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+                -webkit-flex-direction: column;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                height: 100%;
+            } /*!sc*/
+            data-styled.g80[id="login__Wrapper-sc-1um38e4-0"] {
+                content: "kdaLQk,";
+            } /*!sc*/
+        </style>
+        <style>
+            .d-none {
+                display: none !important;
+            }
+        </style>
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,700"
+            type="text/css"
+        />
+
+        <script src="/admin/frontend/assets/global.bundle.js"></script>
+        <script src="/admin/frontend/assets/design-system.bundle.js"></script>
+
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"
+        ></script>
+    </head>
+    <body>
+        <div id="app">
+            <section
+                class="sc-dQoVA login__Wrapper-sc-1um38e4-0 jnISUM kdaLQk admin-bro_Box"
+            >
+                <section
+                    class="sc-dQoVA jqLNdK admin-bro_Box"
+                    style="height: 380px !important"
+                >
+                    <form
+                        method="POST"
+                        width="100%,100%,400px"
+                        class="sc-dQoVA jCbvSI admin-bro_Box"
+                    >
+                        <h5
+                            font-size="xl"
+                            class="sc-dIUeWJ jqSWgQ sc-fKFxtB admin-bro_Header admin-bro_H5"
+                            style="margin-bottom: 0px"
+                            font-weight="normal"
+                        >
+                            Boozeo Seller Admin
+                        </h5>
+                        <section
+                            id="err_log"
+                            class="sc-dQoVA eQAEtV admin-bro_MessageBox d-none"
+                        >
+                            <div class="sc-iUuxjF huqRlo">
+                                <section
+                                    id="msg"
+                                    class="sc-dQoVA sc-iBaQBe DWzSq admin-bro_Box"
+                                >
+                                    Mukesh
+                                </section>
+                            </div>
+                        </section>
+                        <div class="sc-gWHigU bbJGno" style="margin-top: 15px">
+                            <label
+                                required=""
+                                class="sc-dlfnuX glHofc admin-bro_Label"
+                                >Email</label
+                            ><input
+                                name="email"
+                                placeholder="Email"
+                                class="sc-iqHYmW fkmmgb admin-bro_Input"
+                            />
+                        </div>
+                        <div class="sc-gWHigU bbJGno">
+                            <label
+                                required=""
+                                class="sc-dlfnuX glHofc admin-bro_Label"
+                                >Password</label
+                            ><input
+                                type="password"
+                                name="password"
+                                placeholder="Password"
+                                autocomplete="new-password"
+                                class="sc-iqHYmW fkmmgb admin-bro_Input"
+                            />
+                        </div>
+                        <div class="sc-jrAFXE gSHXbB admin-bro_Text">
+                            <button class="sc-gsTEea hYmRVo admin-bro_Button">
+                                Login
+                            </button>
+                        </div>
+                    </form>
+                </section>
+            </section>
+        </div>
+        <script>
+            function getUrlVars() {
+                var vars = [],
+                    hash;
+                var hashes = window.location.href
+                    .slice(window.location.href.indexOf("?") + 1)
+                    .split("&");
+                for (var i = 0; i < hashes.length; i++) {
+                    hash = hashes[i].split("=");
+                    vars.push(hash[0]);
+                    vars[hash[0]] = hash[1];
+                }
+                return vars;
+            }
+            $(document).ready(() => {
+                const msg = getUrlVars()["msg"];
+                if (msg != null && msg.trim() != "") {
+                    $("#err_log").removeClass("d-none");
+                    $("#msg").html(decodeURI(msg));
+                }
+            });
+        </script>
+    </body>
+</html>

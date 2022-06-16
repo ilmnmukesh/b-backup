@@ -1,0 +1,568 @@
+<%- contentFor('body') %>
+
+<div class="main-content container-fluid">
+    <div class="page-title">
+        <h3>Dashboard</h3>
+        <p class="text-subtitle text-muted">
+            A good dashboard to display your statistics
+        </p>
+    </div>
+    <section class="section">
+        <div class="row mb-2">
+            <div class="col-12 col-md-4">
+                <div class="card card-statistic">
+                    <div class="card-body p-0">
+                        <div class="d-flex flex-column">
+                            <div
+                                class="px-3 py-3 d-flex justify-content-between"
+                            >
+                                <h3 class="card-title">Revenue</h3>
+                                <div
+                                    class="card-right d-flex align-items-center"
+                                >
+                                    <p>$<%= one?.revenue%></p>
+                                </div>
+                            </div>
+                            <div class="chart-wrapper">
+                                <canvas
+                                    id="canvas1"
+                                    data-label="<%= chart.one?.label.join() %>"
+                                    data-value="<%= chart.one?.value.join() %>"
+                                    style="height: 100px !important"
+                                ></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="card card-statistic">
+                    <div class="card-body p-0">
+                        <div class="d-flex flex-column">
+                            <div
+                                class="px-3 py-3 d-flex justify-content-between"
+                            >
+                                <h3 class="card-title">ORDERS</h3>
+                                <div
+                                    class="card-right d-flex align-items-center"
+                                >
+                                    <p><%= one?.count%></p>
+                                </div>
+                            </div>
+                            <div class="chart-wrapper">
+                                <canvas
+                                    id="canvas2"
+                                    data-label="<%= chart.two.label.join() %>"
+                                    data-value="<%= chart.two.value.join() %>"
+                                    style="height: 100px !important"
+                                ></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="card card-statistic">
+                    <div class="card-body p-0">
+                        <div class="d-flex flex-column">
+                            <div
+                                class="px-3 py-3 d-flex justify-content-between"
+                            >
+                                <h3 class="card-title">Sales</h3>
+                                <div
+                                    class="card-right d-flex align-items-center"
+                                >
+                                    <p><%= one?.productCount%></p>
+                                </div>
+                            </div>
+                            <div class="chart-wrapper">
+                                <canvas
+                                    id="canvas3"
+                                    data-label="<%= chart.three.label.join() %>"
+                                    data-value="<%= chart.three.value.join() %>"
+                                    style="height: 100px !important"
+                                ></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-heading p-1 pl-3">Sales</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4 col-12">
+                                <div class="pl-3">
+                                    <h1 class="mt-5">$<%= one?.revenue%></h1>
+                                    <p class="text-xs">
+                                        <span
+                                            ><i
+                                                data-feather="bar-chart"
+                                                width="15"
+                                            ></i>
+                                            <span id="profit_percent"></span
+                                            >%</span
+                                        >
+                                        than last month
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-8 col-12">
+                                <canvas
+                                    data-label="<%= bar?.label.join() %>"
+                                    data-value="<%= bar?.value.join() %>"
+                                    id="bar"
+                                ></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div
+                        class="card-header d-flex justify-content-between align-items-center"
+                    >
+                        <h4 class="card-title">Orders Today</h4>
+                        <div class="d-flex">
+                            <i data-feather="download"></i>
+                        </div>
+                    </div>
+                    <div class="card-body px-0 pb-0">
+                        <%- include("table") %>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Your Earnings</h4>
+                    </div>
+                    <div class="card-body">
+                        <div id="radialBars"></div>
+                        <div class="text-center mb-5">
+                            <h6>From last month</h6>
+                            <h1 class="text-green">+$2,134</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="card widget-todo">
+                    <div
+                        class="card-header border-bottom d-flex justify-content-between align-items-center"
+                    >
+                        <h4 class="card-title d-flex">
+                            <i class="bx bx-check font-medium-5 pl-25 pr-75"></i
+                            >Progress
+                        </h4>
+                    </div>
+                    <div class="card-body px-0 py-1">
+                        <table class="table table-borderless">
+                            <tr>
+                                <td class="col-3">UI Design</td>
+                                <td class="col-6">
+                                    <div class="progress progress-info">
+                                        <div
+                                            class="progress-bar"
+                                            role="progressbar"
+                                            style="width: 60%"
+                                            aria-valuenow="0"
+                                            aria-valuemin="0"
+                                            aria-valuemax="100"
+                                        ></div>
+                                    </div>
+                                </td>
+                                <td class="col-3 text-center">60%</td>
+                            </tr>
+                            <tr>
+                                <td class="col-3">VueJS</td>
+                                <td class="col-6">
+                                    <div class="progress progress-success">
+                                        <div
+                                            class="progress-bar"
+                                            role="progressbar"
+                                            style="width: 35%"
+                                            aria-valuenow="0"
+                                            aria-valuemin="0"
+                                            aria-valuemax="100"
+                                        ></div>
+                                    </div>
+                                </td>
+                                <td class="col-3 text-center">30%</td>
+                            </tr>
+                            <tr>
+                                <td class="col-3">Laravel</td>
+                                <td class="col-6">
+                                    <div class="progress progress-danger">
+                                        <div
+                                            class="progress-bar"
+                                            role="progressbar"
+                                            style="width: 50%"
+                                            aria-valuenow="0"
+                                            aria-valuemin="0"
+                                            aria-valuemax="100"
+                                        ></div>
+                                    </div>
+                                </td>
+                                <td class="col-3 text-center">50%</td>
+                            </tr>
+                            <tr>
+                                <td class="col-3">ReactJS</td>
+                                <td class="col-6">
+                                    <div class="progress progress-primary">
+                                        <div
+                                            class="progress-bar"
+                                            role="progressbar"
+                                            style="width: 80%"
+                                            aria-valuenow="0"
+                                            aria-valuemin="0"
+                                            aria-valuemax="100"
+                                        ></div>
+                                    </div>
+                                </td>
+                                <td class="col-3 text-center">80%</td>
+                            </tr>
+                            <tr>
+                                <td class="col-3">Go</td>
+                                <td class="col-6">
+                                    <div class="progress progress-secondary">
+                                        <div
+                                            class="progress-bar"
+                                            role="progressbar"
+                                            style="width: 65%"
+                                            aria-valuenow="0"
+                                            aria-valuemin="0"
+                                            aria-valuemax="100"
+                                        ></div>
+                                    </div>
+                                </td>
+                                <td class="col-3 text-center">65%</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </section>
+</div>
+
+<script src="/seller/asset/vendors/chartjs/Chart.min.js"></script>
+<script src="/seller/asset/vendors/apexcharts/apexcharts.min.js"></script>
+<script src="/seller/asset/js/pages/dashboard.js"></script>
+
+<script>
+    const shuffleArray = (array) => {
+        for (var i = array.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+        return array;
+    };
+
+    var colors = {
+        red: "rgb(255, 99, 132)",
+        orange: "rgb(255, 159, 64)",
+        yellow: "rgb(255, 205, 86)",
+        green: "rgb(75, 192, 192)",
+        info: "#41B1F9",
+        blue: "#3245D1",
+        purple: "rgb(153, 102, 255)",
+        grey: "#808080",
+        indigo: "#41506C",
+        brown: "#68484A",
+        po: "#B5BB72",
+        light: "#818A99",
+        dark: "#F5125F",
+    };
+
+    var config1 = {
+        type: "line",
+        data: {
+            labels: $("#canvas1").data("label").toString().split(","),
+            datasets: [
+                {
+                    label: "Renvenue",
+                    backgroundColor: "#fff",
+                    borderColor: "#fff",
+                    data: $("#canvas1").data("value").toString().split(","),
+                    fill: false,
+                    pointBorderWidth: 100,
+                    pointBorderColor: "transparent",
+                    pointRadius: 3,
+                    pointBackgroundColor: "transparent",
+                    pointHoverBackgroundColor: "rgba(63,82,227,1)",
+                },
+            ],
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            layout: {
+                padding: {
+                    left: -10,
+                    top: 10,
+                },
+            },
+            legend: {
+                display: false,
+            },
+            title: {
+                display: false,
+            },
+            tooltips: {
+                mode: "index",
+                intersect: false,
+            },
+            hover: {
+                mode: "nearest",
+                intersect: true,
+            },
+            scales: {
+                xAxes: [
+                    {
+                        gridLines: {
+                            drawBorder: false,
+                            display: false,
+                        },
+                        ticks: {
+                            display: false,
+                        },
+                    },
+                ],
+                yAxes: [
+                    {
+                        gridLines: {
+                            display: false,
+                            drawBorder: false,
+                        },
+                        ticks: {
+                            display: false,
+                        },
+                    },
+                ],
+            },
+        },
+    };
+
+    var config2 = {
+        type: "line",
+        data: {
+            labels: $("#canvas2").data("label").toString().split(","),
+            datasets: [
+                {
+                    label: "Orders",
+                    backgroundColor: "#fff",
+                    borderColor: "#fff",
+                    data: $("#canvas2").data("value").toString().split(","),
+                    fill: false,
+                    pointBorderWidth: 100,
+                    pointBorderColor: "transparent",
+                    pointRadius: 3,
+                    pointBackgroundColor: "transparent",
+                    pointHoverBackgroundColor: "rgba(63,82,227,1)",
+                },
+            ],
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            layout: {
+                padding: {
+                    left: -10,
+                    top: 10,
+                },
+            },
+            legend: {
+                display: false,
+            },
+            title: {
+                display: false,
+            },
+            tooltips: {
+                mode: "index",
+                intersect: false,
+            },
+            hover: {
+                mode: "nearest",
+                intersect: true,
+            },
+            scales: {
+                xAxes: [
+                    {
+                        gridLines: {
+                            drawBorder: false,
+                            display: false,
+                        },
+                        ticks: {
+                            display: false,
+                        },
+                    },
+                ],
+                yAxes: [
+                    {
+                        gridLines: {
+                            display: false,
+                            drawBorder: false,
+                        },
+                        ticks: {
+                            display: false,
+                        },
+                    },
+                ],
+            },
+        },
+    };
+
+    var config3 = {
+        type: "line",
+        data: {
+            labels: $("#canvas3").data("label").toString().split(","),
+            datasets: [
+                {
+                    label: "Product sales",
+                    backgroundColor: "#fff",
+                    borderColor: "#fff",
+                    data: $("#canvas3").data("value").toString().split(","),
+                    fill: false,
+                    pointBorderWidth: 100,
+                    pointBorderColor: "transparent",
+                    pointRadius: 3,
+                    pointBackgroundColor: "transparent",
+                    pointHoverBackgroundColor: "rgba(63,82,227,1)",
+                },
+            ],
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            layout: {
+                padding: {
+                    left: -10,
+                    top: 10,
+                },
+            },
+            legend: {
+                display: false,
+            },
+            title: {
+                display: false,
+            },
+            tooltips: {
+                mode: "index",
+                intersect: false,
+            },
+            hover: {
+                mode: "nearest",
+                intersect: true,
+            },
+            scales: {
+                xAxes: [
+                    {
+                        gridLines: {
+                            drawBorder: false,
+                            display: false,
+                        },
+                        ticks: {
+                            display: false,
+                        },
+                    },
+                ],
+                yAxes: [
+                    {
+                        gridLines: {
+                            display: false,
+                            drawBorder: false,
+                        },
+                        ticks: {
+                            display: false,
+                        },
+                    },
+                ],
+            },
+        },
+    };
+
+    var config4 = {
+        type: "bar",
+        data: {
+            labels: $("#bar").data("label").toString().split(","),
+            datasets: [
+                {
+                    label: "Sales",
+                    backgroundColor: shuffleArray(Object.values(colors)),
+                    data: $("#bar").data("value").toString().split(","),
+                },
+            ],
+        },
+        options: {
+            responsive: true,
+            barRoundness: 1,
+            title: {
+                display: false,
+                text: "Chart.js - Bar Chart with Rounded Tops (drawRoundedTopRectangle Method)",
+            },
+            legend: {
+                display: false,
+            },
+            scales: {
+                yAxes: [
+                    {
+                        ticks: {
+                            beginAtZero: true,
+                            suggestedMax: 40 + 20,
+                            padding: 10,
+                        },
+                        gridLines: {
+                            drawBorder: false,
+                        },
+                    },
+                ],
+                xAxes: [
+                    {
+                        gridLines: {
+                            display: false,
+                            drawBorder: false,
+                        },
+                    },
+                ],
+            },
+        },
+    };
+
+    let ctx1 = document.getElementById("canvas1").getContext("2d");
+    let ctx2 = document.getElementById("canvas2").getContext("2d");
+    let ctx3 = document.getElementById("canvas3").getContext("2d");
+    let ctx4 = document.getElementById("bar").getContext("2d");
+    new Chart(ctx1, config1);
+    new Chart(ctx2, config2);
+    new Chart(ctx3, config3);
+    new Chart(ctx4, config4);
+
+    const calc = () => {
+        let data = $("#bar").data("value").split(",");
+        let last = data.slice(-2)[0];
+        let curr = data.slice(-1)[0];
+        let val = 0;
+        if (curr == undefined) {
+            val = 0;
+        } else if (data.length < 2 || last == undefined) {
+            val = curr;
+        } else {
+            val = ((curr - last) / last) * 100;
+        }
+
+        if (val < 0) {
+            $("#profit_percent").parent().toggleClass("text-danger");
+            $("#profit_percent").html(val.toFixed(2));
+        } else {
+            $("#profit_percent").parent().toggleClass("text-green");
+            $("#profit_percent").html("+" + val.toFixed(2));
+        }
+    };
+
+    calc();
+</script>

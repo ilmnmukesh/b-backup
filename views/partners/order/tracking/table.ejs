@@ -1,0 +1,48 @@
+<div class="table-responsive">
+    <table class="table table-light table-default">
+        <thead
+            class="table-default border-0 border-bottom border-warning"
+            style="color: var(--sidebar-color-bg) !important"
+        >
+            <tr>
+                <th class="col-1 px-0 text-center">ID</th>
+                <th class="col-1 px-0 text-center">Name</th>
+                <th class="col-2 px-0 text-center">Address</th>
+                <th class="col-1 px-0 text-center">Location</th>
+                <th
+                    class="col-2 px-0 text-center"
+                    onclick="changeOrder(true,false)"
+                    id="table_head_date"
+                >
+                    Date
+                </th>
+                <th class="col-1 px-0 text-center">Time</th>
+                <th
+                    class="col-1 px-0 text-center"
+                    onclick="changeOrder(false,true)"
+                    id="table_head_amount"
+                >
+                    Amount
+                </th>
+                <th class="col-1 px-0 text-center">Product</th>
+                <th class="col-1 px-0 text-center">Action</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            <% let aaa= false; for(const obj of data){ %> <%-
+            include("./content", {obj, aaa}); %> <%aaa=!aaa; }%>
+        </tbody>
+    </table>
+    <h6 class="text-center mt-5" id="table-err"></h6>
+    <% if(data.length == 0) {%>
+    <h1 id="no_result_found" class="text-center mt-5">No result found</h1>
+    <%}%>
+</div>
+
+<script>
+    $(document).ready(() => {
+        // changeArrow();
+        // changerNavHeader();
+        feather.replace();
+    });
+</script>

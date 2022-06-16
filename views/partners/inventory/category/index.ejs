@@ -1,0 +1,54 @@
+<%- contentFor('body') %>
+
+<div class="col-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">Category details</h4>
+        </div>
+        <div class="card-content">
+            <div class="card-body">
+                <div class="table-responsive container shadow">
+                    <div>
+                        <a
+                            onclick="$('.toast').toast('show')"
+                            class="btn btn-danger mx-2 shadow float-right"
+                            >Edit/Delete</a
+                        >
+                        <!-- <a
+                            href="/partners/inventory/category/add"
+                            class="btn btn-warning mx-2 shadow float-right"
+                            >Add</a
+                        > -->
+                        <div class="toast" data-delay="3000">
+                            <div class="toast-body">
+                                Contact Boozeo to change this details
+                            </div>
+                        </div>
+                    </div>
+
+                    <table
+                        class="table table-light mb-5 table-hover table-striped table-default"
+                    >
+                        <thead class="table-default-head-bg">
+                            <tr>
+                                <th>Id</th>
+                                <th>NAME</th>
+                                <th>CATEGORY CODE</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <% data.forEach((cat)=>{%>
+                            <tr>
+                                <td class="text-bold-500"><%= cat.id %></td>
+                                <td><%= cat.name %></td>
+                                <td><%= cat.code %></td>
+                            </tr>
+                            <% })%>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

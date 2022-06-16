@@ -1,0 +1,288 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a class="default-text" href="/partners/profile/details">Profile</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Location</li>
+    </ol>
+</nav>
+
+<style>
+    #map {
+        height: 100%;
+    }
+    code {
+        color: var(--sidebar-color) !important;
+    }
+    /* code {
+        color: black !important;
+    } */
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<div class="text-center">
+    <div class="row col-12">
+        <div class="h6 offset-1 col-6 pt-4">
+            Latitude: <code id="lat"><%= obj.latitude%></code>&emsp;Longitude:
+            <code id="lng"><%= obj.longitude%></code>
+        </div>
+        <div id="save_content" class="col-4 text-center">
+            <button
+                onclick="onSave()"
+                class="btn shadow btn-sm btn-secondary text-center"
+            >
+                <i class="fa fa-save fa-1x"></i>
+                Save
+            </button>
+        </div>
+    </div>
+    <div class="d-none search-input">
+        <input
+            id="searchInput"
+            class="form-control mt-2"
+            style="width: 450px"
+            type="text"
+            placeholder="Search Box"
+        />
+    </div>
+    <div id="map" class="offset-2 col-8"></div>
+    <div class="mb-2">
+        <p class="h6 mt-3">
+            Location: <code id="location"><%= obj.location%></code>
+        </p>
+        <p class="h6 mt-0">
+            State Code:
+            <code id="state_code"><%= obj?.partner?.stateCode%></code>&emsp;
+            Country Code:
+            <code id="country"><%= obj?.partner?.countryCode%></code>&emsp;
+            Postal Code:
+            <code id="postal_code"><%= obj?.partner?.postalCode%></code>
+        </p>
+    </div>
+    <code id="server_err" class=""><br /></code>
+</div>
+<script>
+    $(document).ready(() => {
+        $(".search-input").removeClass("d-none");
+    });
+    async function initMap() {
+        const myLatlng = {
+            lat: parseFloat("<%= obj.latitude%>"),
+            lng: parseFloat("<%= obj.longitude%>"),
+        };
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 10,
+            center: myLatlng,
+        });
+        var input = document.getElementById("searchInput");
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+        const defaultBounds = {
+            north: myLatlng.lat + 0.1,
+            south: myLatlng.lat - 0.1,
+            east: myLatlng.lng + 0.1,
+            west: myLatlng.lng - 0.1,
+        };
+        const options = {
+            bounds: defaultBounds,
+            componentRestrictions: { country: "us" },
+            fields: [
+                "address_components",
+                "formatted_address",
+                "geometry",
+                "icon",
+                "name",
+            ],
+            strictBounds: false,
+            types: ["establishment", "geocode"],
+        };
+        const autocomplete = new google.maps.places.Autocomplete(
+            input,
+            options,
+        );
+
+        // var autocomplete = new google.maps.places.Au(input);
+        autocomplete.bindTo("bounds", map);
+
+        var infowindow = new google.maps.InfoWindow();
+        var marker = new google.maps.Marker({
+            map: map,
+            anchorPoint: new google.maps.Point(0, -29),
+        });
+
+        autocomplete.addListener("place_changed", function () {
+            infowindow.close();
+            marker.setVisible(false);
+            var place = autocomplete.getPlace();
+            if (!place.geometry) {
+                window.alert("search place contains no geometry");
+                return;
+            }
+
+            // If the place has a geometry, then present it on a map.
+            if (place.geometry.viewport) {
+                map.fitBounds(place.geometry.viewport);
+            } else {
+                map.setCenter(place.geometry.location);
+                map.setZoom(17);
+            }
+            marker.setIcon({
+                url: place.icon,
+                size: new google.maps.Size(71, 71),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(17, 34),
+                scaledSize: new google.maps.Size(35, 35),
+            });
+            marker.setPosition(place.geometry.location);
+            marker.setVisible(true);
+
+            var address = "";
+            if (place.address_components) {
+                address = [
+                    (place.address_components[0] &&
+                        place.address_components[0].short_name) ||
+                        "",
+                    (place.address_components[1] &&
+                        place.address_components[1].short_name) ||
+                        "",
+                    (place.address_components[2] &&
+                        place.address_components[2].short_name) ||
+                        "",
+                ].join(" ");
+            }
+
+            infowindow.setContent(
+                "<div><strong>" + place.name + "</strong><br>" + address,
+            );
+            infowindow.open(map, marker);
+
+            // Location details
+            for (var i = 0; i < place.address_components.length; i++) {
+                if (place.address_components[i].types[0] == "postal_code") {
+                    document.getElementById("postal_code").innerHTML =
+                        place.address_components[i].long_name;
+                }
+                if (place.address_components[i].types[0] == "country") {
+                    document.getElementById("country").innerHTML =
+                        place.address_components[i].short_name;
+                }
+
+                if (
+                    place.address_components[i].types[0] ==
+                    "administrative_area_level_1"
+                ) {
+                    document.getElementById("state_code").innerHTML =
+                        place.address_components[i].short_name;
+                }
+            }
+            document.getElementById("location").innerHTML =
+                place.formatted_address;
+            document.getElementById("lat").innerHTML =
+                place.geometry.location.lat();
+            document.getElementById("lng").innerHTML =
+                place.geometry.location.lng();
+            $("#save_content").removeClass("d-none");
+        });
+
+        // Create the initial InfoWindow.
+        let infoWindow = new google.maps.InfoWindow({
+            content: "<%= obj.location%>",
+            position: myLatlng,
+        });
+        var geocoder = new google.maps.Geocoder();
+        infoWindow.open(map);
+        // Configure the click listener.
+
+        map.addListener("click", (mapsMouseEvent) => {
+            // Close the current InfoWindow.
+            infoWindow.close();
+            // Create a new InfoWindow.
+            infoWindow = new google.maps.InfoWindow({
+                position: mapsMouseEvent.latLng,
+                types: ["establishment", "geocode"],
+            });
+            $("#save_content").removeClass("d-none");
+            geocoder.geocode(
+                {
+                    latLng: mapsMouseEvent.latLng,
+                },
+                function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        if (results[0]) {
+                            infoWindow.setContent(results[0].formatted_address);
+                            $("#location").html(results[0].formatted_address);
+                            infoWindow.open(map);
+                            let place = results[0];
+                            for (
+                                var i = 0;
+                                i < place.address_components.length;
+                                i++
+                            ) {
+                                if (
+                                    place.address_components[i].types[0] ==
+                                    "postal_code"
+                                ) {
+                                    document.getElementById(
+                                        "postal_code",
+                                    ).innerHTML =
+                                        place.address_components[i].long_name;
+                                }
+                                if (
+                                    place.address_components[i].types[0] ==
+                                    "country"
+                                ) {
+                                    document.getElementById(
+                                        "country",
+                                    ).innerHTML =
+                                        place.address_components[i].short_name;
+                                }
+
+                                if (
+                                    place.address_components[i].types[0] ==
+                                    "administrative_area_level_1"
+                                ) {
+                                    document.getElementById(
+                                        "state_code",
+                                    ).innerHTML =
+                                        place.address_components[i].short_name;
+                                }
+                            }
+                        }
+                    }
+                },
+            );
+
+            $("#lat").html(mapsMouseEvent.latLng.lat);
+            $("#lng").html(mapsMouseEvent.latLng.lng);
+        });
+    }
+</script>
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjk4cLTnCrzDdefiauM_Gx6IBPJ2yI608&libraries=places&callback=initMap&v=weekly"
+    async
+></script>
+<script>
+    $("#map").height(window.screen.availHeight * 0.6);
+    const onSave = () => {
+        $("#server_err").html(
+            `<span class="ml-2 text-center spinner-border spinner-border-sm"></span>`,
+        );
+        $.ajax({
+            method: "POST",
+            url: "/partners/profile/create/update/",
+            data: {
+                latitude: $("#lat").html(),
+                longitude: $("#lng").html(),
+                location: $("#location").html(),
+                countryCode: $("#country").html(),
+                stateCode: $("#state_code").html(),
+                postalCode: $("#postal_code").html(),
+            },
+            success: (data) => {
+                if (!data.success) {
+                    $("#server_err").html(data.msg);
+                } else {
+                    $("#server_err").html("Update Successfully");
+                }
+            },
+        });
+    };
+</script>

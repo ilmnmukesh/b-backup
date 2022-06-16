@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dashboard - Voler Admin Dashboard</title>
+
+        <link rel="stylesheet" href="/seller/asset/css/bootstrap.css" />
+
+        <link
+            rel="stylesheet"
+            href="/seller/asset/vendors/chartjs/Chart.min.css"
+        />
+
+        <link
+            rel="stylesheet"
+            href="/seller/asset/vendors/perfect-scrollbar/perfect-scrollbar.css"
+        />
+        <link rel="stylesheet" href="/seller/asset/css/app.css" />
+        <link
+            rel="shortcut icon"
+            href="/seller/asset/images/favicon.svg"
+            type="image/x-icon"
+        />
+        <!-- <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+            rel="stylesheet"
+        /> -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css"
+            rel="stylesheet"
+        />
+        <style>
+            .material-icons,
+            .mdi {
+                font-family: "Material Icons";
+                font-weight: normal;
+                font-style: normal;
+                font-size: 16px; /* Preferred icon size */
+                display: inline-block;
+                color: grey;
+                line-height: 0.5;
+                vertical-align: middle;
+                text-transform: none;
+                letter-spacing: normal;
+                word-wrap: normal;
+                white-space: normal;
+                direction: ltr;
+                /* Support for all WebKit browsers. */
+                -webkit-font-smoothing: antialiased;
+                /* Support for Safari and Chrome. */
+                text-rendering: optimizeLegibility;
+
+                /* Support for Firefox. */
+                -moz-osx-font-smoothing: grayscale;
+
+                /* Support for IE. */
+                font-feature-settings: "liga";
+            }
+        </style>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+            integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <style>
+            td {
+                font-family: var(--bs-font-monospace);
+            }
+        </style>
+    </head>
+    <body>
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdn.socket.io/4.4.1/socket.io.min.js"
+            integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+            integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <div id="app" style="min-width: fit-content">
+            <%- include('sidebar'); %>
+            <div id="main">
+                <%- include('header'); %> <%- defineContent('body'); %>
+                <%-include('footer'); %>
+            </div>
+        </div>
+        <script src="/seller/asset/js/feather-icons/feather.min.js"></script>
+        <script src="/seller/asset/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+        <script src="/seller/asset/js/app.js"></script>
+
+        <script src="/seller/asset/js/dashboard.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    </body>
+</html>

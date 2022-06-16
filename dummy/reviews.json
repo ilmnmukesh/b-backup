@@ -1,0 +1,32 @@
+[
+    {
+        "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris",
+        "rating": 4.5,
+        "name": "Mr. John",
+        "partnerId": 1
+    },
+    {
+        "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris",
+        "rating": 4.7,
+        "name": "Mr. Bob",
+        "partnerId": 1
+    },
+    {
+        "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris",
+        "rating": 4.5,
+        "name": "Mr. John",
+        "partnerId": 2
+    },
+    {
+        "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris",
+        "rating": 4.7,
+        "name": "Mr. Bob",
+        "partnerId": 3
+    },
+    {
+        "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris",
+        "rating": 4.7,
+        "name": "Mr. Bob",
+        "partnerId": 4
+    }
+]

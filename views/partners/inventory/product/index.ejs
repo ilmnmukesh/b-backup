@@ -1,0 +1,881 @@
+<%- contentFor('body') %>
+
+<div class="col-12">
+    <div class="card">
+        <div class="card-header">
+            <form autocomplete="off">
+                <div class="row">
+                    <h4 class="card-title col-md-3 justify-center">
+                        Product details
+                        <span class="badge bg-orange"
+                            ><%= typeof count != "undefined"? count:'' %></span
+                        >
+                    </h4>
+
+                    <div
+                        class="form-group has-icon-left col-md-6 justify-center"
+                    >
+                        <div class="position-relative">
+                            <input
+                                required
+                                type="text"
+                                class="form-control"
+                                placeholder="Search Product Name"
+                                name="q"
+                            />
+                            <div class="form-control-icon">
+                                <i data-feather="search"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <input
+                        type="hidden"
+                        name="page"
+                        class="page_hidden_field"
+                    />
+                    <input
+                        type="hidden"
+                        name="category"
+                        value="<%= categoryQ%>"
+                    />
+                    <input type="hidden" name="brand" value="<%= brandQ%>" />
+
+                    <div class="col-md-3 justify-center">
+                        <button
+                            type="submit"
+                            class="btn btn-warning shadow btn-sm"
+                        >
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="card-content">
+            <div class="card-body">
+                <div class="container">
+                    <div class="d-none" id="templete_help"></div>
+                    <div id="display_list_content">
+                        <a
+                            href="/partners/inventory/combo/add/"
+                            class="btn btn-sm btn-warning ml-4 shadow float-right mb-4"
+                        >
+                            <i class="fa fa-plus"></i>
+                            Add</a
+                        >
+                        <a
+                            data-toggle="modal"
+                            data-target="#filter_model"
+                            class="btn btn-sm btn-outline-dark mx-2 shadow float-left"
+                            ><i data-feather="menu" class="mb-1"></i
+                            >&emsp;Filter</a
+                        >
+
+                        <a
+                            id="search-content-display"
+                            class="btn btn-sm btn-outline-warning round mx-2 shadow d-none"
+                            onclick="removeElement('search')"
+                            ><i class="mb-1" data-feather="search"></i>
+                        </a>
+
+                        <!-- <div id="display_list_content"></div> -->
+                    </div>
+                    <div class="col-12 row">
+                        <% data.forEach((obj)=>{%>
+                        <div
+                            class="card col-md-6 default-product-bg shadow-none"
+                        >
+                            <div class="card-content">
+                                <div class="float-left col-* pr-5">
+                                    <img
+                                        height="150"
+                                        class="ml-4"
+                                        src="<%= obj.image %>"
+                                        alt="Card image cap"
+                                    />
+                                </div>
+
+                                <div class="card-body">
+                                    <h4
+                                        class="card-title"
+                                        style="
+                                            overflow: hidden;
+                                            text-overflow: ellipsis;
+                                            display: -webkit-box;
+                                            -webkit-line-clamp: 1;
+                                            -webkit-box-orient: vertical;
+                                        "
+                                    >
+                                        <%= obj.name%>
+                                    </h4>
+                                    <p
+                                        class="card-text ellipsis"
+                                        style="
+                                            color: #434e5b;
+                                            overflow: hidden;
+                                            text-overflow: ellipsis;
+                                            display: -webkit-box;
+                                            -webkit-line-clamp: 2;
+                                            min-height: 44px;
+                                            -webkit-box-orient: vertical;
+                                        "
+                                    >
+                                        <%= obj.description %>
+                                    </p>
+                                    <small class="text-muted">
+                                        <span
+                                            title="Click this to filter this category"
+                                            onclick="addCategory('<%=obj.category?.name%>')"
+                                            class="badge border-primary border text-primary shadow"
+                                        >
+                                            <%=obj.category?.name %>
+                                        </span>
+                                        <span
+                                            title="Click this to filter this brand"
+                                            onclick="addBrand('<%=obj.brand?.name%>')"
+                                            class="badge border-primary border text-primary shadow"
+                                        >
+                                            <%=obj.brand?.name %>
+                                        </span>
+                                    </small>
+                                    <a
+                                        href="/partners/inventory/product/<%=obj.id%>"
+                                        class="btn btn-sm round btn-outline-light border-0 float-right"
+                                    >
+                                        View
+                                        <i
+                                            data-feather="chevron-right"
+                                            class="text-warning"
+                                        ></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <% })%>
+                    </div>
+
+                    <nav aria-label="Page navigation">
+                        <ul
+                            class="pagination pagination-dark justify-content-center col-12"
+                        >
+                            <li class="page-item">
+                                <a
+                                    class="page-link btn btn-block"
+                                    id="page-left-move"
+                                    href="#"
+                                >
+                                    <i data-feather="chevron-left"></i>
+                                </a>
+                            </li>
+                            <li class="page-item href_item">
+                                <a
+                                    class="page-link active bg-warning border-warning"
+                                    ><%=page%></a
+                                >
+                            </li>
+                            <div>
+                                <li class="page-item href_item border border-0">
+                                    <a class="page-link">of</a>
+                                </li>
+                            </div>
+                            <li class="page-item href_item">
+                                <a class="page-link"
+                                    ><%=parseInt(count / 10) + 1%></a
+                                >
+                            </li>
+                            <li class="page-item">
+                                <a
+                                    class="page-link"
+                                    id="page-right-move"
+                                    href="#"
+                                >
+                                    <i data-feather="chevron-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="text-center">
+                        <div class="offset-5 row col-2 justify-center">
+                            <div class="form-group has-icon-left">
+                                <div class="position-relative">
+                                    <input
+                                        type="number"
+                                        class="form-control text-center"
+                                        placeholder="Go to page"
+                                        max="<%=parseInt(count / 10) + 1%>"
+                                        id="gotoPage"
+                                    />
+                                    <div class="form-control-icon">
+                                        <i
+                                            class="mdi mdi-page-next-outline mt-2"
+                                        ></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <button
+                                class="btn btn-sm btn-warning shadow"
+                                onclick="pageChangeTo()"
+                            >
+                                Go
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div
+    class="modal fade"
+    id="filter_model"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="filter_model_title"
+    aria-hidden="true"
+>
+    <div
+        class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+        role="document"
+    >
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="filter_model_title">
+                    Select Filter Options
+                </h5>
+                <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                >
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form autocomplete="off">
+                    <input type="hidden" name="q" id="search_hidden_field" />
+                    <input
+                        type="hidden"
+                        name="page"
+                        class="page_hidden_field"
+                    />
+                    <div class="col-md-12">
+                        <label>Select Category</label>
+                        <div class="input-group mb-3">
+                            <select
+                                class="form-select"
+                                name="category"
+                                id="category_options"
+                            >
+                                <option value="">Choose Options</option>
+                                <% category.forEach(obj=>{ %> <% if(obj.name==
+                                categoryQ){ %>
+                                <option value="<%=obj.name%>" selected>
+                                    <%=obj.name%>
+                                </option>
+                                <% }else {%>
+                                <option value="<%=obj.name%>">
+                                    <%=obj.name%>
+                                </option>
+
+                                <% }%> <% })%>
+                            </select>
+
+                            <button class="btn shadow btn-sm btn-secondary">
+                                Select
+                            </button>
+                            <br />
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <label>Select Brand</label>
+                        <div class="input-group mb-3">
+                            <select
+                                class="form-select"
+                                name="brand"
+                                id="brand_options"
+                            >
+                                <option value="">Choose Options</option>
+                                <% brand.forEach(obj=>{ %> <% if(obj.name==
+                                brandQ){ %>
+
+                                <option value="<%=obj.name%>" selected>
+                                    <%=obj.name%>
+                                </option>
+                                <% }else {%>
+                                <option value="<%=obj.name%>">
+                                    <%=obj.name%>
+                                </option>
+                                <% }%> <% })%>
+                            </select>
+
+                            <button class="btn shadow btn-sm btn-secondary">
+                                Select
+                            </button>
+                            <br />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>
+
+<div
+    class="modal fade"
+    id="bulk_insert_modal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="bulk_insert_modal"
+    aria-hidden="true"
+>
+    <div
+        class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+        role="document"
+    >
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="bulk_insert_modal_title"></h5>
+                <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                    id="bulk_modal_close_btn"
+                    onclick="(()=>$('#csv').val())();"
+                >
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center row">
+                    <h5>
+                        Total count
+                        <code id="csv_total_cnt"></code>
+                    </h5>
+                </div>
+                <div class="text-center row">
+                    <h5>
+                        Valid
+                        <code id="csv_total_check"></code>
+                    </h5>
+                </div>
+                <div class="text-center" id="csv_completed"></div>
+
+                <div class="text-center" id="add_btn_insert"></div>
+
+                <div class="text-center">
+                    <small
+                        id="import_err"
+                        class="text-danger text-center"
+                    ></small>
+                </div>
+                <div class="text-center" id="btn_error_text">
+                    <button
+                        onclick="downloadImportErr()"
+                        class="btn btn-sm btn-outline-danger shadow"
+                    >
+                        <i class="fa fa-download" aria-hidden="true"></i>
+                        Error list
+                    </button>
+                </div>
+            </div>
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function getUrlVars() {
+        var vars = [],
+            hash;
+        var hashes = window.location.href
+            .slice(window.location.href.indexOf("?") + 1)
+            .split("&");
+        for (var i = 0; i < hashes.length; i++) {
+            hash = hashes[i].split("=");
+            vars.push(hash[0]);
+            vars[hash[0]] = hash[1];
+        }
+        return vars;
+    }
+    $(document).ready(() => {
+        let p = getUrlVars()["page"];
+        let searchQuery = window.location.search;
+        searchQuery =
+            searchQuery == "" ? "?q=&page=1&category=&brand=" : searchQuery;
+        p = p == undefined ? 1 : p;
+        $(".page_hidden_field").val(p);
+        let cnt = parseInt("<%=count%>");
+        $(".pagination .page-item .page-link").each((e, i) => {
+            if ($(i).html() == p) {
+                $(i).parent().addClass("active");
+            }
+        });
+        $("#page-left-move").attr(
+            "href",
+            `/partners/inventory/product/${searchQuery.replace(
+                `page=${p}`,
+                `page=${p == 1 ? 1 : parseInt(p) - 1}`,
+            )} `,
+        );
+        $("#page-right-move").attr(
+            "href",
+            `/partners/inventory/product/${searchQuery.replace(
+                `page=${p}`,
+                `page=${parseInt(cnt / 10 + 1) == p ? p : parseInt(p) + 1}`,
+            )} `,
+        );
+        let search = getUrlVars()["q"];
+        if (search) {
+            $("#search-content-display").append(`
+                ${search}
+            `);
+            $("#search-content-display").removeClass("d-none");
+            $("#search_hidden_field").val(search);
+        }
+
+        let cat = getUrlVars()["category"];
+
+        if (cat) {
+            $("#display_list_content").append(`
+                        <a
+                            class="btn btn-sm btn-outline-primary round mx-2 shadow float-left"
+                            onclick="removeElement('category')"
+                            >
+                            ${cat}
+                        </a>
+            `);
+        }
+        let brand = getUrlVars()["brand"];
+
+        if (brand) {
+            $("#display_list_content").append(`
+                        <a
+                        class="btn btn-sm btn-outline-primary round mx-2 shadow float-left"
+                            onclick="removeElement('brand')"
+                            >
+                            ${brand}
+                        </a>
+            `);
+        }
+    });
+    function removeElement(type) {
+        let search = getUrlVars()["q"];
+        let searchQuery = window.location.search;
+        let cat = getUrlVars()["category"];
+        let brand = getUrlVars()["brand"];
+
+        if (type == "search") {
+            window.location.search = searchQuery.replace(`q=${search}`, "q=");
+        }
+        if (type == "brand") {
+            window.location.search = searchQuery.replace(
+                `brand=${brand}`,
+                "brand=",
+            );
+        }
+        if (type == "category") {
+            window.location.search = searchQuery.replace(
+                `category=${cat}`,
+                "category=",
+            );
+        }
+    }
+
+    const addCategory = (name) => {
+        var url = new URL(window.location);
+        url.searchParams.set("category", name);
+        if (window.location.href != url.href) {
+            window.location.href = url.href;
+        }
+    };
+
+    const addBrand = (name) => {
+        var url = new URL(window.location);
+        url.searchParams.set("brand", name);
+        window.location.href = url.href;
+    };
+</script>
+
+<script>
+    let err_data;
+    var fileInput = document.getElementById("csv");
+    let json;
+
+    var category = JSON.parse(`<%- JSON.stringify(categoryAll) %>`);
+    var brand = JSON.parse(`<%- JSON.stringify(brandAll) %>`);
+    var unit = JSON.parse(`<%- JSON.stringify(unitAll) %>`);
+    var multipler = JSON.parse(`<%- JSON.stringify(multiplerAll) %>`);
+    const readFile = function () {
+        var reader = new FileReader();
+        reader.readAsBinaryString(fileInput.files[0]);
+        $(
+            "#import_err,#csv_total_check,#csv_total_cnt,#add_btn_insert,#csv_completed",
+        ).html("");
+        $("#btn_error_text").addClass("d-none");
+        $("#bulk_insert_modal_title").html($("#csv").prop("files")[0]?.name);
+        $("#bulk_insert_modal").modal({
+            backdrop: "static",
+            keyboard: false,
+        });
+
+        const CSVToJSON = (csv) => {
+            csv = csv.trim();
+            const lines = csv.split("\n");
+            const keys = lines[0].split(",");
+            return lines.slice(1).map((line) => {
+                return line.split(",").reduce((acc, cur, i) => {
+                    const toAdd = {};
+                    try {
+                        toAdd[keys[i].trim()] = cur.trim();
+                    } catch {
+                        toAdd[keys[i]] = cur;
+                    }
+                    return { ...acc, ...toAdd };
+                }, {});
+            });
+        };
+        reader.onload = function () {
+            const checkColumn = (json) => {
+                if (json == null) {
+                    let str = `Enter value to check`;
+                    $("#import_err").html(str);
+                    return false;
+                }
+                let ret = `<ul class="text-center">`;
+                let check = true;
+                temp.split(",").map((e) => {
+                    let x = e.trim();
+                    if (json[x] == null) {
+                        check = false;
+                        ret += `<p><code class="text-blue">${x}</code> column name does not exits</p>`;
+                    }
+                });
+                ret + "</ul>";
+                if (!check) $("#import_err").html(ret);
+                return check;
+            };
+            const validURL = (str) => {
+                var pattern = new RegExp(
+                    "^(https?:\\/\\/)?" + // protocol
+                        "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
+                        "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
+                        "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // port and path
+                        "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
+                        "(\\#[-a-z\\d_]*)?$",
+                    "i",
+                ); // fragment locator
+                return !!pattern.test(str);
+            };
+            const checkValue = (json) => {
+                let ret = [];
+                let params = [];
+                const check = (j, v) => {
+                    if (j == null || j == "") {
+                        ret.push(v);
+                    }
+                };
+                const checkWithDB = (table, colname, jsoncol) => {
+                    let t = table.find(
+                        (e) =>
+                            e[colname].toLowerCase() ==
+                            json[jsoncol].toLocaleLowerCase(),
+                    );
+                    if (t == null) {
+                        params.push(
+                            `${jsoncol} is not a valid one, check its present in db or not`,
+                        );
+                    } else {
+                        json[jsoncol + "Id"] = t.id;
+                    }
+                };
+                const checkWithDBPush = (table, colname, jsoncol, i) => {
+                    //console.log(table, colname, jsoncol, i);
+                    let t = table.find(
+                        (e) =>
+                            e[colname].toString().toLowerCase() ==
+                            json[jsoncol][i].toString().toLocaleLowerCase(),
+                    );
+                    if (t == null) {
+                        params.push(
+                            `${jsoncol} is not a valid one, check its present in db or not`,
+                        );
+                    } else {
+                        json[jsoncol + "Id"].push(t.id);
+                    }
+                };
+                if (!validURL(json?.image))
+                    params.push(
+                        'image is invalid url, if you upload image with same name use dummy url like "http://host.com"',
+                    );
+
+                let fieldArray = [
+                    "mrp",
+                    "discount",
+                    "units",
+                    "volume",
+                    "multiplers",
+                    "price",
+                ];
+
+                let fieldLen = {};
+                fieldArray.forEach((e) => {
+                    json[e] = json[e].split(";");
+                    fieldLen[e] = json[e].length;
+                });
+
+                if (new Set(Object.values(fieldLen)).size != 1) {
+                    params.push(
+                        fieldArray.join() +
+                            " length of field value are not equal",
+                    );
+                } else {
+                    checkWithDB(category, "name", "category");
+                    checkWithDB(brand, "name", "brand");
+                    json["unitsId"] = [];
+                    json["multiplersId"] = [];
+                    for (let i = 0; i < json.mrp.length; i++) {
+                        if (isNaN(parseFloat(json?.mrp[i])))
+                            params.push(
+                                "MRP[" + (i + 1) + "] is not a valid price",
+                            );
+                        if (isNaN(parseFloat(json.price[i])))
+                            params.push(
+                                "price[" + (i + 1) + "] is not a valid price",
+                            );
+
+                        checkWithDBPush(unit, "value", "units", i);
+                        checkWithDBPush(multipler, "value", "multiplers", i);
+                    }
+                }
+                temp.split(",").map((e) => check(json[e.trim()], e.trim()));
+                return [ret, params.join(",")];
+            };
+            if ($("#csv").prop("files")[0]?.name.split(".").pop() == "csv") {
+                try {
+                    json = CSVToJSON(reader.result);
+                    json.forEach((j, i) => {
+                        if (details == Object.values(j).join()) {
+                            delete json[i];
+                        }
+                    });
+                    json = json.filter((e) => e !== undefined);
+
+                    $("#csv_total_cnt").html(json.length);
+                    if (checkColumn(json[0])) {
+                        let err = `<ul class="float-left">`;
+                        let cnt = 0;
+                        json?.forEach((e, i) => {
+                            let [ret, params] = checkValue(e);
+
+                            if (ret.length > 0 && params != "")
+                                err += `<div class="p-0 m-0"><code>Column ${i}:</code>${ret} are empty. ${params}\n</div>`;
+                            else if (ret.length > 0)
+                                err += `<div class="p-0 m-0"><code>Column ${i}:</code>${ret} are empty.\n</div>`;
+                            else if (params != "")
+                                err += `<div class="p-0 m-0"><code>Column ${i}:</code>${params}\n</div>`;
+                            else cnt++;
+
+                            $("#csv_total_check").html(
+                                `${cnt} / ${json.length}`,
+                            );
+                        });
+                        err += "</ul>";
+                        if (err == `<ul class="float-left"></ul>`) {
+                            $("#add_btn_insert").html(`
+                            <button id="bulk_upload_btn" onclick="uploadFile()" class="btn btn-sm btn-success shadow">
+                                <span id="">Upload<span></button>
+                    `);
+                        } else {
+                            $("#btn_error_text").removeClass("d-none");
+                            $("#import_err").html(err);
+                        }
+                    }
+                } catch (e) {
+                    console.log(e);
+                    $("#import_err").html("Invalid format");
+                }
+            } else {
+                $("#import_err").html("Invalid format of csv");
+            }
+        };
+    };
+
+    const uploadFile = async () => {
+        if (json == null && json.length == 0) {
+            return;
+        }
+        $("#bulk_modal_close_btn").addClass("d-none");
+        $("#bulk_upload_btn").html(
+            `<span class="spinner-border spinner-border-sm"></span>
+                                Processing...`,
+        );
+        $("#bulk_upload_btn").addClass("btn-dark");
+        $("#bulk_upload_btn").attr("disabled", "disabled");
+        $.ajax({
+            type: "POST",
+            url: "/partners/inventory/product/add/bulk/",
+            data: {
+                obj: JSON.stringify(
+                    json.map((e) => {
+                        let f = { ...e };
+                        f["multiplerId"] = f.multiplersId;
+                        f["unitId"] = f.unitsId;
+
+                        delete f.multiplersId;
+                        delete f.unitsId;
+                        return f;
+                    }),
+                ),
+            },
+            success: function (data) {
+                console.log(data);
+                err_data = data;
+                $("#csv_completed").html(`
+                    <h5>
+                        Process done
+                        <code>${json.length - data.length} / ${
+                    json.length
+                }</code>
+                <br/>
+                <br/>
+
+                <button class="btn btn-sm btn-outline-danger" onclick="downloadError()">
+                    <i class="fa fa-download" aria-hidden="true"></i>
+                    Error list</button>
+                    </h5> <br/>`);
+
+                $("#bulk_modal_close_btn").removeClass("d-none");
+                // $("#bulk_upload_btn").removeAttr("disabled");
+                $("#bulk_upload_btn").removeClass("btn-dark");
+                $("#bulk_upload_btn").html(
+                    "Process completed<i class='fa fa-check' aria-hidden='true'></i>",
+                );
+            },
+        });
+    };
+    fileInput.addEventListener("change", readFile);
+
+    const downloadError = () => {
+        const keys = [
+            "index",
+            "name",
+            "description",
+            "image",
+            "category",
+            "brand",
+            "multiplers",
+            "units",
+            "volume",
+            "mrp",
+            "price",
+            "discount",
+            "error",
+        ];
+        const JSONToCSV = (objArray) => {
+            let csv = keys.join(",");
+            objArray.forEach((row) => {
+                let values = [];
+                keys.forEach((key) => {
+                    values.push(row[key] || "");
+                });
+                csv += "\n" + values.join(",");
+            });
+            return csv;
+        };
+        if (err_data.length != 0) {
+            let err = err_data.map((e) => {
+                let f = { ...e };
+                delete f.unitId;
+                delete f.multiplerId;
+                delete f.brandId;
+                delete f.categoryId;
+                [
+                    "mrp",
+                    "discount",
+                    "units",
+                    "volume",
+                    "multiplers",
+                    "price",
+                ].forEach((z) => {
+                    f[z] = f[z].join(";");
+                });
+                return f;
+            });
+            const csv = JSONToCSV(err);
+            var downloadLink = document.createElement("a");
+            var blob = new Blob(["\ufeff", csv]);
+            var url = URL.createObjectURL(blob);
+            downloadLink.href = url;
+            downloadLink.download = "product_create_error.csv";
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+        }
+    };
+
+    const downloadImportErr = () => {
+        var downloadLink = document.createElement("a");
+        var blob = new Blob(["\ufeff", $("#import_err").text()]);
+
+        var url = URL.createObjectURL(blob);
+        downloadLink.href = url;
+        downloadLink.download = "import_error.txt";
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+    };
+</script>
+
+<script>
+    $(document).ready(() => {
+        let html = ``;
+        let a = temp.split(",");
+        let b = details.split(",");
+        for (let i = 0; i < a.length; i++) {
+            html += `<small><code class="h6">${a[i]}</code> <br><code>${b[i]}</code></small><br>`;
+        }
+        html += `
+        <div class="my-3">
+            <h5>Example in csv file</h5>
+            <code>Boozeo product,details content,http://localhost:3000/images/combo/1.png ,beer,14 hands,6;12,shots;shots,750ml;1500ml,9.99;19.99,7.99;13.99,20;25</code>
+        </div>
+        `;
+        $("#templete_help").html(html);
+    });
+</script>
+
+<script>
+    $("#gotoPage").keypress(function (e) {
+        if (e.which == 13) {
+            // the enter key code
+            pageChangeTo();
+        }
+    });
+    const pageChangeTo = () => {
+        const change = parseInt($("#gotoPage").val());
+        if (change == null) {
+            console.log("Re");
+            return;
+        }
+        let p = getUrlVars()["page"];
+        p = p == undefined ? 1 : p;
+
+        let searchQuery = window.location.search;
+        let cnt = parseInt("<%=count%>");
+        if (change > cnt / 10 + 1) {
+            return;
+        }
+        searchQuery =
+            searchQuery == "" ? "?q=&page=1&category=&brand=" : searchQuery;
+        const url = `/partners/inventory/product/${searchQuery.replace(
+            `page=${p}`,
+            `page=${change}`,
+        )} `;
+
+        window.location.href = url;
+    };
+</script>

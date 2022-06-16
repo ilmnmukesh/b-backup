@@ -1,0 +1,297 @@
+<style>
+    .sidebar-link {
+        color: grey !important;
+    }
+    .sidebar-link span {
+        color: grey !important;
+    }
+    .submenu li a {
+        color: grey !important;
+    }
+    .active-color {
+        background-color: rgba(215, 229, 240, 0.4);
+    }
+    .count {
+        padding: 3px 7px;
+        color: #fff !important;
+        border-radius: 30px;
+        top: 7px;
+        right: 0px;
+        min-width: 12px;
+        font-size: 11px;
+        z-index: 200;
+        text-align: center;
+        animation: alert-red 1.6s infinite;
+    }
+    @keyframes alert-red {
+        0% {
+            -webkit-box-shadow: 0 0 0 0 rgba(254, 57, 5, 0.7);
+            -moz-box-shadow: 0 0 0 0 rgba(254, 57, 5, 0.7);
+            box-shadow: 0 0 0 0 rgba(254, 57, 5, 0.7);
+        }
+        100% {
+            -webkit-box-shadow: 0 0 0 15px rgba(254, 57, 5, 0);
+            -moz-box-shadow: 0 0 0 15px rgba(254, 57, 5, 0);
+            box-shadow: 0 0 0 15px rgba(254, 57, 5, 0);
+        }
+    }
+
+    @keyframes ring {
+        0% {
+            transform: rotate(0deg);
+        }
+        5% {
+            transform: rotate(0deg);
+        }
+        15% {
+            transform: rotate(0deg);
+        }
+        25% {
+            transform: rotate(20deg);
+        }
+        35% {
+            transform: rotate(-15deg);
+        }
+        45% {
+            transform: rotate(10deg);
+        }
+        55% {
+            transform: rotate(-5deg);
+        }
+        60% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(0deg);
+        }
+    }
+</style>
+<div id="sidebar" class="active">
+    <div class="sidebar-wrapper active">
+        <div class="sidebar-header sticky-top bg-white">
+            <img
+                src="/partners/asset/images/logo.png"
+                style="margin-left: 20px"
+                srcset=""
+            />
+        </div>
+        <div class="sidebar-menu">
+            <ul class="menu">
+                <!-- <li class="sidebar-title">Boozeo Partners</li> -->
+
+                <li
+                    class="sidebar-item <%= (typeof activeState != 'undefined' && activeState == 1) ? 'active' : ''%>"
+                >
+                    <a href="/partners" class="sidebar-link">
+                        <i data-feather="home" width="20"></i>
+                        <span>Dashboard </span>
+                    </a>
+                </li>
+                <li class="sidebar-title">Combo</li>
+                <li
+                    class="sidebar-item has-sub <%= (typeof activeState != 'undefined'&& (activeState == 2.1||activeState == 2.2||activeState == 2.3 || activeState==2.4 ||activeState==2.5) ) ? 'active' : ''%>"
+                >
+                    <a href="#" class="sidebar-link">
+                        <i data-feather="cpu" width="20"></i>
+                        <span>Inventory</span>
+                    </a>
+
+                    <ul
+                        class="submenu pl-0 <%= (typeof activeState != 'undefined' && (activeState == 2.1||activeState == 2.2||activeState == 2.3 || activeState==2.4 || activeState==2.5) ) ? 'active' : ''%>"
+                    >
+                        <li>
+                            <a
+                                href="/partners/inventory/category"
+                                class="<%= (typeof activeState != 'undefined' && (activeState == 2.1))?'active-color':'' %>"
+                            >
+                                <i
+                                    data-feather="align-left"
+                                    class="default-icon"
+                                    width="20"
+                                ></i>
+                                Categories</a
+                            >
+                        </li>
+
+                        <li>
+                            <a
+                                href="/partners/inventory/brand"
+                                class="<%= (typeof activeState != 'undefined' && (activeState == 2.2))?'active-color':'' %>"
+                            >
+                                <i data-feather="book-open" width="20"></i>
+                                Brands</a
+                            >
+                        </li>
+
+                        <li>
+                            <a
+                                href="/partners/inventory/product"
+                                class="<%= (typeof activeState != 'undefined' && (activeState == 2.3))?'active-color':'' %>"
+                            >
+                                <i data-feather="codepen" width="20"></i
+                                >Products</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="/partners/inventory/combo"
+                                class="<%= (typeof activeState != 'undefined' && (activeState == 2.4))?'active-color':'' %>"
+                            >
+                                <i
+                                    class="far fa-object-ungroup"
+                                    aria-hidden="true"
+                                ></i>
+                                Combo</a
+                            >
+                        </li>
+                    </ul>
+                </li>
+
+                <li
+                    class="sidebar-item has-sub <%= (typeof activeState != 'undefined'&& (activeState == 3.1||activeState == 3.2||activeState == 3.3 || activeState==3.4) ) ? 'active' : ''%>"
+                >
+                    <a href="#" class="sidebar-link">
+                        <i data-feather="shopping-cart" width="20"></i>
+                        <span>
+                            Order
+                            <span
+                                class="alert_order_count count ml-3 bg-danger d-none"
+                                style="color: white !important"
+                            ></span>
+                        </span>
+                    </a>
+
+                    <ul
+                        class="submenu pl-0 <%= (typeof activeState != 'undefined'&& (activeState == 3.1||activeState == 3.2||activeState == 3.3 || activeState==3.4) ) ? 'active' : ''%>"
+                    >
+                        <li>
+                            <a
+                                href="/partners/order/tracking"
+                                class="<%= (typeof activeState != 'undefined' && (activeState == 3.1))?'active-color':'' %>"
+                            >
+                                <i
+                                    class="mdi mdi-map-marker-radius-outline"
+                                    style="font-size: 20px"
+                                ></i>
+                                Tracking
+                                <i
+                                    id="alert_tracking_icon"
+                                    class="fa fa-exclamation-triangle text-danger d-none"
+                                    aria-hidden="true"
+                                ></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="/partners/order/details"
+                                class="<%= (typeof activeState != 'undefined' && (activeState == 3.2))?'active-color':'' %>"
+                            >
+                                <i class="fa fa-list"></i>
+                                Details</a
+                            >
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="sidebar-title">Others</li>
+                <li
+                    class="sidebar-item has-sub <%= (typeof activeState != 'undefined'&& (activeState == 4.1||activeState == 4.2||activeState == 4.3 || activeState==4.4) ) ? 'active' : ''%>"
+                >
+                    <a href="#" class="sidebar-link">
+                        <i data-feather="settings" width="20"></i>
+                        <span> Profile </span>
+                    </a>
+
+                    <ul
+                        class="submenu pl-0 <%= (typeof activeState != 'undefined'&& (activeState == 4.1||activeState == 4.2||activeState == 4.3 || activeState==4.4) ) ? 'active' : ''%>"
+                    >
+                        <li>
+                            <a
+                                href="/partners/profile/details"
+                                class="<%= (typeof activeState != 'undefined' && (activeState == 4.1))?'active-color':'' %>"
+                            >
+                                <i class="mdi mdi-format-align-justify"></i>
+                                Details
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="/partners/profile/edit"
+                                class="form-check-inline <%= (typeof activeState != 'undefined' && (activeState == 4.2))?'active-color':'' %>"
+                                ><i
+                                    class="mdi mdi-pencil-box-multiple-outline"
+                                    style="font-size: 20px"
+                                ></i>
+                                Edit
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="/partners/profile/details/location"
+                                class="form-check-inline <%= (typeof activeState != 'undefined' && (activeState == 4.3))?'active-color':'' %>"
+                                ><i
+                                    class="mdi mdi-map-marker-radius-outline"
+                                    style="font-size: 20px"
+                                ></i>
+                                Location
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li
+                    class="sidebar-item <%= (typeof activeState != 'undefined'&& activeState == 5 ) ? 'active' : ''%>"
+                >
+                    <a href="/partners/stripe/" class="sidebar-link">
+                        <i
+                            class="mdi mdi-link-variant"
+                            style="font-size: 20px"
+                        ></i>
+                        <span>Stripe Dashboard</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="/stripe/logout/" class="sidebar-link">
+                        <i
+                            class="mdi mdi-logout-variant"
+                            style="font-size: 20px"
+                        ></i>
+                        <span>Logout </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <button class="sidebar-toggler btn x">
+            <i data-feather="x"></i>
+        </button>
+    </div>
+    <audio id="bell_sound">
+        <source src="/seller/asset/sound/bell.mp3" type="audio/mp3" />
+    </audio>
+</div>
+
+<script>
+    const socket = io();
+    $(document).ready(() => {
+        let val = parseInt(
+            "<%= typeof alert_count=='undefined'?0:alert_count %>",
+        );
+        if (val > 0) {
+            $(".alert_order_count, #alert_tracking_icon").removeClass("d-none");
+            $(".alert_order_count").html(val);
+        } else {
+            $(".alert_order_count, #alert_tracking_icon").addClass("d-none");
+        }
+    });
+    socket.on("alert_shop_<%= shopId %>", ({ display, alert }) => {
+        console.log(display, alert);
+
+        if (display && alert > 0) {
+            $("#bell_sound")[0].pause();
+            $("#bell_sound")[0].play();
+            $(".alert_order_count, #alert_tracking_icon").removeClass("d-none");
+            $(".alert_order_count").html(alert);
+        } else {
+            $(".alert_order_count, #alert_tracking_icon").addClass("d-none");
+        }
+    });
+</script>

@@ -1,0 +1,8 @@
+[
+    { "id": 1, "name": "Las Vegas" },
+    { "id": 2, "name": "Los Angeles" },
+    { "id": 3, "name": "Phoenix" },
+    { "id": 4, "name": "San Diego" },
+    { "id": 5, "name": "San Fransico" },
+    { "id": 6, "name": "Tucson" }
+]

@@ -1,0 +1,521 @@
+<%- contentFor('body') %>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/dashboard/inventory/product">Product</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Add</li>
+    </ol>
+</nav>
+
+<div class="col-12 mt-3 container">
+    <div class="card">
+        <form
+            autocomplete="off"
+            method="post"
+            onsubmit="confirm('Are you sure to create product?');"
+        >
+            <div class="card-header">
+                Product Add
+
+                <button
+                    type="submit"
+                    class="btn btn-sm round btn-outline-secondary float-right"
+                >
+                    <i class="fa fa-save"></i>
+                    Save
+                </button>
+                <div class="text-center">
+                    <small id="msg" class="text-center text-danger h5"
+                        ><%= typeof err=="undefined" ?( typeof
+                        msg!="undefined"?msg:"" ):err %></small
+                    >
+                </div>
+            </div>
+            <div class="card-content">
+                <div class="card-body">
+                    <div class="container row">
+                        <div class="col-md-8">
+                            <div class="mb-3">
+                                <h6>Name</h6>
+                                <div class="input-group">
+                                    <input
+                                        type="text"
+                                        class="form-control col-12"
+                                        placeholder="Set product name"
+                                        name="name"
+                                        required
+                                        id="product_name"
+                                    />
+                                </div>
+                                <code id="product_name_help"></code>
+                            </div>
+                            <div class="mb-3">
+                                <h6>Image</h6>
+                                <div class="input-group">
+                                    <input
+                                        type="url"
+                                        class="form-control col-12"
+                                        placeholder="Set product image"
+                                        name="image"
+                                        required
+                                        id="product_image"
+                                    />
+                                </div>
+                                <code id="product_image_help"></code>
+                            </div>
+
+                            <div class="mb-3">
+                                <h6>Description</h6>
+                                <div class="input-group text-left">
+                                    <textarea
+                                        class="form-control"
+                                        placeholder="Set product description"
+                                        name="description"
+                                        required
+                                        id="product_desc"
+                                    ></textarea>
+                                </div>
+                                <code id="product_desc_help"></code>
+                            </div>
+                            <div class="row">
+                                <div class="mb-3 col-md-6">
+                                    <h6>Category</h6>
+                                    <div class="input-group mb-3">
+                                        <a
+                                            class="btn btn-sm btn-outline-info"
+                                            href="/dashboard/inventory/category/add/"
+                                            ><i
+                                                class="fa fa-plus"
+                                                aria-hidden="true"
+                                            ></i
+                                        ></a>
+                                        <select
+                                            class="form-select"
+                                            name="category"
+                                            required
+                                            id="category_options"
+                                        >
+                                            <option value="">
+                                                Choose Options
+                                            </option>
+                                            <% category.forEach(obj=>{ %>
+                                            <option value="<%=obj.id%>">
+                                                <%=obj.name%>
+                                            </option>
+                                            <% })%>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <h6>Brand</h6>
+                                    <div class="input-group mb-3">
+                                        <select
+                                            class="form-select"
+                                            name="brand"
+                                            required
+                                            id="brand_options"
+                                        >
+                                            <option value="">
+                                                Choose Options
+                                            </option>
+                                            <% brand.forEach(obj=>{ %>
+                                            <option value="<%=obj.id%>">
+                                                <%=obj.name%>
+                                            </option>
+                                            <% })%>
+                                        </select>
+                                        <a
+                                            class="btn btn-sm btn-outline-info"
+                                            href="/dashboard/inventory/brand/add/"
+                                            ><i
+                                                class="fa fa-plus"
+                                                aria-hidden="true"
+                                            ></i
+                                        ></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <img
+                                class="mt-5"
+                                height="250"
+                                id="product_image_render"
+                                src="/images/loading.png"
+                            />
+                            <br />
+                            <code id="product_image_render_help"></code>
+                        </div>
+                    </div>
+                    <div
+                        class="container row mt-3"
+                        id="add_volume_container"
+                    ></div>
+                    <div class="text-center">
+                        <button
+                            type="button"
+                            class="btn btn-sm btn-outline-success"
+                            onclick="addVolume()"
+                        >
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                            Add volume
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <% if ( typeof details != "undefined") {%>
+    <div class="card">
+        <div class="card-header">Product Add</div>
+        <div class="card-content row my-2">
+            <div class="col-md-3 text-center">
+                <img height="200" src="<%= details?.image %>" />
+            </div>
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6 class="card-title">Name</h6>
+                        <code><%= details?.name%></code>
+                    </div>
+                    <div class="col-md-6">
+                        <h6 class="card-title">Image</h6>
+                        <code><%= details?.image%></code>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <h6 class="card-title">Description</h6>
+                        <code><%= details?.description%></code>
+                    </div>
+                    <div class="col-md-6 mt-3">
+                        <h6 class="card-title">Category</h6>
+                        <code
+                            ><%= category.find(e=>e.id ==
+                            details?.category)?.name %></code
+                        >
+                    </div>
+                    <div class="col-md-6 mt-3">
+                        <h6 class="card-title">Brand</h6>
+                        <code
+                            ><%= brand.find(e=>e.id == details?.brand)?.name
+                            %></code
+                        >
+                    </div>
+                </div>
+            </div>
+            <% for(let i=0;i< details?.mrp?.length;i++){%>
+            <div class="col-12">
+                <div class="card-title text-center">Volume <%=i+1%></div>
+                <div class="row text-center">
+                    <div class="col-md-2">
+                        <h6 class="card-title">Mrp</h6>
+                        <code><%= details?.mrp[i]%></code>
+                    </div>
+                    <div class="col-md-2">
+                        <h6 class="card-title">Price</h6>
+                        <code><%= details?.price[i]%></code>
+                    </div>
+                    <div class="col-md-2">
+                        <h6 class="card-title">Volume</h6>
+                        <code><%= details?.volume[i]%></code>
+                    </div>
+                    <div class="col-md-2">
+                        <h6 class="card-title">Discount</h6>
+                        <code><%= details?.discount[i]%></code>
+                    </div>
+                    <div class="col-md-2">
+                        <h6 class="card-title">Multiplers</h6>
+                        <code
+                            ><%= multiplers.find(e=>e.id==
+                            details?.multiplers[i]).value%></code
+                        >
+                    </div>
+                    <div class="col-md-2">
+                        <h6 class="card-title">Units</h6>
+                        <code
+                            ><%= units.find(e=>e.id==
+                            details?.units[i]).value%></code
+                        >
+                    </div>
+                </div>
+            </div>
+            <%}%>
+        </div>
+    </div>
+    <% } %>
+</div>
+
+<script>
+    let len = 0;
+    const valueChangeIndicator = (e) => {
+        if ("" == $(e.target).val()) {
+            $(e.target).removeClass("border border-success");
+            $("#" + e.target.id + "_help").html("");
+        } else {
+            $(e.target).addClass("border border-success");
+        }
+    };
+
+    $(document).ready(() => {
+        let obj = ["#product_name", "#product_image", "#product_desc"];
+        $(obj.join()).on("keyup", valueChangeIndicator);
+        $("#product_image").on("change", (e) => {
+            function imageExists(url, callback) {
+                var img = new Image();
+                img.onload = function () {
+                    callback(true);
+                };
+                img.onerror = function () {
+                    callback(false);
+                };
+                img.src = url;
+            }
+
+            var imageUrl = $(e.target).val();
+            imageExists(imageUrl, function (exists) {
+                if (exists) {
+                    $("#product_image_render").attr("src", imageUrl);
+                    $("#product_image_render_help").html("");
+                } else {
+                    $("#product_image_render").attr(
+                        "src",
+                        "/images/loading.png",
+                    );
+                    $("#product_image_render_help").html(
+                        "Image not found on " + imageUrl,
+                    );
+                }
+            });
+        });
+    });
+
+    const removeVolume = (id) => {
+        if (confirm("Are you ready to remove?"))
+            $("#add_volume_cont_" + id).remove();
+    };
+
+    const addVolume = () => {
+        let i = len;
+        $("#add_volume_container")
+            .append(`<div id="add_volume_cont_${len}" class="card col-12">
+                <input type="hidden" disabled required name="volume_hidden" id="product_volume_hidden_${len}"/>
+                            <div class="card-content">
+                                <div class="card-title ml-3 mt-2">
+                                    Add Volume ${len + 1}
+                                    <button
+                                        type="button"
+                                        onclick="removeVolume(${len})"
+                                        class="btn btn-sm btn-outline-danger float-right"
+                                    >
+                                        <i
+                                            class="fa fa-trash"
+                                            aria-hidden="true"
+                                        ></i>
+                                        Remove
+                                    </button>
+                                    <div  class="text-center">
+                                        <small class="text-center text-danger" id="help_volume_${len}"></small>
+                                    </div>
+                                </div>
+                                <div class="card-body row">
+                                    <div class="col-md-6 row">
+                                        <div class=" col-md-6">
+                                            <h6 class="card-title">Multipler</h6>
+                                            <div class="input-group">
+                                                <select
+                                                    class="form-select"
+                                                    name="multiplers"
+                                                    required
+                                                    id="multiplers_options_${len}"
+                                                >
+                                                    <option value="">
+                                                        Choose Options
+                                                    </option>
+                                                    <% multiplers.forEach(obj=>{ %>
+                                                    <option value="<%=obj.id%>" data-value="<%= obj.value%>">
+                                                        <%=obj.value%>
+                                                    </option>
+                                                    <% })%>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6 class="card-title">Unit</h6>
+                                            <div class="input-group">
+                                                <select
+                                                    class="form-select"
+                                                    name="units"
+                                                    required
+                                                    id="units_options_${len}"
+                                                >
+                                                    <option value="">
+                                                        Choose Options
+                                                    </option>
+                                                    <% units.forEach(obj=>{ %>
+                                                    <option value="<%=obj.id%>" data-value="<%= obj.value%>">
+                                                        <%=obj.value%>
+                                                    </option>
+                                                    <% })%>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <code id="product_volume_${len}_help"></code>
+                                        <h6 class="mt-3">Volume</h6>
+                                        <div class="input-group">
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                placeholder="Display in app type"
+                                                name="volume"
+                                                required
+                                                id="product_volume_${len}"
+                                            />
+                                        </div>
+                                        <code id="product_volume_${len}_help"></code>
+                                    </div>
+                                    <div class="col-md-6 row">
+                                        <div class="col-md-6">
+                                            <h6 class="card-title">MRP</h6>
+                                            <div class="input-group">
+                                                <input
+                                                    type="number"
+                                                    min="0.01"
+                                                    step="0.01"
+                                                    class="form-control"
+                                                    placeholder="Set product mrp"
+                                                    name="mrp"
+                                                    required
+                                                    id="product_mrp_${len}"
+                                                />
+                                            </div>
+                                            <code id="product_mrp_${len}_help"></code>
+                                        </div>
+                                        <div class="col-md-6">
+                                            
+                                            <h6 class="card-title">Price</h6>
+                                            <div class="input-group">
+                                                <input
+                                                    type="number"
+                                                    min="0.01"
+                                                    step="0.01"
+                                                    class="form-control"
+                                                    placeholder="Set product price"
+                                                    name="price"
+                                                    required
+                                                    id="product_price_${len}"
+                                                />
+                                            </div>
+                                            <code id="product_price_${len}_help"></code>
+                                        </div>
+                                        
+                                        
+                                        <h6 class="mt-3">Discount</h6>
+                                        <div class="input-group">
+                                            <input
+                                                type="text"
+                                                class="form-control border border-light"
+                                                placeholder="Auto deduct discount"
+                                                name="discount"
+                                                readonly
+                                                required
+                                                id="product_discount_${len}"
+                                            />
+                                        </div>
+                                        <code id="product_discount_${len}_help"></code>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`);
+        let obj = [];
+        obj.push("#product_volume_" + i);
+        obj.push("#product_price_" + i);
+        obj.push("#product_mrp_" + i);
+        $(obj.join()).on("keyup", valueChangeIndicator);
+
+        $("#multiplers_options_" + i + ",#units_options_" + i).on(
+            "change",
+            (e) => {
+                $("#help_volume_" + i).html("");
+                let c =
+                    $("#multiplers_options_" + i)
+                        .find(":selected")
+                        .data("value") +
+                    " " +
+                    $("#units_options_" + i)
+                        .find(":selected")
+                        .data("value");
+
+                $("input[name='volume_hidden']").each((f, ele) => {
+                    if ($(ele) != e.traget && c == $(ele).val()) {
+                        $("#help_volume_" + i).html(
+                            "selected value already presented",
+                        );
+                    }
+                });
+                if (!c.includes("undefined")) $("#product_volume_" + i).val(c);
+                $("#product_volume_hidden_" + i).val(c);
+            },
+        );
+
+        $("#product_mrp_" + i).on("change", (e) => {
+            $("#product_price_" + i).attr("data-max", $(e.target).val());
+            let s = $(e.target).val();
+            let f = $("#product_price_" + i).val();
+
+            $("#product_price_" + i).data("max", s);
+
+            if (f > s) {
+                $("#product_price_" + i)
+                    .val(0)
+                    .change();
+            } else {
+                $("#product_price_" + i)
+                    .val(f)
+                    .change();
+            }
+        });
+
+        $("#product_price_" + i).on("change", (e) => {
+            let s = $(e.target).val();
+            $("#product_price_" + i + "_help").html("");
+
+            if (!$(e.target).data("max")) {
+                $(e.target).removeClass("border border-success");
+                $(e.target).val("");
+                $("#product_price_" + i + "_help").html(
+                    `<code>Kindly add price for mrp </code>`,
+                );
+                return;
+            }
+            if (s) {
+                s = parseFloat(s);
+                let org = parseFloat($(e.target).data("max"));
+                if (s > org) {
+                    $(e.target).val("");
+                    $(e.target).removeClass("border border-success");
+                    $("#product_price_" + i + "_help").html(
+                        `<code>Price should be less than mrp </code>`,
+                    );
+                    return;
+                }
+                $("#product_discount_" + i).val(
+                    (((org - s) / org) * 100).toFixed(),
+                );
+            } else {
+                $("#product_discount_" + i).val(0);
+            }
+        });
+
+        len++;
+    };
+
+    const confirm = (e) => {
+        $("#msg").html("");
+        if ($('input[name="discount"]').length == 0) {
+            $("#msg").html("Add atleast one volume");
+            return false;
+        }
+        return window.confirm(e);
+    };
+</script>

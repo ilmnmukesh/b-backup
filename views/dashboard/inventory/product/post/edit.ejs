@@ -1,0 +1,170 @@
+<%- contentFor('body') %>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/dashboard/inventory/product">Product</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="/dashboard/inventory/product/post">Post</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Edit</li>
+    </ol>
+</nav>
+<div class="container">
+    <div class="card mt-1">
+        <div class="card-header">
+            <h4 class="card-title">Edit Post Product for Selling</h4>
+        </div>
+        <div class="card-body">
+            <% if(typeof data !=undefined && data!=null){%>
+            <form
+                autocomplete="off"
+                method="post"
+                class="form form-vertical row"
+                onsubmit="return confirm('Are you sure to create category?');"
+            >
+                <div class="col-md-7">
+                    <div class="row">
+                        <h5 class="col-md-6 mt-2">Product</h5>
+                    </div>
+
+                    <div id="display_product">
+                        <div class="card shadow-none col-8 mt-3">
+                            <div class="card-content">
+                                <div class="float-left col-3">
+                                    <img
+                                        height="150"
+                                        class="ml-4"
+                                        src="<%= data?.product.image%>"
+                                    />
+                                </div>
+
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <%= data?.product.name%>
+                                    </h4>
+                                    <p class="card-text ellipsis">
+                                        <code
+                                            ><%=data?.product.description%></code
+                                        >
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <h5 class="col-md-6 mt-2">Volume</h5>
+                    </div>
+                    <div id="display_varient">
+                        <div class="card shadow-none col-md-6">
+                            <div class="card-content">
+                                <div class="card-body row">
+                                    <div class="col-md-12 text-center">
+                                        <h4 class="card-title">
+                                            <%=data?.varient.volume%>
+                                        </h4>
+                                        <code class="card-text ellipsis">
+                                            MRP:<%= data?.varient.mrp %></code
+                                        >
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 my-auto">
+                    <div class="input-group">
+                        <span class="input-group-text bg-grey">
+                            <i data-feather="dollar-sign"></i>
+                        </span>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            placeholder="Set Selling Price"
+                            name="selling_price"
+                            min="0"
+                            step="0.01"
+                            max="<%= data.varient.mrp %>"
+                            data-max="<%= data.varient.mrp %>"
+                            value="<%= data.price %>"
+                            required
+                            id="selling_price"
+                            onkeyup="updateDiscount(this)"
+                        />
+                    </div>
+                    <div class="mb-3" id="help_sp"></div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">
+                            <i data-feather="percent"></i>
+                        </span>
+
+                        <input
+                            readonly="readonly"
+                            type="number"
+                            id="discount"
+                            class="form-control"
+                            placeholder="Set Discount"
+                            name="discount"
+                            min="0"
+                            step="0.01"
+                            value="<%= data.discount %>"
+                            required
+                            max="100"
+                        />
+                    </div>
+                    <div class="text-center">
+                        <input
+                            type="submit"
+                            class="btn btn-sm btn-warning text-center"
+                            value="Update"
+                        />
+                    </div>
+                </div>
+
+                <input
+                    type="hidden"
+                    name="productId"
+                    id="product_hidden_field"
+                    value="<%= data?.productId %>"
+                />
+                <input
+                    type="hidden"
+                    name="varientId"
+                    id="varient_hidden_field"
+                    value="<%= data?.varientId %>"
+                />
+            </form>
+            <% }else{%>
+            <h2 class="text-center">Invalid request</h2>
+            <% }%>
+        </div>
+    </div>
+</div>
+
+<script>
+    const updateDiscount = (e) => {
+        let s = $(e).val();
+
+        if (!$(e).data("max")) {
+            $(e).val("");
+            $("#help_sp").html(`<code>Kindly add product and volume </code>`);
+            return;
+        }
+        if (s) {
+            s = parseFloat(s);
+            let org = parseFloat($(e).data("max"));
+
+            $("#discount").val((((org - s) / org) * 100).toFixed());
+        } else {
+            $("#discount").val(0);
+        }
+    };
+</script>

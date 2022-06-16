@@ -1,0 +1,2642 @@
+[
+    {
+        "name": "Pounded yam",
+        "price": 58.93,
+        "description": "Yams that have been crushed or stirred to a creamy, dough - like consistency.Pounded yams are considered a fufu(a kind of starchy side dish) usually served with a stew or efo.",
+        "partnerId": 1,
+        "menuTypeId": 1,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Jollof rice",
+        "price": 41.19,
+        "description": "Rice made with tomatoes, onions, scotch bonnets, and chili peppers. There are endless variations on this recipe, but those five ingredients are usual constants.",
+        "partnerId": 1,
+        "menuTypeId": 2,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Egusi Soup",
+        "price": 18.79,
+        "description": "A stew usually made with crayfish or other meat and thickened with ground melon seeds(egusi).",
+        "partnerId": 1,
+        "menuTypeId": 1,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Pepper Soup",
+        "price": 0.42,
+        "description": "Light and spicy soup traditionally made with goat meat, but often with fish or other meat, as well as herbs and Nigerian spices.",
+        "partnerId": 1,
+        "menuTypeId": 1,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Efo Riro",
+        "price": 52.18,
+        "description": "A rich spinach stew usually made with spinach, scotch bonnets, and red bell peppers.",
+        "partnerId": 1,
+        "menuTypeId": 2,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Akara",
+        "price": 87.33,
+        "description": "Fried bean cakes.Usually served as a breakfast food or snack and made with black eyed peas, these fritters are crunchy, spicy, and perfect alone or with a dipping sauce.",
+        "partnerId": 1,
+        "menuTypeId": 3,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Dodo",
+        "price": 58.94,
+        "description": "Deep fried plantain slices.",
+        "partnerId": 1,
+        "menuTypeId": 4,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/4.jpg"
+    },
+    {
+        "name": "Puff puff",
+        "price": 63.65,
+        "description": "Deep fried dough, served plain or with powdered sugar.",
+        "partnerId": 1,
+        "menuTypeId": 3,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Beef Stew",
+        "price": 7.56,
+        "description": "A tomato - based beef stew served with rice or starchy vegetables.",
+        "partnerId": 1,
+        "menuTypeId": 2,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Ewa Agoyin",
+        "price": 26.11,
+        "description": "Mashed steamed beans with pepper sauce.",
+        "partnerId": 1,
+        "menuTypeId": 2,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Pounded yam",
+        "price": 58.93,
+        "description": "Yams that have been crushed or stirred to a creamy, dough - like consistency.Pounded yams are considered a fufu(a kind of starchy side dish) usually served with a stew or efo.",
+        "partnerId": 2,
+        "menuTypeId": 5,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Jollof rice",
+        "price": 41.19,
+        "description": "Rice made with tomatoes, onions, scotch bonnets, and chili peppers. There are endless variations on this recipe, but those five ingredients are usual constants.",
+        "partnerId": 2,
+        "menuTypeId": 6,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Egusi Soup",
+        "price": 18.79,
+        "description": "A stew usually made with crayfish or other meat and thickened with ground melon seeds(egusi).",
+        "partnerId": 2,
+        "menuTypeId": 5,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Pepper Soup",
+        "price": 0.42,
+        "description": "Light and spicy soup traditionally made with goat meat, but often with fish or other meat, as well as herbs and Nigerian spices.",
+        "partnerId": 2,
+        "menuTypeId": 5,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Efo Riro",
+        "price": 52.18,
+        "description": "A rich spinach stew usually made with spinach, scotch bonnets, and red bell peppers.",
+        "partnerId": 2,
+        "menuTypeId": 6,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Akara",
+        "price": 87.33,
+        "description": "Fried bean cakes.Usually served as a breakfast food or snack and made with black eyed peas, these fritters are crunchy, spicy, and perfect alone or with a dipping sauce.",
+        "partnerId": 2,
+        "menuTypeId": 7,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Dodo",
+        "price": 58.94,
+        "description": "Deep fried plantain slices.",
+        "partnerId": 2,
+        "menuTypeId": 8,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/4.jpg"
+    },
+    {
+        "name": "Puff puff",
+        "price": 63.65,
+        "description": "Deep fried dough, served plain or with powdered sugar.",
+        "partnerId": 2,
+        "menuTypeId": 7,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Beef Stew",
+        "price": 7.56,
+        "description": "A tomato - based beef stew served with rice or starchy vegetables.",
+        "partnerId": 2,
+        "menuTypeId": 6,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Ewa Agoyin",
+        "price": 26.11,
+        "description": "Mashed steamed beans with pepper sauce.",
+        "partnerId": 2,
+        "menuTypeId": 6,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Pounded yam",
+        "price": 58.93,
+        "description": "Yams that have been crushed or stirred to a creamy, dough - like consistency.Pounded yams are considered a fufu(a kind of starchy side dish) usually served with a stew or efo.",
+        "partnerId": 3,
+        "menuTypeId": 9,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Jollof rice",
+        "price": 41.19,
+        "description": "Rice made with tomatoes, onions, scotch bonnets, and chili peppers. There are endless variations on this recipe, but those five ingredients are usual constants.",
+        "partnerId": 3,
+        "menuTypeId": 10,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Egusi Soup",
+        "price": 18.79,
+        "description": "A stew usually made with crayfish or other meat and thickened with ground melon seeds(egusi).",
+        "partnerId": 3,
+        "menuTypeId": 9,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Pepper Soup",
+        "price": 0.42,
+        "description": "Light and spicy soup traditionally made with goat meat, but often with fish or other meat, as well as herbs and Nigerian spices.",
+        "partnerId": 3,
+        "menuTypeId": 9,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Efo Riro",
+        "price": 52.18,
+        "description": "A rich spinach stew usually made with spinach, scotch bonnets, and red bell peppers.",
+        "partnerId": 3,
+        "menuTypeId": 10,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Akara",
+        "price": 87.33,
+        "description": "Fried bean cakes.Usually served as a breakfast food or snack and made with black eyed peas, these fritters are crunchy, spicy, and perfect alone or with a dipping sauce.",
+        "partnerId": 3,
+        "menuTypeId": 11,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Dodo",
+        "price": 58.94,
+        "description": "Deep fried plantain slices.",
+        "partnerId": 3,
+        "menuTypeId": 12,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/4.jpg"
+    },
+    {
+        "name": "Puff puff",
+        "price": 63.65,
+        "description": "Deep fried dough, served plain or with powdered sugar.",
+        "partnerId": 3,
+        "menuTypeId": 11,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Beef Stew",
+        "price": 7.56,
+        "description": "A tomato - based beef stew served with rice or starchy vegetables.",
+        "partnerId": 3,
+        "menuTypeId": 10,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Ewa Agoyin",
+        "price": 26.11,
+        "description": "Mashed steamed beans with pepper sauce.",
+        "partnerId": 3,
+        "menuTypeId": 10,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Pounded yam",
+        "price": 58.93,
+        "description": "Yams that have been crushed or stirred to a creamy, dough - like consistency.Pounded yams are considered a fufu(a kind of starchy side dish) usually served with a stew or efo.",
+        "partnerId": 4,
+        "menuTypeId": 13,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Jollof rice",
+        "price": 41.19,
+        "description": "Rice made with tomatoes, onions, scotch bonnets, and chili peppers. There are endless variations on this recipe, but those five ingredients are usual constants.",
+        "partnerId": 4,
+        "menuTypeId": 14,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Egusi Soup",
+        "price": 18.79,
+        "description": "A stew usually made with crayfish or other meat and thickened with ground melon seeds(egusi).",
+        "partnerId": 4,
+        "menuTypeId": 13,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Pepper Soup",
+        "price": 0.42,
+        "description": "Light and spicy soup traditionally made with goat meat, but often with fish or other meat, as well as herbs and Nigerian spices.",
+        "partnerId": 4,
+        "menuTypeId": 13,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Efo Riro",
+        "price": 52.18,
+        "description": "A rich spinach stew usually made with spinach, scotch bonnets, and red bell peppers.",
+        "partnerId": 4,
+        "menuTypeId": 14,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Akara",
+        "price": 87.33,
+        "description": "Fried bean cakes.Usually served as a breakfast food or snack and made with black eyed peas, these fritters are crunchy, spicy, and perfect alone or with a dipping sauce.",
+        "partnerId": 4,
+        "menuTypeId": 15,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Dodo",
+        "price": 58.94,
+        "description": "Deep fried plantain slices.",
+        "partnerId": 4,
+        "menuTypeId": 16,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/4.jpg"
+    },
+    {
+        "name": "Puff puff",
+        "price": 63.65,
+        "description": "Deep fried dough, served plain or with powdered sugar.",
+        "partnerId": 4,
+        "menuTypeId": 15,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Beef Stew",
+        "price": 7.56,
+        "description": "A tomato - based beef stew served with rice or starchy vegetables.",
+        "partnerId": 4,
+        "menuTypeId": 14,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Ewa Agoyin",
+        "price": 26.11,
+        "description": "Mashed steamed beans with pepper sauce.",
+        "partnerId": 4,
+        "menuTypeId": 14,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Pounded yam",
+        "price": 58.93,
+        "description": "Yams that have been crushed or stirred to a creamy, dough - like consistency.Pounded yams are considered a fufu(a kind of starchy side dish) usually served with a stew or efo.",
+        "partnerId": 5,
+        "menuTypeId": 17,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Jollof rice",
+        "price": 41.19,
+        "description": "Rice made with tomatoes, onions, scotch bonnets, and chili peppers. There are endless variations on this recipe, but those five ingredients are usual constants.",
+        "partnerId": 5,
+        "menuTypeId": 18,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Egusi Soup",
+        "price": 18.79,
+        "description": "A stew usually made with crayfish or other meat and thickened with ground melon seeds(egusi).",
+        "partnerId": 5,
+        "menuTypeId": 17,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Pepper Soup",
+        "price": 0.42,
+        "description": "Light and spicy soup traditionally made with goat meat, but often with fish or other meat, as well as herbs and Nigerian spices.",
+        "partnerId": 5,
+        "menuTypeId": 17,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Efo Riro",
+        "price": 52.18,
+        "description": "A rich spinach stew usually made with spinach, scotch bonnets, and red bell peppers.",
+        "partnerId": 5,
+        "menuTypeId": 18,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Akara",
+        "price": 87.33,
+        "description": "Fried bean cakes.Usually served as a breakfast food or snack and made with black eyed peas, these fritters are crunchy, spicy, and perfect alone or with a dipping sauce.",
+        "partnerId": 5,
+        "menuTypeId": 19,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Dodo",
+        "price": 58.94,
+        "description": "Deep fried plantain slices.",
+        "partnerId": 5,
+        "menuTypeId": 20,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/4.jpg"
+    },
+    {
+        "name": "Puff puff",
+        "price": 63.65,
+        "description": "Deep fried dough, served plain or with powdered sugar.",
+        "partnerId": 5,
+        "menuTypeId": 19,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Beef Stew",
+        "price": 7.56,
+        "description": "A tomato - based beef stew served with rice or starchy vegetables.",
+        "partnerId": 5,
+        "menuTypeId": 18,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Ewa Agoyin",
+        "price": 26.11,
+        "description": "Mashed steamed beans with pepper sauce.",
+        "partnerId": 5,
+        "menuTypeId": 18,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Pounded yam",
+        "price": 58.93,
+        "description": "Yams that have been crushed or stirred to a creamy, dough - like consistency.Pounded yams are considered a fufu(a kind of starchy side dish) usually served with a stew or efo.",
+        "partnerId": 6,
+        "menuTypeId": 21,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Jollof rice",
+        "price": 41.19,
+        "description": "Rice made with tomatoes, onions, scotch bonnets, and chili peppers. There are endless variations on this recipe, but those five ingredients are usual constants.",
+        "partnerId": 6,
+        "menuTypeId": 22,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Egusi Soup",
+        "price": 18.79,
+        "description": "A stew usually made with crayfish or other meat and thickened with ground melon seeds(egusi).",
+        "partnerId": 6,
+        "menuTypeId": 21,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Pepper Soup",
+        "price": 0.42,
+        "description": "Light and spicy soup traditionally made with goat meat, but often with fish or other meat, as well as herbs and Nigerian spices.",
+        "partnerId": 6,
+        "menuTypeId": 21,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Efo Riro",
+        "price": 52.18,
+        "description": "A rich spinach stew usually made with spinach, scotch bonnets, and red bell peppers.",
+        "partnerId": 6,
+        "menuTypeId": 22,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Akara",
+        "price": 87.33,
+        "description": "Fried bean cakes.Usually served as a breakfast food or snack and made with black eyed peas, these fritters are crunchy, spicy, and perfect alone or with a dipping sauce.",
+        "partnerId": 6,
+        "menuTypeId": 23,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Dodo",
+        "price": 58.94,
+        "description": "Deep fried plantain slices.",
+        "partnerId": 6,
+        "menuTypeId": 24,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/4.jpg"
+    },
+    {
+        "name": "Puff puff",
+        "price": 63.65,
+        "description": "Deep fried dough, served plain or with powdered sugar.",
+        "partnerId": 6,
+        "menuTypeId": 23,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Beef Stew",
+        "price": 7.56,
+        "description": "A tomato - based beef stew served with rice or starchy vegetables.",
+        "partnerId": 6,
+        "menuTypeId": 22,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Ewa Agoyin",
+        "price": 26.11,
+        "description": "Mashed steamed beans with pepper sauce.",
+        "partnerId": 6,
+        "menuTypeId": 22,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Pounded yam",
+        "price": 58.93,
+        "description": "Yams that have been crushed or stirred to a creamy, dough - like consistency.Pounded yams are considered a fufu(a kind of starchy side dish) usually served with a stew or efo.",
+        "partnerId": 7,
+        "menuTypeId": 25,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Jollof rice",
+        "price": 41.19,
+        "description": "Rice made with tomatoes, onions, scotch bonnets, and chili peppers. There are endless variations on this recipe, but those five ingredients are usual constants.",
+        "partnerId": 7,
+        "menuTypeId": 26,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Egusi Soup",
+        "price": 18.79,
+        "description": "A stew usually made with crayfish or other meat and thickened with ground melon seeds(egusi).",
+        "partnerId": 7,
+        "menuTypeId": 25,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Pepper Soup",
+        "price": 0.42,
+        "description": "Light and spicy soup traditionally made with goat meat, but often with fish or other meat, as well as herbs and Nigerian spices.",
+        "partnerId": 7,
+        "menuTypeId": 25,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Efo Riro",
+        "price": 52.18,
+        "description": "A rich spinach stew usually made with spinach, scotch bonnets, and red bell peppers.",
+        "partnerId": 7,
+        "menuTypeId": 26,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Akara",
+        "price": 87.33,
+        "description": "Fried bean cakes.Usually served as a breakfast food or snack and made with black eyed peas, these fritters are crunchy, spicy, and perfect alone or with a dipping sauce.",
+        "partnerId": 7,
+        "menuTypeId": 27,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Dodo",
+        "price": 58.94,
+        "description": "Deep fried plantain slices.",
+        "partnerId": 7,
+        "menuTypeId": 28,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/4.jpg"
+    },
+    {
+        "name": "Puff puff",
+        "price": 63.65,
+        "description": "Deep fried dough, served plain or with powdered sugar.",
+        "partnerId": 7,
+        "menuTypeId": 27,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Beef Stew",
+        "price": 7.56,
+        "description": "A tomato - based beef stew served with rice or starchy vegetables.",
+        "partnerId": 7,
+        "menuTypeId": 26,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Ewa Agoyin",
+        "price": 26.11,
+        "description": "Mashed steamed beans with pepper sauce.",
+        "partnerId": 7,
+        "menuTypeId": 26,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Pounded yam",
+        "price": 58.93,
+        "description": "Yams that have been crushed or stirred to a creamy, dough - like consistency.Pounded yams are considered a fufu(a kind of starchy side dish) usually served with a stew or efo.",
+        "partnerId": 8,
+        "menuTypeId": 29,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Jollof rice",
+        "price": 41.19,
+        "description": "Rice made with tomatoes, onions, scotch bonnets, and chili peppers. There are endless variations on this recipe, but those five ingredients are usual constants.",
+        "partnerId": 8,
+        "menuTypeId": 30,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Egusi Soup",
+        "price": 18.79,
+        "description": "A stew usually made with crayfish or other meat and thickened with ground melon seeds(egusi).",
+        "partnerId": 8,
+        "menuTypeId": 29,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Pepper Soup",
+        "price": 0.42,
+        "description": "Light and spicy soup traditionally made with goat meat, but often with fish or other meat, as well as herbs and Nigerian spices.",
+        "partnerId": 8,
+        "menuTypeId": 29,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Efo Riro",
+        "price": 52.18,
+        "description": "A rich spinach stew usually made with spinach, scotch bonnets, and red bell peppers.",
+        "partnerId": 8,
+        "menuTypeId": 30,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Akara",
+        "price": 87.33,
+        "description": "Fried bean cakes.Usually served as a breakfast food or snack and made with black eyed peas, these fritters are crunchy, spicy, and perfect alone or with a dipping sauce.",
+        "partnerId": 8,
+        "menuTypeId": 31,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Dodo",
+        "price": 58.94,
+        "description": "Deep fried plantain slices.",
+        "partnerId": 8,
+        "menuTypeId": 32,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/4.jpg"
+    },
+    {
+        "name": "Puff puff",
+        "price": 63.65,
+        "description": "Deep fried dough, served plain or with powdered sugar.",
+        "partnerId": 8,
+        "menuTypeId": 31,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Beef Stew",
+        "price": 7.56,
+        "description": "A tomato - based beef stew served with rice or starchy vegetables.",
+        "partnerId": 8,
+        "menuTypeId": 30,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Ewa Agoyin",
+        "price": 26.11,
+        "description": "Mashed steamed beans with pepper sauce.",
+        "partnerId": 8,
+        "menuTypeId": 30,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Pounded yam",
+        "price": 58.93,
+        "description": "Yams that have been crushed or stirred to a creamy, dough - like consistency.Pounded yams are considered a fufu(a kind of starchy side dish) usually served with a stew or efo.",
+        "partnerId": 9,
+        "menuTypeId": 33,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Jollof rice",
+        "price": 41.19,
+        "description": "Rice made with tomatoes, onions, scotch bonnets, and chili peppers. There are endless variations on this recipe, but those five ingredients are usual constants.",
+        "partnerId": 9,
+        "menuTypeId": 34,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Egusi Soup",
+        "price": 18.79,
+        "description": "A stew usually made with crayfish or other meat and thickened with ground melon seeds(egusi).",
+        "partnerId": 9,
+        "menuTypeId": 33,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Pepper Soup",
+        "price": 0.42,
+        "description": "Light and spicy soup traditionally made with goat meat, but often with fish or other meat, as well as herbs and Nigerian spices.",
+        "partnerId": 9,
+        "menuTypeId": 33,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Efo Riro",
+        "price": 52.18,
+        "description": "A rich spinach stew usually made with spinach, scotch bonnets, and red bell peppers.",
+        "partnerId": 9,
+        "menuTypeId": 34,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Akara",
+        "price": 87.33,
+        "description": "Fried bean cakes.Usually served as a breakfast food or snack and made with black eyed peas, these fritters are crunchy, spicy, and perfect alone or with a dipping sauce.",
+        "partnerId": 9,
+        "menuTypeId": 35,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Dodo",
+        "price": 58.94,
+        "description": "Deep fried plantain slices.",
+        "partnerId": 9,
+        "menuTypeId": 36,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/4.jpg"
+    },
+    {
+        "name": "Puff puff",
+        "price": 63.65,
+        "description": "Deep fried dough, served plain or with powdered sugar.",
+        "partnerId": 9,
+        "menuTypeId": 35,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Beef Stew",
+        "price": 7.56,
+        "description": "A tomato - based beef stew served with rice or starchy vegetables.",
+        "partnerId": 9,
+        "menuTypeId": 34,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Ewa Agoyin",
+        "price": 26.11,
+        "description": "Mashed steamed beans with pepper sauce.",
+        "partnerId": 9,
+        "menuTypeId": 34,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Pounded yam",
+        "price": 58.93,
+        "description": "Yams that have been crushed or stirred to a creamy, dough - like consistency.Pounded yams are considered a fufu(a kind of starchy side dish) usually served with a stew or efo.",
+        "partnerId": 10,
+        "menuTypeId": 37,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Jollof rice",
+        "price": 41.19,
+        "description": "Rice made with tomatoes, onions, scotch bonnets, and chili peppers. There are endless variations on this recipe, but those five ingredients are usual constants.",
+        "partnerId": 10,
+        "menuTypeId": 38,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Egusi Soup",
+        "price": 18.79,
+        "description": "A stew usually made with crayfish or other meat and thickened with ground melon seeds(egusi).",
+        "partnerId": 10,
+        "menuTypeId": 37,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Pepper Soup",
+        "price": 0.42,
+        "description": "Light and spicy soup traditionally made with goat meat, but often with fish or other meat, as well as herbs and Nigerian spices.",
+        "partnerId": 10,
+        "menuTypeId": 37,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Efo Riro",
+        "price": 52.18,
+        "description": "A rich spinach stew usually made with spinach, scotch bonnets, and red bell peppers.",
+        "partnerId": 10,
+        "menuTypeId": 38,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Akara",
+        "price": 87.33,
+        "description": "Fried bean cakes.Usually served as a breakfast food or snack and made with black eyed peas, these fritters are crunchy, spicy, and perfect alone or with a dipping sauce.",
+        "partnerId": 10,
+        "menuTypeId": 39,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Dodo",
+        "price": 58.94,
+        "description": "Deep fried plantain slices.",
+        "partnerId": 10,
+        "menuTypeId": 40,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/4.jpg"
+    },
+    {
+        "name": "Puff puff",
+        "price": 63.65,
+        "description": "Deep fried dough, served plain or with powdered sugar.",
+        "partnerId": 10,
+        "menuTypeId": 39,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Beef Stew",
+        "price": 7.56,
+        "description": "A tomato - based beef stew served with rice or starchy vegetables.",
+        "partnerId": 10,
+        "menuTypeId": 38,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Ewa Agoyin",
+        "price": 26.11,
+        "description": "Mashed steamed beans with pepper sauce.",
+        "partnerId": 10,
+        "menuTypeId": 38,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Pounded yam",
+        "price": 58.93,
+        "description": "Yams that have been crushed or stirred to a creamy, dough - like consistency.Pounded yams are considered a fufu(a kind of starchy side dish) usually served with a stew or efo.",
+        "partnerId": 11,
+        "menuTypeId": 41,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Jollof rice",
+        "price": 41.19,
+        "description": "Rice made with tomatoes, onions, scotch bonnets, and chili peppers. There are endless variations on this recipe, but those five ingredients are usual constants.",
+        "partnerId": 11,
+        "menuTypeId": 42,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Egusi Soup",
+        "price": 18.79,
+        "description": "A stew usually made with crayfish or other meat and thickened with ground melon seeds(egusi).",
+        "partnerId": 11,
+        "menuTypeId": 41,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Pepper Soup",
+        "price": 0.42,
+        "description": "Light and spicy soup traditionally made with goat meat, but often with fish or other meat, as well as herbs and Nigerian spices.",
+        "partnerId": 11,
+        "menuTypeId": 41,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Efo Riro",
+        "price": 52.18,
+        "description": "A rich spinach stew usually made with spinach, scotch bonnets, and red bell peppers.",
+        "partnerId": 11,
+        "menuTypeId": 42,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Akara",
+        "price": 87.33,
+        "description": "Fried bean cakes.Usually served as a breakfast food or snack and made with black eyed peas, these fritters are crunchy, spicy, and perfect alone or with a dipping sauce.",
+        "partnerId": 11,
+        "menuTypeId": 43,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Dodo",
+        "price": 58.94,
+        "description": "Deep fried plantain slices.",
+        "partnerId": 11,
+        "menuTypeId": 44,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/4.jpg"
+    },
+    {
+        "name": "Puff puff",
+        "price": 63.65,
+        "description": "Deep fried dough, served plain or with powdered sugar.",
+        "partnerId": 11,
+        "menuTypeId": 43,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Beef Stew",
+        "price": 7.56,
+        "description": "A tomato - based beef stew served with rice or starchy vegetables.",
+        "partnerId": 11,
+        "menuTypeId": 42,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Ewa Agoyin",
+        "price": 26.11,
+        "description": "Mashed steamed beans with pepper sauce.",
+        "partnerId": 11,
+        "menuTypeId": 42,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Pounded yam",
+        "price": 58.93,
+        "description": "Yams that have been crushed or stirred to a creamy, dough - like consistency.Pounded yams are considered a fufu(a kind of starchy side dish) usually served with a stew or efo.",
+        "partnerId": 12,
+        "menuTypeId": 45,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Jollof rice",
+        "price": 41.19,
+        "description": "Rice made with tomatoes, onions, scotch bonnets, and chili peppers. There are endless variations on this recipe, but those five ingredients are usual constants.",
+        "partnerId": 12,
+        "menuTypeId": 46,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Egusi Soup",
+        "price": 18.79,
+        "description": "A stew usually made with crayfish or other meat and thickened with ground melon seeds(egusi).",
+        "partnerId": 12,
+        "menuTypeId": 45,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Pepper Soup",
+        "price": 0.42,
+        "description": "Light and spicy soup traditionally made with goat meat, but often with fish or other meat, as well as herbs and Nigerian spices.",
+        "partnerId": 12,
+        "menuTypeId": 45,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Efo Riro",
+        "price": 52.18,
+        "description": "A rich spinach stew usually made with spinach, scotch bonnets, and red bell peppers.",
+        "partnerId": 12,
+        "menuTypeId": 46,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Akara",
+        "price": 87.33,
+        "description": "Fried bean cakes.Usually served as a breakfast food or snack and made with black eyed peas, these fritters are crunchy, spicy, and perfect alone or with a dipping sauce.",
+        "partnerId": 12,
+        "menuTypeId": 47,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Dodo",
+        "price": 58.94,
+        "description": "Deep fried plantain slices.",
+        "partnerId": 12,
+        "menuTypeId": 48,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/4.jpg"
+    },
+    {
+        "name": "Puff puff",
+        "price": 63.65,
+        "description": "Deep fried dough, served plain or with powdered sugar.",
+        "partnerId": 12,
+        "menuTypeId": 47,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Beef Stew",
+        "price": 7.56,
+        "description": "A tomato - based beef stew served with rice or starchy vegetables.",
+        "partnerId": 12,
+        "menuTypeId": 46,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Ewa Agoyin",
+        "price": 26.11,
+        "description": "Mashed steamed beans with pepper sauce.",
+        "partnerId": 12,
+        "menuTypeId": 46,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Pounded yam",
+        "price": 58.93,
+        "description": "Yams that have been crushed or stirred to a creamy, dough - like consistency.Pounded yams are considered a fufu(a kind of starchy side dish) usually served with a stew or efo.",
+        "partnerId": 13,
+        "menuTypeId": 49,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Jollof rice",
+        "price": 41.19,
+        "description": "Rice made with tomatoes, onions, scotch bonnets, and chili peppers. There are endless variations on this recipe, but those five ingredients are usual constants.",
+        "partnerId": 13,
+        "menuTypeId": 50,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Egusi Soup",
+        "price": 18.79,
+        "description": "A stew usually made with crayfish or other meat and thickened with ground melon seeds(egusi).",
+        "partnerId": 13,
+        "menuTypeId": 49,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Pepper Soup",
+        "price": 0.42,
+        "description": "Light and spicy soup traditionally made with goat meat, but often with fish or other meat, as well as herbs and Nigerian spices.",
+        "partnerId": 13,
+        "menuTypeId": 49,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Efo Riro",
+        "price": 52.18,
+        "description": "A rich spinach stew usually made with spinach, scotch bonnets, and red bell peppers.",
+        "partnerId": 13,
+        "menuTypeId": 50,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Akara",
+        "price": 87.33,
+        "description": "Fried bean cakes.Usually served as a breakfast food or snack and made with black eyed peas, these fritters are crunchy, spicy, and perfect alone or with a dipping sauce.",
+        "partnerId": 13,
+        "menuTypeId": 51,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Dodo",
+        "price": 58.94,
+        "description": "Deep fried plantain slices.",
+        "partnerId": 13,
+        "menuTypeId": 52,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/4.jpg"
+    },
+    {
+        "name": "Puff puff",
+        "price": 63.65,
+        "description": "Deep fried dough, served plain or with powdered sugar.",
+        "partnerId": 13,
+        "menuTypeId": 51,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Beef Stew",
+        "price": 7.56,
+        "description": "A tomato - based beef stew served with rice or starchy vegetables.",
+        "partnerId": 13,
+        "menuTypeId": 50,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Ewa Agoyin",
+        "price": 26.11,
+        "description": "Mashed steamed beans with pepper sauce.",
+        "partnerId": 13,
+        "menuTypeId": 50,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Pounded yam",
+        "price": 58.93,
+        "description": "Yams that have been crushed or stirred to a creamy, dough - like consistency.Pounded yams are considered a fufu(a kind of starchy side dish) usually served with a stew or efo.",
+        "partnerId": 14,
+        "menuTypeId": 53,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Jollof rice",
+        "price": 41.19,
+        "description": "Rice made with tomatoes, onions, scotch bonnets, and chili peppers. There are endless variations on this recipe, but those five ingredients are usual constants.",
+        "partnerId": 14,
+        "menuTypeId": 54,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Egusi Soup",
+        "price": 18.79,
+        "description": "A stew usually made with crayfish or other meat and thickened with ground melon seeds(egusi).",
+        "partnerId": 14,
+        "menuTypeId": 53,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Pepper Soup",
+        "price": 0.42,
+        "description": "Light and spicy soup traditionally made with goat meat, but often with fish or other meat, as well as herbs and Nigerian spices.",
+        "partnerId": 14,
+        "menuTypeId": 53,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Efo Riro",
+        "price": 52.18,
+        "description": "A rich spinach stew usually made with spinach, scotch bonnets, and red bell peppers.",
+        "partnerId": 14,
+        "menuTypeId": 54,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Akara",
+        "price": 87.33,
+        "description": "Fried bean cakes.Usually served as a breakfast food or snack and made with black eyed peas, these fritters are crunchy, spicy, and perfect alone or with a dipping sauce.",
+        "partnerId": 14,
+        "menuTypeId": 55,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Dodo",
+        "price": 58.94,
+        "description": "Deep fried plantain slices.",
+        "partnerId": 14,
+        "menuTypeId": 56,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/4.jpg"
+    },
+    {
+        "name": "Puff puff",
+        "price": 63.65,
+        "description": "Deep fried dough, served plain or with powdered sugar.",
+        "partnerId": 14,
+        "menuTypeId": 55,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Beef Stew",
+        "price": 7.56,
+        "description": "A tomato - based beef stew served with rice or starchy vegetables.",
+        "partnerId": 14,
+        "menuTypeId": 54,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Ewa Agoyin",
+        "price": 26.11,
+        "description": "Mashed steamed beans with pepper sauce.",
+        "partnerId": 14,
+        "menuTypeId": 54,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Pounded yam",
+        "price": 58.93,
+        "description": "Yams that have been crushed or stirred to a creamy, dough - like consistency.Pounded yams are considered a fufu(a kind of starchy side dish) usually served with a stew or efo.",
+        "partnerId": 15,
+        "menuTypeId": 57,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Jollof rice",
+        "price": 41.19,
+        "description": "Rice made with tomatoes, onions, scotch bonnets, and chili peppers. There are endless variations on this recipe, but those five ingredients are usual constants.",
+        "partnerId": 15,
+        "menuTypeId": 58,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Egusi Soup",
+        "price": 18.79,
+        "description": "A stew usually made with crayfish or other meat and thickened with ground melon seeds(egusi).",
+        "partnerId": 15,
+        "menuTypeId": 57,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Pepper Soup",
+        "price": 0.42,
+        "description": "Light and spicy soup traditionally made with goat meat, but often with fish or other meat, as well as herbs and Nigerian spices.",
+        "partnerId": 15,
+        "menuTypeId": 57,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Efo Riro",
+        "price": 52.18,
+        "description": "A rich spinach stew usually made with spinach, scotch bonnets, and red bell peppers.",
+        "partnerId": 15,
+        "menuTypeId": 58,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Akara",
+        "price": 87.33,
+        "description": "Fried bean cakes.Usually served as a breakfast food or snack and made with black eyed peas, these fritters are crunchy, spicy, and perfect alone or with a dipping sauce.",
+        "partnerId": 15,
+        "menuTypeId": 59,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Dodo",
+        "price": 58.94,
+        "description": "Deep fried plantain slices.",
+        "partnerId": 15,
+        "menuTypeId": 60,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/4.jpg"
+    },
+    {
+        "name": "Puff puff",
+        "price": 63.65,
+        "description": "Deep fried dough, served plain or with powdered sugar.",
+        "partnerId": 15,
+        "menuTypeId": 59,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Beef Stew",
+        "price": 7.56,
+        "description": "A tomato - based beef stew served with rice or starchy vegetables.",
+        "partnerId": 15,
+        "menuTypeId": 58,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Ewa Agoyin",
+        "price": 26.11,
+        "description": "Mashed steamed beans with pepper sauce.",
+        "partnerId": 15,
+        "menuTypeId": 58,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Pounded yam",
+        "price": 58.93,
+        "description": "Yams that have been crushed or stirred to a creamy, dough - like consistency.Pounded yams are considered a fufu(a kind of starchy side dish) usually served with a stew or efo.",
+        "partnerId": 16,
+        "menuTypeId": 61,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Jollof rice",
+        "price": 41.19,
+        "description": "Rice made with tomatoes, onions, scotch bonnets, and chili peppers. There are endless variations on this recipe, but those five ingredients are usual constants.",
+        "partnerId": 16,
+        "menuTypeId": 62,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Egusi Soup",
+        "price": 18.79,
+        "description": "A stew usually made with crayfish or other meat and thickened with ground melon seeds(egusi).",
+        "partnerId": 16,
+        "menuTypeId": 61,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Pepper Soup",
+        "price": 0.42,
+        "description": "Light and spicy soup traditionally made with goat meat, but often with fish or other meat, as well as herbs and Nigerian spices.",
+        "partnerId": 16,
+        "menuTypeId": 61,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Efo Riro",
+        "price": 52.18,
+        "description": "A rich spinach stew usually made with spinach, scotch bonnets, and red bell peppers.",
+        "partnerId": 16,
+        "menuTypeId": 62,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Akara",
+        "price": 87.33,
+        "description": "Fried bean cakes.Usually served as a breakfast food or snack and made with black eyed peas, these fritters are crunchy, spicy, and perfect alone or with a dipping sauce.",
+        "partnerId": 16,
+        "menuTypeId": 63,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Dodo",
+        "price": 58.94,
+        "description": "Deep fried plantain slices.",
+        "partnerId": 16,
+        "menuTypeId": 64,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/4.jpg"
+    },
+    {
+        "name": "Puff puff",
+        "price": 63.65,
+        "description": "Deep fried dough, served plain or with powdered sugar.",
+        "partnerId": 16,
+        "menuTypeId": 63,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Beef Stew",
+        "price": 7.56,
+        "description": "A tomato - based beef stew served with rice or starchy vegetables.",
+        "partnerId": 16,
+        "menuTypeId": 62,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Ewa Agoyin",
+        "price": 26.11,
+        "description": "Mashed steamed beans with pepper sauce.",
+        "partnerId": 16,
+        "menuTypeId": 62,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Pounded yam",
+        "price": 58.93,
+        "description": "Yams that have been crushed or stirred to a creamy, dough - like consistency.Pounded yams are considered a fufu(a kind of starchy side dish) usually served with a stew or efo.",
+        "partnerId": 17,
+        "menuTypeId": 65,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Jollof rice",
+        "price": 41.19,
+        "description": "Rice made with tomatoes, onions, scotch bonnets, and chili peppers. There are endless variations on this recipe, but those five ingredients are usual constants.",
+        "partnerId": 17,
+        "menuTypeId": 66,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Egusi Soup",
+        "price": 18.79,
+        "description": "A stew usually made with crayfish or other meat and thickened with ground melon seeds(egusi).",
+        "partnerId": 17,
+        "menuTypeId": 65,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Pepper Soup",
+        "price": 0.42,
+        "description": "Light and spicy soup traditionally made with goat meat, but often with fish or other meat, as well as herbs and Nigerian spices.",
+        "partnerId": 17,
+        "menuTypeId": 65,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Efo Riro",
+        "price": 52.18,
+        "description": "A rich spinach stew usually made with spinach, scotch bonnets, and red bell peppers.",
+        "partnerId": 17,
+        "menuTypeId": 66,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Akara",
+        "price": 87.33,
+        "description": "Fried bean cakes.Usually served as a breakfast food or snack and made with black eyed peas, these fritters are crunchy, spicy, and perfect alone or with a dipping sauce.",
+        "partnerId": 17,
+        "menuTypeId": 67,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Dodo",
+        "price": 58.94,
+        "description": "Deep fried plantain slices.",
+        "partnerId": 17,
+        "menuTypeId": 68,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/4.jpg"
+    },
+    {
+        "name": "Puff puff",
+        "price": 63.65,
+        "description": "Deep fried dough, served plain or with powdered sugar.",
+        "partnerId": 17,
+        "menuTypeId": 67,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Beef Stew",
+        "price": 7.56,
+        "description": "A tomato - based beef stew served with rice or starchy vegetables.",
+        "partnerId": 17,
+        "menuTypeId": 66,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Ewa Agoyin",
+        "price": 26.11,
+        "description": "Mashed steamed beans with pepper sauce.",
+        "partnerId": 17,
+        "menuTypeId": 66,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Pounded yam",
+        "price": 58.93,
+        "description": "Yams that have been crushed or stirred to a creamy, dough - like consistency.Pounded yams are considered a fufu(a kind of starchy side dish) usually served with a stew or efo.",
+        "partnerId": 18,
+        "menuTypeId": 69,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Jollof rice",
+        "price": 41.19,
+        "description": "Rice made with tomatoes, onions, scotch bonnets, and chili peppers. There are endless variations on this recipe, but those five ingredients are usual constants.",
+        "partnerId": 18,
+        "menuTypeId": 70,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Egusi Soup",
+        "price": 18.79,
+        "description": "A stew usually made with crayfish or other meat and thickened with ground melon seeds(egusi).",
+        "partnerId": 18,
+        "menuTypeId": 69,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Pepper Soup",
+        "price": 0.42,
+        "description": "Light and spicy soup traditionally made with goat meat, but often with fish or other meat, as well as herbs and Nigerian spices.",
+        "partnerId": 18,
+        "menuTypeId": 69,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Efo Riro",
+        "price": 52.18,
+        "description": "A rich spinach stew usually made with spinach, scotch bonnets, and red bell peppers.",
+        "partnerId": 18,
+        "menuTypeId": 70,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Akara",
+        "price": 87.33,
+        "description": "Fried bean cakes.Usually served as a breakfast food or snack and made with black eyed peas, these fritters are crunchy, spicy, and perfect alone or with a dipping sauce.",
+        "partnerId": 18,
+        "menuTypeId": 71,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Dodo",
+        "price": 58.94,
+        "description": "Deep fried plantain slices.",
+        "partnerId": 18,
+        "menuTypeId": 72,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/4.jpg"
+    },
+    {
+        "name": "Puff puff",
+        "price": 63.65,
+        "description": "Deep fried dough, served plain or with powdered sugar.",
+        "partnerId": 18,
+        "menuTypeId": 71,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Beef Stew",
+        "price": 7.56,
+        "description": "A tomato - based beef stew served with rice or starchy vegetables.",
+        "partnerId": 18,
+        "menuTypeId": 70,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Ewa Agoyin",
+        "price": 26.11,
+        "description": "Mashed steamed beans with pepper sauce.",
+        "partnerId": 18,
+        "menuTypeId": 70,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Pounded yam",
+        "price": 58.93,
+        "description": "Yams that have been crushed or stirred to a creamy, dough - like consistency.Pounded yams are considered a fufu(a kind of starchy side dish) usually served with a stew or efo.",
+        "partnerId": 19,
+        "menuTypeId": 73,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Jollof rice",
+        "price": 41.19,
+        "description": "Rice made with tomatoes, onions, scotch bonnets, and chili peppers. There are endless variations on this recipe, but those five ingredients are usual constants.",
+        "partnerId": 19,
+        "menuTypeId": 74,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Egusi Soup",
+        "price": 18.79,
+        "description": "A stew usually made with crayfish or other meat and thickened with ground melon seeds(egusi).",
+        "partnerId": 19,
+        "menuTypeId": 73,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Pepper Soup",
+        "price": 0.42,
+        "description": "Light and spicy soup traditionally made with goat meat, but often with fish or other meat, as well as herbs and Nigerian spices.",
+        "partnerId": 19,
+        "menuTypeId": 73,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Efo Riro",
+        "price": 52.18,
+        "description": "A rich spinach stew usually made with spinach, scotch bonnets, and red bell peppers.",
+        "partnerId": 19,
+        "menuTypeId": 74,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Akara",
+        "price": 87.33,
+        "description": "Fried bean cakes.Usually served as a breakfast food or snack and made with black eyed peas, these fritters are crunchy, spicy, and perfect alone or with a dipping sauce.",
+        "partnerId": 19,
+        "menuTypeId": 75,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Dodo",
+        "price": 58.94,
+        "description": "Deep fried plantain slices.",
+        "partnerId": 19,
+        "menuTypeId": 76,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/4.jpg"
+    },
+    {
+        "name": "Puff puff",
+        "price": 63.65,
+        "description": "Deep fried dough, served plain or with powdered sugar.",
+        "partnerId": 19,
+        "menuTypeId": 75,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Beef Stew",
+        "price": 7.56,
+        "description": "A tomato - based beef stew served with rice or starchy vegetables.",
+        "partnerId": 19,
+        "menuTypeId": 74,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Ewa Agoyin",
+        "price": 26.11,
+        "description": "Mashed steamed beans with pepper sauce.",
+        "partnerId": 19,
+        "menuTypeId": 74,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Pounded yam",
+        "price": 58.93,
+        "description": "Yams that have been crushed or stirred to a creamy, dough - like consistency.Pounded yams are considered a fufu(a kind of starchy side dish) usually served with a stew or efo.",
+        "partnerId": 20,
+        "menuTypeId": 77,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Jollof rice",
+        "price": 41.19,
+        "description": "Rice made with tomatoes, onions, scotch bonnets, and chili peppers. There are endless variations on this recipe, but those five ingredients are usual constants.",
+        "partnerId": 20,
+        "menuTypeId": 78,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Egusi Soup",
+        "price": 18.79,
+        "description": "A stew usually made with crayfish or other meat and thickened with ground melon seeds(egusi).",
+        "partnerId": 20,
+        "menuTypeId": 77,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Pepper Soup",
+        "price": 0.42,
+        "description": "Light and spicy soup traditionally made with goat meat, but often with fish or other meat, as well as herbs and Nigerian spices.",
+        "partnerId": 20,
+        "menuTypeId": 77,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Efo Riro",
+        "price": 52.18,
+        "description": "A rich spinach stew usually made with spinach, scotch bonnets, and red bell peppers.",
+        "partnerId": 20,
+        "menuTypeId": 78,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Akara",
+        "price": 87.33,
+        "description": "Fried bean cakes.Usually served as a breakfast food or snack and made with black eyed peas, these fritters are crunchy, spicy, and perfect alone or with a dipping sauce.",
+        "partnerId": 20,
+        "menuTypeId": 79,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Dodo",
+        "price": 58.94,
+        "description": "Deep fried plantain slices.",
+        "partnerId": 20,
+        "menuTypeId": 80,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/4.jpg"
+    },
+    {
+        "name": "Puff puff",
+        "price": 63.65,
+        "description": "Deep fried dough, served plain or with powdered sugar.",
+        "partnerId": 20,
+        "menuTypeId": 79,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Beef Stew",
+        "price": 7.56,
+        "description": "A tomato - based beef stew served with rice or starchy vegetables.",
+        "partnerId": 20,
+        "menuTypeId": 78,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Ewa Agoyin",
+        "price": 26.11,
+        "description": "Mashed steamed beans with pepper sauce.",
+        "partnerId": 20,
+        "menuTypeId": 78,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Pounded yam",
+        "price": 58.93,
+        "description": "Yams that have been crushed or stirred to a creamy, dough - like consistency.Pounded yams are considered a fufu(a kind of starchy side dish) usually served with a stew or efo.",
+        "partnerId": 21,
+        "menuTypeId": 81,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Jollof rice",
+        "price": 41.19,
+        "description": "Rice made with tomatoes, onions, scotch bonnets, and chili peppers. There are endless variations on this recipe, but those five ingredients are usual constants.",
+        "partnerId": 21,
+        "menuTypeId": 82,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Egusi Soup",
+        "price": 18.79,
+        "description": "A stew usually made with crayfish or other meat and thickened with ground melon seeds(egusi).",
+        "partnerId": 21,
+        "menuTypeId": 81,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Pepper Soup",
+        "price": 0.42,
+        "description": "Light and spicy soup traditionally made with goat meat, but often with fish or other meat, as well as herbs and Nigerian spices.",
+        "partnerId": 21,
+        "menuTypeId": 81,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Efo Riro",
+        "price": 52.18,
+        "description": "A rich spinach stew usually made with spinach, scotch bonnets, and red bell peppers.",
+        "partnerId": 21,
+        "menuTypeId": 82,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Akara",
+        "price": 87.33,
+        "description": "Fried bean cakes.Usually served as a breakfast food or snack and made with black eyed peas, these fritters are crunchy, spicy, and perfect alone or with a dipping sauce.",
+        "partnerId": 21,
+        "menuTypeId": 83,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Dodo",
+        "price": 58.94,
+        "description": "Deep fried plantain slices.",
+        "partnerId": 21,
+        "menuTypeId": 84,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/4.jpg"
+    },
+    {
+        "name": "Puff puff",
+        "price": 63.65,
+        "description": "Deep fried dough, served plain or with powdered sugar.",
+        "partnerId": 21,
+        "menuTypeId": 83,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Beef Stew",
+        "price": 7.56,
+        "description": "A tomato - based beef stew served with rice or starchy vegetables.",
+        "partnerId": 21,
+        "menuTypeId": 82,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Ewa Agoyin",
+        "price": 26.11,
+        "description": "Mashed steamed beans with pepper sauce.",
+        "partnerId": 21,
+        "menuTypeId": 82,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Pounded yam",
+        "price": 58.93,
+        "description": "Yams that have been crushed or stirred to a creamy, dough - like consistency.Pounded yams are considered a fufu(a kind of starchy side dish) usually served with a stew or efo.",
+        "partnerId": 22,
+        "menuTypeId": 85,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Jollof rice",
+        "price": 41.19,
+        "description": "Rice made with tomatoes, onions, scotch bonnets, and chili peppers. There are endless variations on this recipe, but those five ingredients are usual constants.",
+        "partnerId": 22,
+        "menuTypeId": 86,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Egusi Soup",
+        "price": 18.79,
+        "description": "A stew usually made with crayfish or other meat and thickened with ground melon seeds(egusi).",
+        "partnerId": 22,
+        "menuTypeId": 85,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Pepper Soup",
+        "price": 0.42,
+        "description": "Light and spicy soup traditionally made with goat meat, but often with fish or other meat, as well as herbs and Nigerian spices.",
+        "partnerId": 22,
+        "menuTypeId": 85,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Efo Riro",
+        "price": 52.18,
+        "description": "A rich spinach stew usually made with spinach, scotch bonnets, and red bell peppers.",
+        "partnerId": 22,
+        "menuTypeId": 86,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Akara",
+        "price": 87.33,
+        "description": "Fried bean cakes.Usually served as a breakfast food or snack and made with black eyed peas, these fritters are crunchy, spicy, and perfect alone or with a dipping sauce.",
+        "partnerId": 22,
+        "menuTypeId": 87,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Dodo",
+        "price": 58.94,
+        "description": "Deep fried plantain slices.",
+        "partnerId": 22,
+        "menuTypeId": 88,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/4.jpg"
+    },
+    {
+        "name": "Puff puff",
+        "price": 63.65,
+        "description": "Deep fried dough, served plain or with powdered sugar.",
+        "partnerId": 22,
+        "menuTypeId": 87,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Beef Stew",
+        "price": 7.56,
+        "description": "A tomato - based beef stew served with rice or starchy vegetables.",
+        "partnerId": 22,
+        "menuTypeId": 86,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Ewa Agoyin",
+        "price": 26.11,
+        "description": "Mashed steamed beans with pepper sauce.",
+        "partnerId": 22,
+        "menuTypeId": 86,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Pounded yam",
+        "price": 58.93,
+        "description": "Yams that have been crushed or stirred to a creamy, dough - like consistency.Pounded yams are considered a fufu(a kind of starchy side dish) usually served with a stew or efo.",
+        "partnerId": 23,
+        "menuTypeId": 89,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Jollof rice",
+        "price": 41.19,
+        "description": "Rice made with tomatoes, onions, scotch bonnets, and chili peppers. There are endless variations on this recipe, but those five ingredients are usual constants.",
+        "partnerId": 23,
+        "menuTypeId": 90,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Egusi Soup",
+        "price": 18.79,
+        "description": "A stew usually made with crayfish or other meat and thickened with ground melon seeds(egusi).",
+        "partnerId": 23,
+        "menuTypeId": 89,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Pepper Soup",
+        "price": 0.42,
+        "description": "Light and spicy soup traditionally made with goat meat, but often with fish or other meat, as well as herbs and Nigerian spices.",
+        "partnerId": 23,
+        "menuTypeId": 89,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Efo Riro",
+        "price": 52.18,
+        "description": "A rich spinach stew usually made with spinach, scotch bonnets, and red bell peppers.",
+        "partnerId": 23,
+        "menuTypeId": 90,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Akara",
+        "price": 87.33,
+        "description": "Fried bean cakes.Usually served as a breakfast food or snack and made with black eyed peas, these fritters are crunchy, spicy, and perfect alone or with a dipping sauce.",
+        "partnerId": 23,
+        "menuTypeId": 91,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Dodo",
+        "price": 58.94,
+        "description": "Deep fried plantain slices.",
+        "partnerId": 23,
+        "menuTypeId": 92,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/4.jpg"
+    },
+    {
+        "name": "Puff puff",
+        "price": 63.65,
+        "description": "Deep fried dough, served plain or with powdered sugar.",
+        "partnerId": 23,
+        "menuTypeId": 91,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Beef Stew",
+        "price": 7.56,
+        "description": "A tomato - based beef stew served with rice or starchy vegetables.",
+        "partnerId": 23,
+        "menuTypeId": 90,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Ewa Agoyin",
+        "price": 26.11,
+        "description": "Mashed steamed beans with pepper sauce.",
+        "partnerId": 23,
+        "menuTypeId": 90,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Pounded yam",
+        "price": 58.93,
+        "description": "Yams that have been crushed or stirred to a creamy, dough - like consistency.Pounded yams are considered a fufu(a kind of starchy side dish) usually served with a stew or efo.",
+        "partnerId": 24,
+        "menuTypeId": 93,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Jollof rice",
+        "price": 41.19,
+        "description": "Rice made with tomatoes, onions, scotch bonnets, and chili peppers. There are endless variations on this recipe, but those five ingredients are usual constants.",
+        "partnerId": 24,
+        "menuTypeId": 94,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Egusi Soup",
+        "price": 18.79,
+        "description": "A stew usually made with crayfish or other meat and thickened with ground melon seeds(egusi).",
+        "partnerId": 24,
+        "menuTypeId": 93,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Pepper Soup",
+        "price": 0.42,
+        "description": "Light and spicy soup traditionally made with goat meat, but often with fish or other meat, as well as herbs and Nigerian spices.",
+        "partnerId": 24,
+        "menuTypeId": 93,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Efo Riro",
+        "price": 52.18,
+        "description": "A rich spinach stew usually made with spinach, scotch bonnets, and red bell peppers.",
+        "partnerId": 24,
+        "menuTypeId": 94,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Akara",
+        "price": 87.33,
+        "description": "Fried bean cakes.Usually served as a breakfast food or snack and made with black eyed peas, these fritters are crunchy, spicy, and perfect alone or with a dipping sauce.",
+        "partnerId": 24,
+        "menuTypeId": 95,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Dodo",
+        "price": 58.94,
+        "description": "Deep fried plantain slices.",
+        "partnerId": 24,
+        "menuTypeId": 96,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/4.jpg"
+    },
+    {
+        "name": "Puff puff",
+        "price": 63.65,
+        "description": "Deep fried dough, served plain or with powdered sugar.",
+        "partnerId": 24,
+        "menuTypeId": 95,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Beef Stew",
+        "price": 7.56,
+        "description": "A tomato - based beef stew served with rice or starchy vegetables.",
+        "partnerId": 24,
+        "menuTypeId": 94,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Ewa Agoyin",
+        "price": 26.11,
+        "description": "Mashed steamed beans with pepper sauce.",
+        "partnerId": 24,
+        "menuTypeId": 94,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Pounded yam",
+        "price": 58.93,
+        "description": "Yams that have been crushed or stirred to a creamy, dough - like consistency.Pounded yams are considered a fufu(a kind of starchy side dish) usually served with a stew or efo.",
+        "partnerId": 25,
+        "menuTypeId": 97,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Jollof rice",
+        "price": 41.19,
+        "description": "Rice made with tomatoes, onions, scotch bonnets, and chili peppers. There are endless variations on this recipe, but those five ingredients are usual constants.",
+        "partnerId": 25,
+        "menuTypeId": 98,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Egusi Soup",
+        "price": 18.79,
+        "description": "A stew usually made with crayfish or other meat and thickened with ground melon seeds(egusi).",
+        "partnerId": 25,
+        "menuTypeId": 97,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Pepper Soup",
+        "price": 0.42,
+        "description": "Light and spicy soup traditionally made with goat meat, but often with fish or other meat, as well as herbs and Nigerian spices.",
+        "partnerId": 25,
+        "menuTypeId": 97,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Efo Riro",
+        "price": 52.18,
+        "description": "A rich spinach stew usually made with spinach, scotch bonnets, and red bell peppers.",
+        "partnerId": 25,
+        "menuTypeId": 98,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Akara",
+        "price": 87.33,
+        "description": "Fried bean cakes.Usually served as a breakfast food or snack and made with black eyed peas, these fritters are crunchy, spicy, and perfect alone or with a dipping sauce.",
+        "partnerId": 25,
+        "menuTypeId": 99,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Dodo",
+        "price": 58.94,
+        "description": "Deep fried plantain slices.",
+        "partnerId": 25,
+        "menuTypeId": 100,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/4.jpg"
+    },
+    {
+        "name": "Puff puff",
+        "price": 63.65,
+        "description": "Deep fried dough, served plain or with powdered sugar.",
+        "partnerId": 25,
+        "menuTypeId": 99,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Beef Stew",
+        "price": 7.56,
+        "description": "A tomato - based beef stew served with rice or starchy vegetables.",
+        "partnerId": 25,
+        "menuTypeId": 98,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Ewa Agoyin",
+        "price": 26.11,
+        "description": "Mashed steamed beans with pepper sauce.",
+        "partnerId": 25,
+        "menuTypeId": 98,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Pounded yam",
+        "price": 58.93,
+        "description": "Yams that have been crushed or stirred to a creamy, dough - like consistency.Pounded yams are considered a fufu(a kind of starchy side dish) usually served with a stew or efo.",
+        "partnerId": 26,
+        "menuTypeId": 101,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Jollof rice",
+        "price": 41.19,
+        "description": "Rice made with tomatoes, onions, scotch bonnets, and chili peppers. There are endless variations on this recipe, but those five ingredients are usual constants.",
+        "partnerId": 26,
+        "menuTypeId": 102,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Egusi Soup",
+        "price": 18.79,
+        "description": "A stew usually made with crayfish or other meat and thickened with ground melon seeds(egusi).",
+        "partnerId": 26,
+        "menuTypeId": 101,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Pepper Soup",
+        "price": 0.42,
+        "description": "Light and spicy soup traditionally made with goat meat, but often with fish or other meat, as well as herbs and Nigerian spices.",
+        "partnerId": 26,
+        "menuTypeId": 101,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Efo Riro",
+        "price": 52.18,
+        "description": "A rich spinach stew usually made with spinach, scotch bonnets, and red bell peppers.",
+        "partnerId": 26,
+        "menuTypeId": 102,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Akara",
+        "price": 87.33,
+        "description": "Fried bean cakes.Usually served as a breakfast food or snack and made with black eyed peas, these fritters are crunchy, spicy, and perfect alone or with a dipping sauce.",
+        "partnerId": 26,
+        "menuTypeId": 103,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Dodo",
+        "price": 58.94,
+        "description": "Deep fried plantain slices.",
+        "partnerId": 26,
+        "menuTypeId": 104,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/4.jpg"
+    },
+    {
+        "name": "Puff puff",
+        "price": 63.65,
+        "description": "Deep fried dough, served plain or with powdered sugar.",
+        "partnerId": 26,
+        "menuTypeId": 103,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Beef Stew",
+        "price": 7.56,
+        "description": "A tomato - based beef stew served with rice or starchy vegetables.",
+        "partnerId": 26,
+        "menuTypeId": 102,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Ewa Agoyin",
+        "price": 26.11,
+        "description": "Mashed steamed beans with pepper sauce.",
+        "partnerId": 26,
+        "menuTypeId": 102,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Pounded yam",
+        "price": 58.93,
+        "description": "Yams that have been crushed or stirred to a creamy, dough - like consistency.Pounded yams are considered a fufu(a kind of starchy side dish) usually served with a stew or efo.",
+        "partnerId": 27,
+        "menuTypeId": 105,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Jollof rice",
+        "price": 41.19,
+        "description": "Rice made with tomatoes, onions, scotch bonnets, and chili peppers. There are endless variations on this recipe, but those five ingredients are usual constants.",
+        "partnerId": 27,
+        "menuTypeId": 106,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Egusi Soup",
+        "price": 18.79,
+        "description": "A stew usually made with crayfish or other meat and thickened with ground melon seeds(egusi).",
+        "partnerId": 27,
+        "menuTypeId": 105,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Pepper Soup",
+        "price": 0.42,
+        "description": "Light and spicy soup traditionally made with goat meat, but often with fish or other meat, as well as herbs and Nigerian spices.",
+        "partnerId": 27,
+        "menuTypeId": 105,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Efo Riro",
+        "price": 52.18,
+        "description": "A rich spinach stew usually made with spinach, scotch bonnets, and red bell peppers.",
+        "partnerId": 27,
+        "menuTypeId": 106,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Akara",
+        "price": 87.33,
+        "description": "Fried bean cakes.Usually served as a breakfast food or snack and made with black eyed peas, these fritters are crunchy, spicy, and perfect alone or with a dipping sauce.",
+        "partnerId": 27,
+        "menuTypeId": 107,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Dodo",
+        "price": 58.94,
+        "description": "Deep fried plantain slices.",
+        "partnerId": 27,
+        "menuTypeId": 108,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/4.jpg"
+    },
+    {
+        "name": "Puff puff",
+        "price": 63.65,
+        "description": "Deep fried dough, served plain or with powdered sugar.",
+        "partnerId": 27,
+        "menuTypeId": 107,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Beef Stew",
+        "price": 7.56,
+        "description": "A tomato - based beef stew served with rice or starchy vegetables.",
+        "partnerId": 27,
+        "menuTypeId": 106,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Ewa Agoyin",
+        "price": 26.11,
+        "description": "Mashed steamed beans with pepper sauce.",
+        "partnerId": 27,
+        "menuTypeId": 106,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Pounded yam",
+        "price": 58.93,
+        "description": "Yams that have been crushed or stirred to a creamy, dough - like consistency.Pounded yams are considered a fufu(a kind of starchy side dish) usually served with a stew or efo.",
+        "partnerId": 28,
+        "menuTypeId": 109,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Jollof rice",
+        "price": 41.19,
+        "description": "Rice made with tomatoes, onions, scotch bonnets, and chili peppers. There are endless variations on this recipe, but those five ingredients are usual constants.",
+        "partnerId": 28,
+        "menuTypeId": 110,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Egusi Soup",
+        "price": 18.79,
+        "description": "A stew usually made with crayfish or other meat and thickened with ground melon seeds(egusi).",
+        "partnerId": 28,
+        "menuTypeId": 109,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Pepper Soup",
+        "price": 0.42,
+        "description": "Light and spicy soup traditionally made with goat meat, but often with fish or other meat, as well as herbs and Nigerian spices.",
+        "partnerId": 28,
+        "menuTypeId": 109,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Efo Riro",
+        "price": 52.18,
+        "description": "A rich spinach stew usually made with spinach, scotch bonnets, and red bell peppers.",
+        "partnerId": 28,
+        "menuTypeId": 110,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Akara",
+        "price": 87.33,
+        "description": "Fried bean cakes.Usually served as a breakfast food or snack and made with black eyed peas, these fritters are crunchy, spicy, and perfect alone or with a dipping sauce.",
+        "partnerId": 28,
+        "menuTypeId": 111,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Dodo",
+        "price": 58.94,
+        "description": "Deep fried plantain slices.",
+        "partnerId": 28,
+        "menuTypeId": 112,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/4.jpg"
+    },
+    {
+        "name": "Puff puff",
+        "price": 63.65,
+        "description": "Deep fried dough, served plain or with powdered sugar.",
+        "partnerId": 28,
+        "menuTypeId": 111,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Beef Stew",
+        "price": 7.56,
+        "description": "A tomato - based beef stew served with rice or starchy vegetables.",
+        "partnerId": 28,
+        "menuTypeId": 110,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Ewa Agoyin",
+        "price": 26.11,
+        "description": "Mashed steamed beans with pepper sauce.",
+        "partnerId": 28,
+        "menuTypeId": 110,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Pounded yam",
+        "price": 58.93,
+        "description": "Yams that have been crushed or stirred to a creamy, dough - like consistency.Pounded yams are considered a fufu(a kind of starchy side dish) usually served with a stew or efo.",
+        "partnerId": 29,
+        "menuTypeId": 113,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Jollof rice",
+        "price": 41.19,
+        "description": "Rice made with tomatoes, onions, scotch bonnets, and chili peppers. There are endless variations on this recipe, but those five ingredients are usual constants.",
+        "partnerId": 29,
+        "menuTypeId": 114,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Egusi Soup",
+        "price": 18.79,
+        "description": "A stew usually made with crayfish or other meat and thickened with ground melon seeds(egusi).",
+        "partnerId": 29,
+        "menuTypeId": 113,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Pepper Soup",
+        "price": 0.42,
+        "description": "Light and spicy soup traditionally made with goat meat, but often with fish or other meat, as well as herbs and Nigerian spices.",
+        "partnerId": 29,
+        "menuTypeId": 113,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Efo Riro",
+        "price": 52.18,
+        "description": "A rich spinach stew usually made with spinach, scotch bonnets, and red bell peppers.",
+        "partnerId": 29,
+        "menuTypeId": 114,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Akara",
+        "price": 87.33,
+        "description": "Fried bean cakes.Usually served as a breakfast food or snack and made with black eyed peas, these fritters are crunchy, spicy, and perfect alone or with a dipping sauce.",
+        "partnerId": 29,
+        "menuTypeId": 115,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Dodo",
+        "price": 58.94,
+        "description": "Deep fried plantain slices.",
+        "partnerId": 29,
+        "menuTypeId": 116,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/4.jpg"
+    },
+    {
+        "name": "Puff puff",
+        "price": 63.65,
+        "description": "Deep fried dough, served plain or with powdered sugar.",
+        "partnerId": 29,
+        "menuTypeId": 115,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Beef Stew",
+        "price": 7.56,
+        "description": "A tomato - based beef stew served with rice or starchy vegetables.",
+        "partnerId": 29,
+        "menuTypeId": 114,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Ewa Agoyin",
+        "price": 26.11,
+        "description": "Mashed steamed beans with pepper sauce.",
+        "partnerId": 29,
+        "menuTypeId": 114,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Pounded yam",
+        "price": 58.93,
+        "description": "Yams that have been crushed or stirred to a creamy, dough - like consistency.Pounded yams are considered a fufu(a kind of starchy side dish) usually served with a stew or efo.",
+        "partnerId": 30,
+        "menuTypeId": 117,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Jollof rice",
+        "price": 41.19,
+        "description": "Rice made with tomatoes, onions, scotch bonnets, and chili peppers. There are endless variations on this recipe, but those five ingredients are usual constants.",
+        "partnerId": 30,
+        "menuTypeId": 118,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Egusi Soup",
+        "price": 18.79,
+        "description": "A stew usually made with crayfish or other meat and thickened with ground melon seeds(egusi).",
+        "partnerId": 30,
+        "menuTypeId": 117,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Pepper Soup",
+        "price": 0.42,
+        "description": "Light and spicy soup traditionally made with goat meat, but often with fish or other meat, as well as herbs and Nigerian spices.",
+        "partnerId": 30,
+        "menuTypeId": 117,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Efo Riro",
+        "price": 52.18,
+        "description": "A rich spinach stew usually made with spinach, scotch bonnets, and red bell peppers.",
+        "partnerId": 30,
+        "menuTypeId": 118,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Akara",
+        "price": 87.33,
+        "description": "Fried bean cakes.Usually served as a breakfast food or snack and made with black eyed peas, these fritters are crunchy, spicy, and perfect alone or with a dipping sauce.",
+        "partnerId": 30,
+        "menuTypeId": 119,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Dodo",
+        "price": 58.94,
+        "description": "Deep fried plantain slices.",
+        "partnerId": 30,
+        "menuTypeId": 120,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/4.jpg"
+    },
+    {
+        "name": "Puff puff",
+        "price": 63.65,
+        "description": "Deep fried dough, served plain or with powdered sugar.",
+        "partnerId": 30,
+        "menuTypeId": 119,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Beef Stew",
+        "price": 7.56,
+        "description": "A tomato - based beef stew served with rice or starchy vegetables.",
+        "partnerId": 30,
+        "menuTypeId": 118,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Ewa Agoyin",
+        "price": 26.11,
+        "description": "Mashed steamed beans with pepper sauce.",
+        "partnerId": 30,
+        "menuTypeId": 118,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Pounded yam",
+        "price": 58.93,
+        "description": "Yams that have been crushed or stirred to a creamy, dough - like consistency.Pounded yams are considered a fufu(a kind of starchy side dish) usually served with a stew or efo.",
+        "partnerId": 31,
+        "menuTypeId": 121,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Jollof rice",
+        "price": 41.19,
+        "description": "Rice made with tomatoes, onions, scotch bonnets, and chili peppers. There are endless variations on this recipe, but those five ingredients are usual constants.",
+        "partnerId": 31,
+        "menuTypeId": 122,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Egusi Soup",
+        "price": 18.79,
+        "description": "A stew usually made with crayfish or other meat and thickened with ground melon seeds(egusi).",
+        "partnerId": 31,
+        "menuTypeId": 121,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Pepper Soup",
+        "price": 0.42,
+        "description": "Light and spicy soup traditionally made with goat meat, but often with fish or other meat, as well as herbs and Nigerian spices.",
+        "partnerId": 31,
+        "menuTypeId": 121,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Efo Riro",
+        "price": 52.18,
+        "description": "A rich spinach stew usually made with spinach, scotch bonnets, and red bell peppers.",
+        "partnerId": 31,
+        "menuTypeId": 122,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Akara",
+        "price": 87.33,
+        "description": "Fried bean cakes.Usually served as a breakfast food or snack and made with black eyed peas, these fritters are crunchy, spicy, and perfect alone or with a dipping sauce.",
+        "partnerId": 31,
+        "menuTypeId": 123,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Dodo",
+        "price": 58.94,
+        "description": "Deep fried plantain slices.",
+        "partnerId": 31,
+        "menuTypeId": 124,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/4.jpg"
+    },
+    {
+        "name": "Puff puff",
+        "price": 63.65,
+        "description": "Deep fried dough, served plain or with powdered sugar.",
+        "partnerId": 31,
+        "menuTypeId": 123,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Beef Stew",
+        "price": 7.56,
+        "description": "A tomato - based beef stew served with rice or starchy vegetables.",
+        "partnerId": 31,
+        "menuTypeId": 122,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Ewa Agoyin",
+        "price": 26.11,
+        "description": "Mashed steamed beans with pepper sauce.",
+        "partnerId": 31,
+        "menuTypeId": 122,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Pounded yam",
+        "price": 58.93,
+        "description": "Yams that have been crushed or stirred to a creamy, dough - like consistency.Pounded yams are considered a fufu(a kind of starchy side dish) usually served with a stew or efo.",
+        "partnerId": 32,
+        "menuTypeId": 125,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Jollof rice",
+        "price": 41.19,
+        "description": "Rice made with tomatoes, onions, scotch bonnets, and chili peppers. There are endless variations on this recipe, but those five ingredients are usual constants.",
+        "partnerId": 32,
+        "menuTypeId": 126,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Egusi Soup",
+        "price": 18.79,
+        "description": "A stew usually made with crayfish or other meat and thickened with ground melon seeds(egusi).",
+        "partnerId": 32,
+        "menuTypeId": 125,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Pepper Soup",
+        "price": 0.42,
+        "description": "Light and spicy soup traditionally made with goat meat, but often with fish or other meat, as well as herbs and Nigerian spices.",
+        "partnerId": 32,
+        "menuTypeId": 125,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Efo Riro",
+        "price": 52.18,
+        "description": "A rich spinach stew usually made with spinach, scotch bonnets, and red bell peppers.",
+        "partnerId": 32,
+        "menuTypeId": 126,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Akara",
+        "price": 87.33,
+        "description": "Fried bean cakes.Usually served as a breakfast food or snack and made with black eyed peas, these fritters are crunchy, spicy, and perfect alone or with a dipping sauce.",
+        "partnerId": 32,
+        "menuTypeId": 127,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Dodo",
+        "price": 58.94,
+        "description": "Deep fried plantain slices.",
+        "partnerId": 32,
+        "menuTypeId": 128,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/4.jpg"
+    },
+    {
+        "name": "Puff puff",
+        "price": 63.65,
+        "description": "Deep fried dough, served plain or with powdered sugar.",
+        "partnerId": 32,
+        "menuTypeId": 127,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Beef Stew",
+        "price": 7.56,
+        "description": "A tomato - based beef stew served with rice or starchy vegetables.",
+        "partnerId": 32,
+        "menuTypeId": 126,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Ewa Agoyin",
+        "price": 26.11,
+        "description": "Mashed steamed beans with pepper sauce.",
+        "partnerId": 32,
+        "menuTypeId": 126,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Pounded yam",
+        "price": 58.93,
+        "description": "Yams that have been crushed or stirred to a creamy, dough - like consistency.Pounded yams are considered a fufu(a kind of starchy side dish) usually served with a stew or efo.",
+        "partnerId": 33,
+        "menuTypeId": 129,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Jollof rice",
+        "price": 41.19,
+        "description": "Rice made with tomatoes, onions, scotch bonnets, and chili peppers. There are endless variations on this recipe, but those five ingredients are usual constants.",
+        "partnerId": 33,
+        "menuTypeId": 130,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Egusi Soup",
+        "price": 18.79,
+        "description": "A stew usually made with crayfish or other meat and thickened with ground melon seeds(egusi).",
+        "partnerId": 33,
+        "menuTypeId": 129,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Pepper Soup",
+        "price": 0.42,
+        "description": "Light and spicy soup traditionally made with goat meat, but often with fish or other meat, as well as herbs and Nigerian spices.",
+        "partnerId": 33,
+        "menuTypeId": 129,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/1.jpg"
+    },
+    {
+        "name": "Efo Riro",
+        "price": 52.18,
+        "description": "A rich spinach stew usually made with spinach, scotch bonnets, and red bell peppers.",
+        "partnerId": 33,
+        "menuTypeId": 130,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Akara",
+        "price": 87.33,
+        "description": "Fried bean cakes.Usually served as a breakfast food or snack and made with black eyed peas, these fritters are crunchy, spicy, and perfect alone or with a dipping sauce.",
+        "partnerId": 33,
+        "menuTypeId": 131,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Dodo",
+        "price": 58.94,
+        "description": "Deep fried plantain slices.",
+        "partnerId": 33,
+        "menuTypeId": 132,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/4.jpg"
+    },
+    {
+        "name": "Puff puff",
+        "price": 63.65,
+        "description": "Deep fried dough, served plain or with powdered sugar.",
+        "partnerId": 33,
+        "menuTypeId": 131,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/3.jpg"
+    },
+    {
+        "name": "Beef Stew",
+        "price": 7.56,
+        "description": "A tomato - based beef stew served with rice or starchy vegetables.",
+        "partnerId": 33,
+        "menuTypeId": 130,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    },
+    {
+        "name": "Ewa Agoyin",
+        "price": 26.11,
+        "description": "Mashed steamed beans with pepper sauce.",
+        "partnerId": 33,
+        "menuTypeId": 130,
+        "image": "https://boo.ilmnmukesh.me/images/shop/menu/2.jpg"
+    }
+]

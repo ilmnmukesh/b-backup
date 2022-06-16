@@ -1,0 +1,98 @@
+<%- contentFor('body') %>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/dashboard/inventory/brand">Brand</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Add</li>
+    </ol>
+</nav>
+
+<div class="container col-12 col-md-6 offset-md-3 my-md-5">
+    <div class="card mt-5">
+        <div class="card-header">
+            <h4 class="card-title">Create Brand</h4>
+        </div>
+        <div class="card-content">
+            <div class="card-body">
+                <form
+                    autocomplete="off"
+                    class="form form-vertical"
+                    enctype="application/x-www-form-urlencoded"
+                    method="post"
+                    onsubmit="return confirm('Are you sure to create Brand?');"
+                >
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-12 mb-4">
+                                <div class="form-group has-icon-left">
+                                    <label for="brand_name">Brand Name</label>
+                                    <div class="position-relative">
+                                        <input
+                                            required
+                                            type="text"
+                                            class="form-control"
+                                            placeholder="Brand Name"
+                                            name="brand_name"
+                                        />
+                                        <div class="form-control-icon">
+                                            <i data-feather="wind"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 mb-4">
+                                <div class="form-group has-icon-left">
+                                    <label for="brand_logo"
+                                        >Brand Logo URL</label
+                                    >
+                                    <div class="position-relative">
+                                        <input
+                                            required
+                                            type="text"
+                                            class="form-control"
+                                            placeholder="Brand logo image url"
+                                            name="brand_logo"
+                                        />
+                                        <div class="form-control-icon">
+                                            <i data-feather="image"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 d-flex justify-content-center">
+                                <button
+                                    type="submit"
+                                    class="btn btn-success mr-1 mb-1 shadow"
+                                >
+                                    Create
+                                </button>
+                                <button
+                                    type="reset"
+                                    class="btn btn-danger mr-1 mb-1 shadow"
+                                >
+                                    Clear
+                                </button>
+                            </div>
+                            <small class="my-3 text-center text-danger"
+                                ><%= typeof details !="undefined" ? details:""
+                                %></small
+                            >
+                            <script>
+                                let success =
+                                    '<%= typeof success !="undefined" ? success:""%>';
+
+                                if (success == "true") {
+                                    alert("Successfully created");
+                                    window.location.href =
+                                        "/dashboard/inventory/brand";
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

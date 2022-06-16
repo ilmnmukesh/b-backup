@@ -1,0 +1,243 @@
+<div class="table-responsives">
+    <table
+        class="table mb-0 table-light table-hover table-striped table-default"
+    >
+        <thead>
+            <tr>
+                <th class="col-1 px-0 text-center">ID</th>
+                <th class="col-1 px-0 text-center">Name</th>
+                <th class="col-2 px-0 text-center">Address</th>
+                <th class="col-1 px-0 text-center">Location</th>
+                <th
+                    class="col-2 px-0 text-center"
+                    onclick="changeOrder(true,false)"
+                    id="table_head_date"
+                >
+                    Date
+                </th>
+                <th class="col-1 px-0 text-center">Time</th>
+                <th
+                    class="col-1 px-0 text-center"
+                    onclick="changeOrder(false,true)"
+                    id="table_head_amount"
+                >
+                    Amount
+                </th>
+                <th class="col-1 px-0 text-center">Status</th>
+                <th class="col-1 px-0 text-center">Product</th>
+                <th class="col-1 px-0 text-center">Action</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            <% let a= false; for(const obj of data){ %>
+            <tr
+                class="<%= (a ==false)? 'bga':'bgb'; %>"
+                style="font-size: small"
+            >
+                <% a=!a %>
+                <td class="col-1 px-0 text-center text-bold-500">
+                    #<%= obj.id%>
+                </td>
+                <td class="col-1 px-0 text-center">
+                    <%= obj?.shipping_detail?.name %>
+                </td>
+                <td class="col-2 px-0 text-center">
+                    <%= obj.shipping_detail.address %>
+                </td>
+                <td class="col-1 px-0 text-center">
+                    <%= obj.shipping_detail.city
+                    +","+obj.shipping_detail.country +" "+
+                    obj?.shipping_detail?.postalCode %>
+                </td>
+                <td class="col-2 px-0 text-center">
+                    <%= moment(obj.createdAt) .format(`lll`) %>
+                </td>
+                <td class="col-1 px-0 text-center">
+                    <%= moment(obj.createdAt).startOf('min').fromNow() %>
+                </td>
+                <td class="col-1 px-0 text-center">$ <%= obj.totalAmount %></td>
+                <td
+                    class="col-1 px-0 text-center"
+                    style="font-weight: 500 !important"
+                    id="table_status_<%= obj.id%>"
+                >
+                    <% if(obj.status == "created"){%>
+                    <span class="shadow badge bg-success"
+                        >New
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </span>
+                    <%} else if(obj.status == "shipping"){%>
+                    <span class="shadow badge bg-info"
+                        >Shipping
+                        <i data-feather="git-pull-request"></i>
+                    </span>
+                    <%} else if(obj.status == "dispatch"){%>
+                    <span class="shadow badge bg-warning"
+                        >Dispatch
+                        <i data-feather="git-commit"></i>
+                    </span>
+                    <%} else if(obj.status == "delivered"){%>
+                    <span class="shadow badge bg-success">
+                        Delivered
+                        <i class="fa fa-check-double"></i>
+                    </span>
+                    <%} else if(obj.status == "cancelled"){%>
+                    <span class="shadow badge bg-danger"
+                        >Cancelled
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </span>
+                    <%} %>
+                </td>
+                <td class="col-1 px-0 text-center">
+                    <a
+                        class="btn btn-sm"
+                        onclick="toggleNewOrder(this,'<%= obj.id %>')"
+                    >
+                        <span class="mr-2"
+                            ><%= obj.order_products.length %></span
+                        >
+                        <i
+                            class="fa shadow fa-eye toggle_new_order_<%= obj.id %>"
+                        ></i>
+                    </a>
+                </td>
+                <td class="col-1 px-0 text-center">
+                    <button
+                        class="btn btn-sm"
+                        style="outline: none"
+                        type="button"
+                        id="trigger_<%= obj.id%>"
+                        data-toggle="dropdown"
+                    >
+                        <i class="fa fa-gear"></i>
+                    </button>
+                    <div
+                        class="dropdown-menu dropdown-menu-right"
+                        aria-labelledby="trigger_<%= obj.id%>"
+                    >
+                        <a
+                            class="dropdown-item"
+                            href="/partners/order/details/<%=obj.id%>/"
+                            >View
+                            <i
+                                data-feather="chevron-right"
+                                class="text-black-50 mb-1"
+                            ></i
+                        ></a>
+                        <% if(obj.status != "created" && obj.status !=
+                        "cancelled") {%>
+                        <div class="dropdown-divider"></div>
+
+                        <a
+                            class="dropdown-item"
+                            onclick="changeStatus('<%= obj.id%>','dispatch', '<%= obj.customerId%>')"
+                        >
+                            <i
+                                data-feather="home"
+                                class="text-black-50 mb-1"
+                            ></i
+                            >Dispatch</a
+                        >
+                        <a
+                            class="dropdown-item"
+                            onclick="changeStatus('<%= obj.id%>','shipping', '<%= obj.customerId%>')"
+                        >
+                            <i
+                                data-feather="truck"
+                                class="text-black-50 mb-1"
+                            ></i
+                            >Shipped
+                        </a>
+                        <a
+                            class="dropdown-item"
+                            onclick="changeStatus('<%= obj.id%>','delivered', '<%= obj.customerId%>')"
+                        >
+                            <i
+                                data-feather="user-check"
+                                class="text-black-50 mb-1"
+                            ></i
+                            >Delivered</a
+                        >
+                        <!-- <a
+                            class="dropdown-item"
+                            onclick="changeStatus('<%= obj.id%>','cancelled')"
+                        >
+                            <i
+                                data-feather="alert-octagon"
+                                class="text-black-50 mb-1"
+                            ></i
+                            >Cancel</a
+                        > -->
+                        <%}%>
+                    </div>
+                </td>
+            </tr>
+            <% for(const prod of obj.order_products){%>
+            <tr class="d-none table_order_content_<%= obj.id %>">
+                <td colspan="2" class="px-0 text-center">
+                    <img height="40" src="<%= prod.image %>" />
+                </td>
+                <td colspan="3" class="px-0">
+                    <code
+                        style="
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 1;
+                            -webkit-box-orient: vertical;
+                        "
+                        class="float-left small"
+                        ><%= prod.name%>
+                    </code>
+                </td>
+                <td class="col-1 px-0 text-center">
+                    <code>X <%= prod.quantity %></code>
+                </td>
+                <td class="col-1 px-0 text-center">
+                    <code>$ <%= prod.price %></code>
+                </td>
+                <td class="col-1 px-0 text-center">
+                    <code><%= prod?.varient?.volume %></code>
+                </td>
+                <td class="px-0 text-center">
+                    <code
+                        >$ <%= (prod.quantity * prod.price).toFixed(2) %></code
+                    >
+                </td>
+                <td class="px-0 text-center">
+                    <a
+                        class="btn btn-sm"
+                        href="/partners/inventory/product/<%= prod.varient.productId %>"
+                        ><i class="fa fa-chevron-right" aria-hidden="true"></i
+                    ></a>
+                </td>
+            </tr>
+            <%} }%>
+        </tbody>
+    </table>
+    <h6 class="text-center mt-5" id="table-err"></h6>
+    <% if(data.length == 0) {%>
+    <h1 id="no_result_found" class="text-center mt-5">No result found</h1>
+    <%}%>
+</div>
+
+<script>
+    $(document).ready(() => {
+        changeArrow();
+        changerNavHeader();
+        feather.replace();
+        const cnt = "<%= typeof cnt == 'undefined'? '':cnt%>";
+        if (cnt != null && cnt != "") {
+            if (parseInt(cnt) > 0) {
+                $("#alert_order_count, #alert_tracking_icon").removeClass(
+                    "d-none",
+                );
+                $("#alert_order_count").html(cnt);
+            } else {
+                $("#alert_order_count, #alert_tracking_icon").addClass(
+                    "d-none",
+                );
+            }
+        }
+    });
+</script>

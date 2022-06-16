@@ -1,0 +1,114 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/dashboard/profile/details">Profile</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Location</li>
+    </ol>
+</nav>
+
+<style>
+    #map {
+        height: 100%;
+    }
+</style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<div class="text-center">
+    <div>
+        <p class="h6">
+            Latitude: <code id="lat"><%= obj.latitude%></code>&emsp;Longitude:
+            <code id="lng"><%= obj.longitude%></code>
+        </p>
+    </div>
+    <div id="map" class="offset-2 col-8"></div>
+    <div class="mb-2">
+        <p class="h6">
+            Location: <code id="location"><%= obj.location%></code>
+        </p>
+    </div>
+    <code id="server_err" class=""><br /></code>
+
+    <div id="save_content" class="offset-4 col-4 mb-5 mt-2 d-none text-center">
+        <button
+            onclick="onSave()"
+            class="btn shadow btn-sm round btn-outline-secondary text-center"
+        >
+            <i class="fa fa-save fa-1x"></i>
+            Save
+        </button>
+    </div>
+</div>
+<script>
+    function initMap() {
+        const myLatlng = {
+            lat: parseFloat("<%= obj.latitude%>"),
+            lng: parseFloat("<%= obj.longitude%>"),
+        };
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 10,
+            center: myLatlng,
+        });
+        // Create the initial InfoWindow.
+        let infoWindow = new google.maps.InfoWindow({
+            content: "<%= obj.location%>",
+            position: myLatlng,
+        });
+        var geocoder = new google.maps.Geocoder();
+        infoWindow.open(map);
+        // Configure the click listener.
+        map.addListener("click", (mapsMouseEvent) => {
+            // Close the current InfoWindow.
+            infoWindow.close();
+            // Create a new InfoWindow.
+            infoWindow = new google.maps.InfoWindow({
+                position: mapsMouseEvent.latLng,
+            });
+            $("#save_content").removeClass("d-none");
+            geocoder.geocode(
+                {
+                    latLng: mapsMouseEvent.latLng,
+                },
+                function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        if (results[0]) {
+                            infoWindow.setContent(results[0].formatted_address);
+                            $("#location").html(results[0].formatted_address);
+                            infoWindow.open(map);
+                        }
+                    }
+                },
+            );
+
+            $("#lat").html(mapsMouseEvent.latLng.lat);
+            $("#lng").html(mapsMouseEvent.latLng.lng);
+        });
+    }
+</script>
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjk4cLTnCrzDdefiauM_Gx6IBPJ2yI608&callback=initMap&v=weekly"
+    async
+></script>
+<script>
+    $("#map").height(window.screen.availHeight * 0.6);
+    const onSave = () => {
+        $("#server_err").html(
+            `<span class="ml-2 text-center spinner-border spinner-border-sm"></span>`,
+        );
+        $.ajax({
+            method: "POST",
+            url: "/dashboard/profile/create/update/",
+            data: {
+                latitude: $("#lat").html(),
+                longitude: $("#lng").html(),
+                location: $("#location").html(),
+            },
+            success: (data) => {
+                if (!data.success) {
+                    $("#server_err").html(data.msg);
+                } else {
+                    $("#server_err").html("Update Successfully");
+                }
+            },
+        });
+    };
+</script>

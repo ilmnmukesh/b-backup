@@ -1,0 +1,65 @@
+:root {
+    --sidebar-color: #ffa012;
+    --sidebar-color-1: #ffa012f0;
+    --sidebar-color-bg: #ffe0b2;
+    --sidebar-color-bg-1: transparent;
+    --font: serif;
+    --default-bg: #ffffff;
+    --sidebar-seller-bg: #e8f3ff;
+    --secondary-text-color: #434e5b;
+    --product-bg: #f4f9fd;
+}
+
+.submenu > li > a:not(.active-color) > svg,
+.submenu > li > a:not(.active-color) > i {
+    color: var(--sidebar-color-bg) !important;
+}
+
+.default-text {
+    color: var(--sidebar-color) !important;
+}
+.default-bg {
+    background-color: var(--sidebar-color-bg) !important;
+}
+
+.default-product-bg {
+    background-color: var(--product-bg) !important;
+}
+.table-default-head-bg {
+    --bs-table-bg: var(--sidebar-color-bg) !important;
+}
+
+.table-default {
+    --bs-table-striped-bg: var(--sidebar-seller-bg) !important;
+}
+
+.sidebar-wrapper {
+    font-family: var("--font") !important;
+    background-color: var("--default-bg") !important;
+}
+
+.sidebar-wrapper .menu .sidebar-item.active .sidebar-link {
+    background-color: var(--sidebar-color-bg) !important;
+}
+
+.sidebar-wrapper .menu .sidebar-item.active .sidebar-link:before {
+    background-color: var(--sidebar-color) !important;
+}
+
+.sidebar-wrapper .menu .sidebar-item.active .sidebar-link:after {
+    color: var(--sidebar-color) !important;
+}
+
+.sidebar-wrapper .menu .sidebar-item.active .sidebar-link span,
+.sidebar-wrapper .menu .sidebar-item.active .sidebar-link svg {
+    color: var(--sidebar-color) !important;
+}
+
+.active-color {
+    background-color: var(--sidebar-color-bg-1) !important;
+}
+
+.active-color i,
+.submenu li .active-color {
+    color: var(--sidebar-color-1) !important;
+}

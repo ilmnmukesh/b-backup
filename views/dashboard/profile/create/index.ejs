@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dashboard - Boozeo seller Dashboard</title>
+
+        <link rel="stylesheet" href="/seller/asset/css/bootstrap.css" />
+
+        <link
+            rel="stylesheet"
+            href="/seller/asset/vendors/chartjs/Chart.min.css"
+        />
+
+        <link
+            rel="stylesheet"
+            href="/seller/asset/vendors/perfect-scrollbar/perfect-scrollbar.css"
+        />
+        <link rel="stylesheet" href="/seller/asset/css/app.css" />
+        <link
+            rel="shortcut icon"
+            href="/seller/asset/images/favicon.svg"
+            type="image/x-icon"
+        />
+        <!-- <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+            rel="stylesheet"
+        /> -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css"
+            rel="stylesheet"
+        />
+        <style>
+            .material-icons,
+            .mdi {
+                font-family: "Material Icons";
+                font-weight: normal;
+                font-style: normal;
+                font-size: 16px; /* Preferred icon size */
+                display: inline-block;
+                color: grey;
+                line-height: 0.5;
+                vertical-align: middle;
+                text-transform: none;
+                letter-spacing: normal;
+                word-wrap: normal;
+                white-space: normal;
+                direction: ltr;
+                /* Support for all WebKit browsers. */
+                -webkit-font-smoothing: antialiased;
+                /* Support for Safari and Chrome. */
+                text-rendering: optimizeLegibility;
+
+                /* Support for Firefox. */
+                -moz-osx-font-smoothing: grayscale;
+
+                /* Support for IE. */
+                font-feature-settings: "liga";
+            }
+        </style>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+            integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <style>
+            td {
+                font-family: var(--bs-font-monospace);
+            }
+        </style>
+    </head>
+    <body>
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdn.socket.io/4.4.1/socket.io.min.js"
+            integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+            integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+        <div
+            id="app"
+            style="vertical-align: middle; min-height: 640px; min-width: 960px"
+        >
+            <h1 class="text-center mt-3">Welcome to Boozeo</h1>
+            <h6 class="text-center">Complete your Registration</h6>
+            <h4 class="text-center" id="step">(1/5)</h4>
+            <h6 class="text-center">
+                <code id="server_err"></code>
+            </h6>
+
+            <div class="offset-4 col-4 mt-5" id="screen_one">
+                <div class="mb-3">
+                    <h6>Name</h6>
+                    <div class="input-group">
+                        <input
+                            type="text"
+                            class="form-control col-12"
+                            placeholder="Set Shop name"
+                            name="name"
+                            value="<%= seller?.name %>"
+                            required
+                            id="shop_name"
+                        />
+                    </div>
+                    <code id="shop_name_help"></code>
+                </div>
+                <div class="mb-3">
+                    <h6>Seller Name</h6>
+                    <div class="input-group">
+                        <input
+                            type="text"
+                            class="form-control col-12"
+                            placeholder="Set Seller name"
+                            name="seller_name"
+                            value="<%= seller?.sellerName %>"
+                            required
+                            id="shop_seller_name"
+                        />
+                    </div>
+                    <code id="shop_seller_name_help"></code>
+                </div>
+                <div class="mb-3 text-center mt-5">
+                    <button
+                        onclick="scene1Next()"
+                        class="btn shadow btn-sm round btn-outline-secondary text-center"
+                    >
+                        Next
+                        <i class="fa fa-greater-than fa-1x"></i>
+                    </button>
+                </div>
+                <br />
+                <div class="offset-3">
+                    <p>
+                        Hint:<br />
+                        <code class="float-left"
+                            >1. Ctrl + Enter for next step<br />
+                            2. Shift + Enter for prev step<br />
+                        </code>
+                    </p>
+                </div>
+            </div>
+
+            <div class="offset-4 col-4 mt-5" id="screen_two">
+                <div class="mb-3">
+                    <h6>About Shop</h6>
+                    <div class="input-group text-left">
+                        <textarea
+                            class="form-control"
+                            placeholder="Set shop description"
+                            name="about"
+                            rows="9"
+                            required
+                            id="shop_about"
+                        >
+<%= seller?.about %></textarea
+                        >
+                    </div>
+                    <code id="shop_about_help"></code>
+                </div>
+                <div class="mb-3 text-center mt-5">
+                    <button
+                        onclick="scene2Prev()"
+                        class="btn shadow btn-sm round btn-outline-secondary text-center float-left ml-5"
+                    >
+                        <i class="fa fa-less-than fa-1x"></i>
+                        Previous
+                    </button>
+                    <button
+                        onclick="scene2Next()"
+                        class="btn shadow btn-sm round btn-outline-secondary text-center float-right mr-5"
+                    >
+                        Next
+                        <i class="fa fa-greater-than fa-1x"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="offset-4 col-4 mt-2" id="screen_three">
+                <div>
+                    <h6>Image</h6>
+                    <div class="input-group">
+                        <input
+                            type="url"
+                            onkeyup="updateImage()"
+                            class="form-control col-12"
+                            placeholder="Set product image"
+                            name="image"
+                            value="<%= seller?.image%>"
+                            required
+                            id="shop_image"
+                        />
+                    </div>
+                    <code id="shop_image_help"></code>
+                </div>
+                <div class="text-center">
+                    <img
+                        id="shop_image_render"
+                        src="<%= (seller?.image) ? seller?.image : '/images/loading.png' %>"
+                        width="270"
+                        height="160"
+                        class="mt-4 shadow"
+                    />
+                    <br />
+                    <code id="shop_image_render_help" class="mt-3"></code>
+                </div>
+                <div class="mb-3 text-center mt-5">
+                    <button
+                        onclick="scene3Prev()"
+                        class="btn shadow btn-sm round btn-outline-secondary text-center float-left ml-5"
+                    >
+                        <i class="fa fa-less-than fa-1x"></i>
+                        Previous
+                    </button>
+                    <button
+                        onclick="scene3Next()"
+                        class="btn shadow btn-sm round btn-outline-secondary text-center float-right mr-5"
+                    >
+                        Next
+                        <i class="fa fa-greater-than fa-1x"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="offset-4 col-4 mt-5" id="screen_four">
+                <div class="mb-3">
+                    <h6>Contact mobile number</h6>
+                    <div class="input-group">
+                        <input
+                            style="font-family: sans-serif"
+                            type="text"
+                            maxlength="20"
+                            placeholder="(___) ___-____"
+                            data-slots="_"
+                            class="form-control col-12"
+                            name="contact_number"
+                            required
+                            value="<%= seller?.mobileNumber %>"
+                            id="shop_mobile_number"
+                        />
+                    </div>
+                    <code id="shop_mobile_number_help"></code>
+                </div>
+                <div class="mb-3">
+                    <h6>Contact number</h6>
+                    <div class="input-group">
+                        <input
+                            style="font-family: sans-serif"
+                            type="text"
+                            placeholder="(___) ___-____"
+                            data-slots="_"
+                            class="form-control col-12"
+                            name="telephone_number"
+                            required
+                            value="<%= seller?.telephoneNumber %>"
+                            id="shop_telephone_number"
+                        />
+                    </div>
+                    <code id="shop_telephone_number_help"></code>
+                </div>
+                <div class="mb-3">
+                    <h6>Opening Time</h6>
+                    <div class="input-group">
+                        <input
+                            type="time"
+                            class="form-control col-12"
+                            name="open_time"
+                            required
+                            value="<%= seller?.openTime %>"
+                            id="shop_open_time"
+                        />
+                    </div>
+                    <code id="shop_open_time_help"></code>
+                </div>
+                <div class="mb-3">
+                    <h6>Closing Time</h6>
+                    <div class="input-group">
+                        <input
+                            type="time"
+                            class="form-control col-12"
+                            name="close_time"
+                            required
+                            value="<%= seller?.closeTime %>"
+                            id="shop_close_time"
+                        />
+                    </div>
+                    <code id="shop_close_time_help"></code>
+                </div>
+                <div class="mb-3 text-center mt-5">
+                    <button
+                        onclick="scene4Prev()"
+                        class="btn shadow btn-sm round btn-outline-secondary text-center float-left ml-5"
+                    >
+                        <i class="fa fa-less-than fa-1x"></i>
+                        Previous
+                    </button>
+                    <button
+                        onclick="scene4Next()"
+                        class="btn shadow btn-sm round btn-outline-secondary text-center float-right mr-5"
+                    >
+                        Next
+                        <i class="fa fa-greater-than fa-1x"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="screen_five" class="text-center">
+                <div>
+                    <p class="h6">
+                        Latitude: <code id="lat">0</code>&emsp;Longitude:
+                        <code id="lng">0</code>
+                    </p>
+                </div>
+                <div id="map" class="offset-2 col-8"></div>
+                <div class="mb-4">
+                    <p class="h6">Location: <code id="location">null</code></p>
+                </div>
+                <div class="offset-4 col-4 mb-5 text-center">
+                    <button
+                        onclick="scene5Prev()"
+                        class="btn shadow btn-sm round btn-outline-secondary text-center float-left ml-5"
+                    >
+                        <i class="fa fa-less-than fa-1x"></i>
+                        Previous
+                    </button>
+                    <button
+                        onclick="scene5Next()"
+                        class="btn shadow btn-sm round btn-outline-secondary text-center float-right mr-5"
+                    >
+                        Next
+                        <i class="fa fa-greater-than fa-1x"></i>
+                    </button>
+                </div>
+                <br />
+                <code id="screen_five_error"> </code>
+            </div>
+            <div class="offset-3 col-6 mt-5" id="screen_summary"></div>
+        </div>
+        <script src="/seller/asset/js/feather-icons/feather.min.js"></script>
+        <script src="/seller/asset/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+        <script src="/seller/asset/js/app.js"></script>
+
+        <script>
+            $("#screen_two").hide();
+            $("#screen_three").hide();
+            $("#screen_four").hide();
+            $("#screen_five").hide();
+            $("#screen_summary").hide();
+
+            var data = {
+                name: $("#shop_name").val(),
+                sellerName: $("#shop_seller_name").val(),
+                about: $("#shop_about").val(),
+                image: $("#shop_image").val(),
+                mobileNumber: $("#shop_mobile_number").val(),
+                telephoneNumber: $("#shop_telephone_number").val(),
+                openTime: $("#shop_open_time").val(),
+                closeTime: $("#shop_close_time").val(),
+                latitude: $("#lat").html(),
+                longitude: $("#lng").html(),
+                location: $("#location").html(),
+            };
+
+            $("#map").height(window.screen.availHeight * 0.67);
+            $(document).bind("keydown", (e) => {
+                if (e.shiftKey && e.keyCode == 13) {
+                    let l = {
+                        2: "#screen_two",
+                        3: "#screen_three",
+                        4: "#screen_four",
+                        5: "#screen_five",
+                        6: "#screen_summary",
+                    };
+                    let s = Object.keys(l);
+                    for (let e of s) {
+                        if ($(l[e]).is(":visible")) {
+                            eval("scene" + e + "Prev()");
+                            return;
+                        }
+                    }
+                } else if (e.ctrlKey && e.keyCode == 13) {
+                    let l = {
+                        1: "#screen_one",
+                        2: "#screen_two",
+                        3: "#screen_three",
+                        4: "#screen_four",
+                        5: "#screen_five",
+                    };
+                    let s = Object.keys(l);
+                    for (let e of s) {
+                        if ($(l[e]).is(":visible")) {
+                            eval("scene" + e + "Next()");
+                            return;
+                        }
+                    }
+                }
+            });
+            const checkHelp = (
+                id,
+                text,
+                pattern = "",
+                fn = null,
+                params = [],
+            ) => {
+                let ch = true;
+                $(id).val($(id).val().trim());
+                if ($(id).val() == pattern || $(id).val() == null) {
+                    $(id + "_help").html(text);
+                    ch = false;
+                } else {
+                    $(id + "_help").html("");
+                }
+                return fn != null && ch ? fn(...params) : ch;
+            };
+
+            const checkHelpIn = (id, text, pattern = "_") => {
+                let ch = true;
+                $(id).val($(id).val().trim());
+                if ($(id).val().includes(pattern) || $(id).val() == null) {
+                    $(id + "_help").html(text);
+                    ch = false;
+                } else {
+                    $(id + "_help").html("");
+                }
+                return ch;
+            };
+
+            const scene1Next = () => {
+                const next = () => {
+                    $("#step").html("(2/5)");
+                    $("#screen_one").hide(200);
+                    $("#screen_two").show(200);
+                };
+                let ch = true;
+                ch = checkHelp("#shop_name", "Shop name is required...");
+                ch = checkHelp(
+                    "#shop_seller_name",
+                    "Seller name is required...",
+                );
+
+                if (ch) {
+                    let name = $("#shop_name").val();
+                    let sellerName = $("#shop_seller_name").val();
+                    if (name == data.name && sellerName == data.sellerName) {
+                        next();
+                        return;
+                    }
+                    data.name = name;
+                    data.sellerName = sellerName;
+                    updateSellerDetails({ name, sellerName }, next);
+                }
+            };
+            const scene2Next = () => {
+                const next = () => {
+                    $("#step").html("(3/5)");
+                    $("#screen_two").hide(200);
+                    $("#screen_three").show(200);
+                };
+                let ch = true;
+                ch = checkHelp("#shop_about", "Shop about is required...");
+                if (ch) {
+                    let about = $("#shop_about").val();
+                    if (about == data.about) {
+                        next();
+                        return;
+                    }
+                    data.about = about;
+                    updateSellerDetails({ about }, next);
+                }
+            };
+            const scene3Next = () => {
+                const next = () => {
+                    $("#step").html("(4/5)");
+                    $("#screen_three").hide(200);
+                    $("#screen_four").show(200);
+                };
+                let ch = true;
+                ch = checkHelp("#shop_image", "Shop image is required...");
+                if ($("#shop_image_render_help").html().trim() != "") {
+                    ch = false;
+                    $("#shop_image_render_help").html(
+                        "Enter valid url to continue",
+                    );
+                }
+                if (ch) {
+                    let image = $("#shop_image").val();
+                    if (image == data.image) {
+                        next();
+                        return;
+                    }
+                    data.image = image;
+                    updateSellerDetails({ image }, next);
+                }
+            };
+            const scene4Next = () => {
+                const next = () => {
+                    $("#step").html("(5/5)");
+                    $("#screen_four").hide(200);
+                    $("#screen_five").show(200);
+                };
+                let ch = true;
+                ch = checkHelp(
+                    "#shop_mobile_number",
+                    "Seller number is required...",
+                    "(___) ___-____",
+                    checkHelpIn,
+                    ["#shop_mobile_number", "number is invalid..."],
+                );
+
+                ch = checkHelp(
+                    "#shop_telephone_number",
+                    "Contact number is required...",
+                    "(___) ___-____",
+                    checkHelpIn,
+                    ["#shop_telephone_number", "number is invalid..."],
+                );
+                ch = checkHelp("#shop_open_time", "Open time is required...");
+                ch = checkHelp("#shop_close_time", "Close time is required...");
+                if (
+                    ch &&
+                    $("#shop_open_time").val() >= $("#shop_close_time").val()
+                ) {
+                    ch = false;
+                    $("#shop_close_time_help").html(
+                        "Close should less than open time...",
+                    );
+                }
+                if (ch) {
+                    let mobileNumber = $("#shop_mobile_number").val();
+                    let telephoneNumber = $("#shop_telephone_number").val();
+                    let openTime = $("#shop_open_time").val();
+                    let closeTime = $("#shop_close_time").val();
+
+                    if (
+                        mobileNumber == data.mobileNumber &&
+                        telephoneNumber == data.telephoneNumber &&
+                        openTime == data.openTime &&
+                        closeTime == data.closeTime
+                    ) {
+                        next();
+                        return;
+                    }
+
+                    data.mobileNumber = mobileNumber;
+                    data.telephoneNumber = telephoneNumber;
+                    data.openTime = openTime;
+                    data.closeTime = closeTime;
+                    updateSellerDetails(
+                        { mobileNumber, telephoneNumber, openTime, closeTime },
+                        next,
+                    );
+                }
+            };
+            const scene5Next = () => {
+                const next = () => {
+                    $("#step").html("Summary");
+                    $("#screen_five").hide(200);
+                    $("#screen_summary").show(200);
+                };
+                const go_to_dashboard = () => {
+                    window.location.replace("/dashboard/");
+                };
+                let ch = true;
+                let lat = $("#lat").html();
+                let lng = $("#lng").html();
+                let location = $("#location").html();
+                $("#screen_five_error").html("");
+
+                if (lat == "0" || lng == "0" || location == "null") {
+                    ch = false;
+                    $("#screen_five_error").html("Kindly select location...");
+                }
+                if (ch) {
+                    let latitude = $("#lat").html();
+                    let longitude = $("#lng").html();
+                    let location = $("#location").html();
+
+                    $("#screen_summary").html(`
+                    <div class="text-center">
+                        <button
+                            onclick="scene6Prev()"
+                            class="btn shadow btn-sm round btn-outline-secondary text-center float-left ml-5"
+                        >
+                            <i class="fa fa-less-than fa-1x"></i>
+                            Previous
+                        </button>
+                        <button
+                            onclick="window.location.replace('/dashboard/')"
+                            class="btn shadow btn-sm round btn-outline-secondary text-center float-right mr-5"
+                        >
+                            Connect with Boozeo
+                            <i class="fa fa-greater-than fa-1x"></i>
+                        </button>
+                    </div>
+                    <br><br>
+                    <br><br>
+                    <div class="row" style="font-family: var(--bs-font-monospace)">
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="mb-3 col-md-12">
+                                    <h6>Name</h6>
+                                    <code>${$("#shop_name").val()}</code>
+                                </div>
+
+                                <div class="mb-3 col-md-12">
+                                    <h6>Seller name</h6>
+                                    <code>${$("#shop_seller_name").val()}</code>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <h6>About</h6>
+                                <code>${$("#shop_about").val()}</code>
+                            </div>
+                            <div class="mb-3">
+                                <h6>Image</h6>
+                                <code>${$("#shop_image").val()}</code>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <img width="270" height="160" class="shadow"
+                            src="${$("#shop_image").val()}" />
+                        </div>
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col-md-3 mb-3">
+                            <h6>Seller number</h6>
+                            <code>${$("#shop_mobile_number").val()}</code>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <h6>Contact number</h6>
+                            <code>${$("#shop_telephone_number").val()}</code>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <h6>Opening Time</h6>
+                            <code>${$("#shop_open_time").val()}</code>
+                        </div>
+
+                        <div class="col-md-3 mb-3">
+                            <h6>Closing Time</h6>
+                            <code>${$("#shop_close_time").val()}</code>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-md-6 mb-3">
+                            <h6>Latitude</h6>
+                            <code>${$("#lat").html()}</code>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <h6>Latitude</h6>
+                            <code>${$("#lng").html()}</code>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <h6>Location</h6>
+                            <code>${$("#location").html()}</code>
+                        </div>
+                    </div>
+                    `);
+
+                    if (
+                        latitude == data.latitude &&
+                        longitude == data.longitude &&
+                        location == data.location
+                    ) {
+                        next();
+                        return;
+                    }
+                    data.latitude = latitude;
+                    data.longitude = longitude;
+                    data.latitude = location;
+                    updateSellerDetails(
+                        { latitude, longitude, location },
+                        next,
+                    );
+                }
+            };
+
+            const scene2Prev = () => {
+                const prev = () => {
+                    $("#step").html("(1/5)");
+                    $("#screen_two").hide(200);
+                    $("#screen_one").show(200);
+                };
+                prev();
+            };
+            const scene3Prev = () => {
+                const prev = () => {
+                    $("#step").html("(2/5)");
+                    $("#screen_three").hide(200);
+                    $("#screen_two").show(200);
+                };
+                prev();
+            };
+            const scene4Prev = () => {
+                const prev = () => {
+                    $("#step").html("(3/5)");
+                    $("#screen_four").hide(200);
+                    $("#screen_three").show(200);
+                };
+                prev();
+            };
+            const scene5Prev = () => {
+                const prev = () => {
+                    $("#step").html("(4/5)");
+                    $("#screen_five").hide(200);
+                    $("#screen_four").show(200);
+                };
+                prev();
+            };
+            const scene6Prev = () => {
+                const prev = () => {
+                    $("#step").html("(5/5)");
+                    $("#screen_summary").hide(200);
+                    $("#screen_five").show(200);
+                };
+                prev();
+            };
+        </script>
+        <script>
+            const updateImage = () => {
+                $("#shop_image_render_help").html(
+                    `<span class="ml-5 mt-2 text-center spinner-border spinner-border-sm"></span>`,
+                );
+                const imageExists = (url, callback) => {
+                    var img = new Image();
+                    img.onload = function () {
+                        callback(true);
+                    };
+                    img.onerror = function () {
+                        callback(false);
+                    };
+                    img.src = url;
+                };
+                let val = $("#shop_image").val();
+                imageExists(val, (c) => {
+                    if (c) {
+                        $("#shop_image_render").attr("src", val);
+                        $("#shop_image_render_help").html("");
+                    } else {
+                        $("#shop_image_render_help").html(
+                            "Image not found on " + val,
+                        );
+                    }
+                });
+            };
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                for (const el of document.querySelectorAll(
+                    "[placeholder][data-slots]",
+                )) {
+                    const pattern = el.getAttribute("placeholder"),
+                        slots = new Set(el.dataset.slots || "_"),
+                        prev = ((j) =>
+                            Array.from(pattern, (c, i) =>
+                                slots.has(c) ? (j = i + 1) : j,
+                            ))(0),
+                        first = [...pattern].findIndex((c) => slots.has(c)),
+                        accept = new RegExp(el.dataset.accept || "\\d", "g"),
+                        clean = (input) => {
+                            input = input.match(accept) || [];
+                            return Array.from(pattern, (c) =>
+                                input[0] === c || slots.has(c)
+                                    ? input.shift() || c
+                                    : c,
+                            );
+                        },
+                        format = () => {
+                            const [i, j] = [
+                                el.selectionStart,
+                                el.selectionEnd,
+                            ].map((i) => {
+                                i = clean(el.value.slice(0, i)).findIndex((c) =>
+                                    slots.has(c),
+                                );
+                                return i < 0
+                                    ? prev[prev.length - 1]
+                                    : back
+                                    ? prev[i - 1] || first
+                                    : i;
+                            });
+                            el.value = clean(el.value).join``;
+                            el.setSelectionRange(i, j);
+                            back = false;
+                        };
+                    let back = false;
+                    el.addEventListener(
+                        "keydown",
+                        (e) => (back = e.key === "Backspace"),
+                    );
+                    el.addEventListener("input", format);
+                    el.addEventListener("focus", format);
+                    el.addEventListener(
+                        "blur",
+                        () => el.value === pattern && (el.value = ""),
+                    );
+                    format();
+                }
+            });
+        </script>
+        <script>
+            function initMap() {
+                const myLatlng = { lat: 40.72, lng: -73.96 };
+                const map = new google.maps.Map(
+                    document.getElementById("map"),
+                    {
+                        zoom: 4,
+                        center: myLatlng,
+                    },
+                );
+                // Create the initial InfoWindow.
+                let infoWindow = new google.maps.InfoWindow({
+                    content: "Click the map to get Lat/Lng!",
+                    position: myLatlng,
+                });
+                var geocoder = new google.maps.Geocoder();
+                infoWindow.open(map);
+                // Configure the click listener.
+                map.addListener("click", (mapsMouseEvent) => {
+                    // Close the current InfoWindow.
+                    infoWindow.close();
+                    // Create a new InfoWindow.
+                    infoWindow = new google.maps.InfoWindow({
+                        position: mapsMouseEvent.latLng,
+                    });
+                    geocoder.geocode(
+                        {
+                            latLng: mapsMouseEvent.latLng,
+                        },
+                        function (results, status) {
+                            if (status == google.maps.GeocoderStatus.OK) {
+                                if (results[0]) {
+                                    infoWindow.setContent(
+                                        results[0].formatted_address,
+                                    );
+                                    $("#location").html(
+                                        results[0].formatted_address,
+                                    );
+                                    infoWindow.open(map);
+                                }
+                            }
+                        },
+                    );
+
+                    $("#lat").html(mapsMouseEvent.latLng.lat);
+                    $("#lng").html(mapsMouseEvent.latLng.lng);
+                });
+            }
+        </script>
+        <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjk4cLTnCrzDdefiauM_Gx6IBPJ2yI608&callback=initMap&v=weekly"
+            async
+        ></script>
+
+        <script>
+            const updateSellerDetails = (params, callback) => {
+                $("#server_err").html(
+                    `<span class="ml-2 text-center spinner-border spinner-border-sm"></span>`,
+                );
+                $.ajax({
+                    method: "POST",
+                    url: "/dashboard/profile/create/update/",
+                    data: params,
+                    success: (data) => {
+                        if (!data.success) {
+                            $("#server_err").html(data.msg);
+                        } else {
+                            $("#server_err").html("");
+                            callback();
+                        }
+                    },
+                });
+            };
+        </script>
+    </body>
+</html>

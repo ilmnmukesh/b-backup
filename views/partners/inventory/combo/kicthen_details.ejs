@@ -1,0 +1,64 @@
+<% data.forEach((obj)=>{%>
+<div class="card shadow-none">
+    <div class="card-content">
+        <div class="float-left col-5">
+            <img
+                width="100"
+                class="ml-4 mt-4"
+                src="<%= obj.image %>"
+                alt="Card image cap"
+            />
+        </div>
+
+        <div class="card-body">
+            <h4
+                class="card-title"
+                style="
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 1;
+                    -webkit-box-orient: vertical;
+                "
+            >
+                <%= obj.name%>
+            </h4>
+            <p
+                class="card-text ellipsis"
+                style="
+                    color: #434e5b;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    min-height: 44px;
+                    -webkit-box-orient: vertical;
+                "
+            >
+                <code style="color: #434e5b !important"
+                    ><%= obj.description %></code
+                >
+            </p>
+            <small class="text-muted float-left ml-3">
+                <span class="badge border-primary border text-primary">
+                    <%=obj.menu_type?.type %>
+                </span>
+            </small>
+
+            <button
+                onclick='addKicthenProductToPost(
+                    btoa("<%=obj.id %>"),
+                    btoa("<%=obj.name %>"),
+                    btoa("<%=obj.image %>"),
+                    btoa("<%=obj.description %>"), 
+                    btoa("<%=obj.menu_type?.type %>")
+                    )'
+                class="btn btn-sm round btn-outline-light border-0 float-right"
+            >
+                <i class="fa fa-plus text-warning mb-1"></i>
+                Add
+            </button>
+        </div>
+    </div>
+</div>
+<% })%>

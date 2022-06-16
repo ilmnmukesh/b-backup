@@ -1,0 +1,4 @@
+[
+    { "name": "Standard", "price": "4.99", "period": 4 },
+    { "name": "Expedited", "price": "9.99", "period": 2 }
+]

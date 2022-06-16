@@ -1,0 +1,54 @@
+<%- contentFor('body') %>
+<div class="col-12">
+    <div class="card" style="min-height: 540px">
+        <div class="card-header pb-0">
+            <h3 class="font-weight-bold">Stripe</h3>
+            <h5 class="small">Dashboard</h5>
+        </div>
+        <div class="card-content pt-0">
+            <div class="card-body pt-0" id="table-content">
+                <div class="mt-5">
+                    <h4>
+                        Status <% if(requirements?.currently_due.length==0 &&
+                        requirements?.eventually_due.length == 0){%>
+                        <a
+                            href="/dashboard/stripe/login"
+                            class="btn btn-sm btn-outline-success ml-5 small"
+                        >
+                            Completed
+                            <i
+                                class="mdi mdi-check-all text-success"
+                                style="vertical-align: middle; font-size: 20px"
+                            ></i>
+                        </a>
+                        <br /><br />
+                        <code class="mt-3">
+                            This account has provided the required information
+                            to fully onboard onto Stripe. They can accept
+                            payments and receive payouts.
+                        </code>
+                        <%}else{%>
+                        <a
+                            href="/dashboard/stripe/update"
+                            class="btn btn-sm btn-outline-danger ml-5 small mb-3"
+                        >
+                            Pending
+                            <i
+                                class="mdi mdi-cancel text-danger mt-1"
+                                style="vertical-align: middle; font-size: 20px"
+                            ></i>
+                        </a>
+                        <br /><br />
+                        <code class="mt-3">
+                            The account owner needs to provide more information
+                            to Stripe to enable payments and payouts on this
+                            account. INFORMATION NEEDED - DUE NOW Bank account
+                            or debit card Terms of service acceptance
+                        </code>
+                        <%}%>
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

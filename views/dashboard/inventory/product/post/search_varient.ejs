@@ -1,0 +1,39 @@
+<% typeof data.varients != "undefined" && data.varients?.forEach((x)=>{%>
+<div class="card col-md-6">
+    <div class="card-content">
+        <div class="card-body row">
+            <div class="col-md-12 text-center">
+                <h4 class="card-title"><%= x.volume%></h4>
+                <code class="card-text ellipsis"> MRP: <%=x.mrp %> </code>
+            </div>
+            <div class="col-md-12 text-center mt-4">
+                <% if ( typeof x.obj != "undefined" && x.obj == null) {%>
+                <button
+                    onclick='addVarientToPost(
+                        "<%= data.id %>",
+                        btoa("<%=x.id%>"),
+                        btoa("<%=x.mrp%>"),
+                        btoa("<%=x.volume%>"),
+                    )'
+                    class="btn btn-sm round btn-outline-light"
+                >
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                    Add
+                </button>
+                <%}else{%>
+
+                <a
+                    href="/dashboard/inventory/product/post/edit?i=<%=x.obj.id%>"
+                    class="btn btn-sm round btn-outline-danger"
+                >
+                    <i class="fa fa-edit" aria-hidden="true"></i>
+                    Edit
+                </a>
+                <br />
+                <code>Price:<%=x?.obj?.price%></code>
+                <%}%>
+            </div>
+        </div>
+    </div>
+</div>
+<% })%>
